@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink Creativo | San Juan</title>
+  <meta name="description" content="Evolución de Conceptos - Wink Creativo. Captura tu esencia con fotos ilimitadas." />
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="logo">Wink <span class="accent">Creativo</span></div>
+    <ul class="nav-links">
+      <li><a href="#como-funciona">Cómo Funciona</a></li>
+      <li><a href="#fondos">Fondos</a></li>
+      <li><a href="#paquetes">Paquetes</a></li>
+      <li><a href="#reservar" class="btn btn-outline-nav">Reservar Mí Lugar</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()">
+      <i data-feather="menu"></i>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="badge">Nuevo en San Juan</div>
+      <h1 class="hero-title">Tu espacio,<br>tu ritmo, <span class="accent">tu esencia</span>.</h1>
+      <p class="hero-subtitle">El primer estudio fotográfico donde tú tienes el control. Entras, tomas el clicker y capturas tantas fotos como quieras en un ambiente privado y profesional.</p>
+      
+      <div class="hero-buttons">
+        <a href="#reservar" class="btn btn-primary">Agendar Sesión</a>
+        <button class="btn btn-secondary" onclick="openVideoModal()"><i data-feather="play-circle"></i> Ver cómo funciona</button>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat"><i data-feather="camera"></i> <span>Fotos Ilimitadas</span></div>
+        <div class="stat"><i data-feather="cloud"></i> <span>Alta Calidad</span></div>
+        <div class="stat"><i data-feather="users"></i> <span>Hasta 5 Personas</span></div>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <div class="image-gradient"></div>
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Persona usando una cámara" class="hero-img">
+      <div class="floating-prop p1"><i data-feather="aperture"></i></div>
+      <div class="floating-prop p2">Click!</div>
+    </div>
+  </header>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how-it-works" id="como-funciona">
+    <h2 class="section-title">Es súper simple</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon"><i data-feather="calendar"></i></div>
+        <h3>Reserva tu turno</h3>
+        <p>Elegí tu paquete (20, 30 min o 1 hora) y horario. Turnos disponibles todos los días de 9 AM a 9 PM.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon"><i data-feather="sun"></i></div>
+        <h3>Llegás y alistás</h3>
+        <p>Llegá puntual. Contamos con un mini cambiador para que traigas tus outfits. El reloj empieza a correr a la hora pactada.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon"><i data-feather="mouse-pointer"></i></div>
+        <h3>Tomás el control</h3>
+        <p>Te damos un clicker. Mírate en nuestra pantalla en tiempo real y dispará sin límites a tu propio ritmo.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">04</div>
+        <div class="step-icon"><i data-feather="download-cloud"></i></div>
+        <h3>Descargalo todo</h3>
+        <p>Todas tus fotos en máxima calidad te llegan a un link por 14 días. ¿Querés imprimir? Puedes elegir tus favoritas luego.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE FONDOS -->
+  <section class="backdrops-section" id="fondos">
+    <div class="backdrops-content">
+      <h2 class="section-title">Elige tu vibra</h2>
+      <p>Nuestros colores premium están diseñados para resaltar lo mejor de ti. Desde opciones corporativas hasta retratos expresivos.</p>
+      <div class="colors-selector" id="color-selector">
+        <div class="color-btn active" data-color="negro" style="background-color: #0F0F0F;" title="Negro Profundo"></div>
+        <div class="color-btn" data-color="blanco" style="background-color: #F8F9FA;" title="Blanco Puro"></div>
+        <div class="color-btn" data-color="rojo" style="background-color: #5C161E;" title="Rojo Oscuro"></div>
+        <div class="color-btn" data-color="gris" style="background-color: #6C757D;" title="Gris Corporativo"></div>
+        <div class="color-btn" data-color="eggshell" style="background-color: #F0E6D2;" title="Eggshell"></div>
+      </div>
+      <div class="backdrop-info" id="backdrop-info">
+        <h3>Negro Profundo</h3>
+        <p>Ideal para retratos dramáticos, formales y artísticos.</p>
+      </div>
+    </div>
+    
+    <div class="studio-demo-wrapper">
+      <div class="studio-glass-frame">
+        <!-- The background color changes dynamically -->
+        <div class="studio-backdrop" id="studio-backdrop" style="background-color: #0F0F0F;"></div>
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=600&transparent=true" class="model-img" alt="Modelo Posando" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section class="pricing-section" id="paquetes">
+    <h2 class="section-title text-center">Nuestros Paquetes</h2>
+    <p class="text-center subtitle-pricing">Trae hasta 4 personas contigo sin costo extra (Max 5 en cabina).</p>
+    
+    <div class="pricing-grid">
+      <!-- Pack 1 -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Express</h3>
+          <div class="price">$27.000 <span class="currency">ARS</span></div>
+          <p>20 minutos de sesión</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i data-feather="check"></i> Disparos Ilimitados</li>
+          <li><i data-feather="check"></i> Link en la Nube (14 días)</li>
+          <li><i data-feather="check"></i> Equipamiento Profesional</li>
+          <li><i data-feather="check"></i> Hasta 5 personas</li>
+        </ul>
+        <a href="#reservar" class="btn btn-outline w-100">Seleccionar</a>
+      </div>
+
+      <!-- Pack 2 -->
+      <div class="pricing-card popular">
+        <div class="popular-badge">Más Elegido</div>
+        <div class="pricing-header">
+          <h3>Standard</h3>
+          <div class="price">$35.000 <span class="currency">ARS</span></div>
+          <p>30 minutos de sesión</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i data-feather="check"></i> Disparos Ilimitados</li>
+          <li><i data-feather="check"></i> Link en la Nube (14 días)</li>
+          <li><i data-feather="check"></i> Tiempo ideal para Cambios</li>
+          <li><i data-feather="check"></i> Hasta 5 personas</li>
+          <li><i data-feather="check"></i> Soporte de Asistencia</li>
+        </ul>
+        <a href="#reservar" class="btn btn-primary w-100">Seleccionar</a>
+      </div>
+
+      <!-- Pack 3 -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Premium</h3>
+          <div class="price">$90.000 <span class="currency">ARS</span></div>
+          <p>60 minutos de sesión</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i data-feather="check"></i> Disparos Ilimitados</li>
+          <li><i data-feather="check"></i> Link en la Nube (14 días)</li>
+          <li><i data-feather="check"></i> Modo Relax - Múltiples Outfits</li>
+          <li><i data-feather="check"></i> Hasta 5 personas</li>
+        </ul>
+        <a href="#reservar" class="btn btn-outline w-100">Seleccionar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCKUP RESERVA (Calendly style) -->
+  <section class="booking-section" id="reservar">
+    <div class="booking-container">
+      <div class="booking-info">
+        <h2 class="section-title">Agendá tu Lugar</h2>
+        <p>Elige tu día, horario y paquete. Recibirás tu confirmación de pago por transferencia (alias o CVU) una vez finalizada la reserva.</p>
+        
+        <div class="disclaimer-alert">
+          <i data-feather="alert-circle"></i>
+          <div>
+            <strong>Importante:</strong> Hay 10 minutos de rigor para rearmar el set entre turnos. La puntualidad es clave. Tu sesión empieza exactamente en el horario pactado.
+          </div>
+        </div>
+      </div>
+      
+      <div class="booking-widget">
+        <!-- Visual Mockup of Calendly -->
+        <div class="widget-header">
+          <h4>Selecciona una Fecha y Hora</h4>
+          <div class="timezone">Tiempo: Argentina/San Juan</div>
+        </div>
+        
+        <div class="widget-body">
+          <div class="calendar-mock">
+            <div class="cal-month">Marzo 2026</div>
+            <div class="cal-days">
+              <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sa</span><span>Do</span>
+              <span class="empty"></span><span class="empty"></span><div class="cal-day blocked">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
+              <div class="cal-day active">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+            </div>
+          </div>
+          <div class="times-mock">
+            <div class="day-sel">Viernes, 6 de Marzo</div>
+            <div class="time-btn">09:00 AM</div>
+            <div class="time-btn">09:40 AM</div>
+            <div class="time-btn">10:20 AM</div>
+            <div class="time-btn active">11:00 AM</div>
+            <div class="time-btn">11:40 AM</div>
+            <button class="btn btn-primary w-100 mt-1" onclick="alert('Funcionalidad de reserva mockeada con éxito.')">Continuar y Pagar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO MODAL -->
+  <div class="modal" id="video-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeVideoModal()"><i data-feather="x"></i></button>
+      <div class="video-placeholder">
+        <i data-feather="play"></i>
+        <p>Video Tutorial:<br>Cómo funciona de rápido tu sesión de 20 minutos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Wink <span class="accent">Creativo</span></h2>
+        <p>El primer estudio fotográfico autogestionado de San Juan.</p>
+        <div class="socials">
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="facebook"></i></a>
+          <a href="#"><i data-feather="message-circle"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="#como-funciona">Cómo Funciona</a></li>
+          <li><a href="#fondos">Fondos</a></li>
+          <li><a href="#paquetes">Precios</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Legales</h3>
+        <ul>
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Política de Reembolsos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Wink Creativo. Todos los derechos reservados. San Juan, Argentina.</p>
+    </div>
+  </footer>
+
+  <script src="./main.js" type="module"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>

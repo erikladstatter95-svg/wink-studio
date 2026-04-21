@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink Creativo | Propuestas de Diseño 3.0</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f7f7;
+      color: #3B3E42;
+      overflow-x: hidden;
+    }
+
+    .page-header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 2px solid #eaeaea;
+    }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #3B3E42;
+      letter-spacing: -1px;
+    }
+    .page-header p {
+      color: #6C7278;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .proposal-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .codename-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 5%;
+      position: relative;
+      gap: 4rem;
+    }
+
+    .mock-content {
+      flex: 1;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mock-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .mock-btn {
+      padding: 1rem 2.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mock-image-container {
+      flex: 1;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+    .mock-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    }
+    .mock-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* COLORES DE PALETAS */
+    .color-palette {
+      display: inline-flex;
+      gap: 15px;
+      margin-top: 3rem;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .color-swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.5);
+      position: relative;
+      cursor: pointer;
+    }
+    .color-swatch:hover::after {
+      content: attr(title); position: absolute; top: -30px; left: 50%;
+      transform: translateX(-50%); background: rgba(0,0,0,0.8);
+      color: #fff; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
+      white-space: nowrap; z-index: 20;
+    }
+    .palette-label { font-size: 0.85rem; font-weight: 600; opacity: 0.8; margin-left: 0.5rem; }
+
+
+    /* --- 1. HONEY-CLASSIC (Pastel Honey Original) --- */
+    .prop-honey-classic { background-color: #F8F1E4; }
+    .prop-honey-classic .codename-badge { color: #35383B; }
+    .prop-honey-classic .subtitle { color: #E0C7A3; }
+    .prop-honey-classic h2 { font-family: 'Playfair Display', serif; font-size: 5rem; color: #35383B; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-honey-classic p.desc { color: #51565A; font-size: 1.2rem; line-height: 1.7; }
+    .prop-honey-classic .btn-primary { background: #E0C7A3; color: #35383B; border: 2px solid #E0C7A3; }
+    .prop-honey-classic .btn-primary:hover { background: transparent; }
+
+    /* --- 2. HONEY-LIGHT (Variación Honey en fondo blanco) --- */
+    .prop-honey-light { background-color: #FFFFFF; }
+    .prop-honey-light .codename-badge { background: #F8F1E4; color: #35383B; }
+    .prop-honey-light .subtitle { color: #CBA471; background: #F8F1E4; padding: 0.5rem 1rem; border-radius: 5px; display: inline-block;}
+    .prop-honey-light h2 { font-family: 'Playfair Display', serif; font-size: 5rem; color: #35383B; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-honey-light p.desc { color: #62676A; font-size: 1.1rem; }
+    .prop-honey-light .btn-primary { background: #35383B; color: #F8F1E4; }
+    .prop-honey-light .mock-image-container::before {
+      content:''; position:absolute; top:-20px; left:-20px; right: 20px; bottom: 20px;
+      background: #F8F1E4; z-index:-1; border-radius: 10px;
+    }
+
+    /* --- 3. URBAN-SAND (Gris Urban con Beige Arena Suave) --- */
+    .prop-urban-sand { background-color: #6C6F73; }
+    .prop-urban-sand .codename-badge { background: #FFF; color: #2F3133; }
+    .prop-urban-sand .subtitle { color: #DEC6A1; } /* Nuevo beige */
+    .prop-urban-sand h2 { font-family: 'Outfit', sans-serif; font-size: 5.5rem; font-weight: 800; color: #FFFFFF; line-height: 1; text-transform: uppercase; margin-bottom: 1.5rem;}
+    .prop-urban-sand h2 span { color: #DEC6A1; }
+    .prop-urban-sand p.desc { color: #D0D4D8; font-size: 1.15rem; }
+    .prop-urban-sand .btn-primary { background: #DEC6A1; color: #2F3133; border-radius: 50px;}
+
+    /* --- 4. URBAN-CLAY (Gris Urban con Beige Arcilla Claro Suave) --- */
+    .prop-urban-clay { background-color: #6C6F73; }
+    .prop-urban-clay .codename-badge { background: #CDB092; color: #FFFFFF; border-radius: 0;}
+    .prop-urban-clay .subtitle { color: #CDB092; letter-spacing: 5px; } /* Nuevo beige arcilla*/
+    .prop-urban-clay h2 { font-family: 'Outfit', sans-serif; font-size: 5.5rem; font-weight: 300; color: #FFFFFF; line-height: 1; text-transform: uppercase; margin-bottom: 1.5rem;}
+    .prop-urban-clay h2 strong { font-weight: 800; color: #CDB092; }
+    .prop-urban-clay p.desc { color: #E5E7E8; font-size: 1.2rem; }
+    .prop-urban-clay .btn-primary { background: transparent; border: 2px solid #CDB092; color: #CDB092; border-radius: 0;}
+    .prop-urban-clay .btn-primary:hover { background: #CDB092; color: #2F3133;}
+
+    /* --- 5. CUSTOM-WINK (Requerimiento exacto: #f7e7ce, #666666, blanco) --- */
+    .prop-custom-wink { background-color: #f7e7ce; color: #666666; }
+    .prop-custom-wink .codename-badge { background: #FFFFFF; color: #666666; border-radius: 30px; border: 1px solid #666666;}
+    .prop-custom-wink .subtitle { color: #666666; font-weight: 700; letter-spacing: 4px; border-bottom: 1px solid #666666; display: inline-block; padding-bottom: 5px;}
+    .prop-custom-wink h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 5.5rem; color: #666666; line-height: 1.05; margin-bottom: 1rem;}
+    .prop-custom-wink h2 i { font-weight: 300; }
+    .prop-custom-wink p.desc { color: #757575; font-size: 1.2rem; font-weight: 400; }
+    .prop-custom-wink .btn-primary { background: #ffffff; border: 2px solid #ffffff; color: #666666; border-radius: 30px; box-shadow: 0 10px 20px rgba(102, 102, 102, 0.1);}
+    .prop-custom-wink .btn-primary:hover { background: transparent; color: #666666; border-color: #666666;}
+    .prop-custom-wink .color-palette { background: rgba(0,0,0,0.03); }
+
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Evolución de Conceptos</h1>
+    <p>Variaciones sobre Honey, Urban Ochre (con beige suavizado) y Pedido Personalizado.</p>
+  </header>
+
+  <!-- 1. HONEY CLASSIC (Mantenemos los beiges originales de Honey) -->
+  <section class="proposal-section prop-honey-classic">
+    <div class="codename-badge">HONEY-CLASSIC</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Self Foto Estudio</span>
+        <h2>Wink<br><i>Creativo</i></h2>
+        <p class="desc">El original "Pastel Honey" que más gustó. Una calidez pura que envuelve, destacando tonos dorados suaves y grises elegantes.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #F8F1E4;" title="#F8F1E4 (Fondo Base)"></div>
+          <div class="color-swatch" style="background: #E0C7A3;" title="#E0C7A3 (Beige Miel)"></div>
+          <div class="color-swatch" style="background: #35383B;" title="#35383B (Gris Texto)"></div>
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Blanco)"></div>
+          <span class="palette-label">Paleta Honey</span>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+      <div class="mock-image-container">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HONEY LIGHT (Honey invertido, blanco mayormente) -->
+  <section class="proposal-section prop-honey-light">
+    <div class="codename-badge">HONEY-LIGHT</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Camera Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Self Foto Estudio</span>
+        <h2>Wink<br><i>Creativo</i></h2>
+        <p class="desc">Un respiro visual. Mantenemos el Beige Miel clásico pero lo aplicamos sobre un lienzo blanco inmaculado para un aura más espaciosa.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Fondo Base)"></div>
+          <div class="color-swatch" style="background: #F8F1E4;" title="#F8F1E4 (Beige Suave)"></div>
+          <div class="color-swatch" style="background: #E0C7A3;" title="#E0C7A3 (Beige Miel)"></div>
+          <div class="color-swatch" style="background: #35383B;" title="#35383B (Gris Texto)"></div>
+          <span class="palette-label">Paleta Honey Invertida</span>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. URBAN SAND (Gris con Beige Arena, en vez de Ochre intenso) -->
+  <section class="proposal-section prop-urban-sand">
+    <div class="codename-badge">URBAN-SAND</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Self Foto Estudio</span>
+        <h2>WINK<br><span>CREATIVO</span></h2>
+        <p class="desc">Afinando el Urban Ochre. Mantenemos el contraste gris espectacular de fondo, pero reemplazamos el miel intenso por un arena cálido mucho más sedoso.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #6C6F73;" title="#6C6F73 (Gris Urban)"></div>
+          <div class="color-swatch" style="background: #DEC6A1;" title="#DEC6A1 (Beige Arena Sedoso)"></div>
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Blanco Puro)"></div>
+          <span class="palette-label">Paleta Urban Sand</span>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Agendar Sesión</a></div>
+      </div>
+      <div class="mock-image-container" style="border-radius: 0;">
+        <img src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. URBAN CLAY (Gris con Beige Arcilla claro) -->
+  <section class="proposal-section prop-urban-clay">
+    <div class="codename-badge">URBAN-CLAY</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2; border-radius: 30px;">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Self Foto Estudio</span>
+        <h2>WINK<br><strong>CREATIVO</strong></h2>
+        <p class="desc">Otra variante del Urban. Aquí el acento no es amarillo/oro, sino un beige con ligeros toques terracota para contrarrestar el frío del gris ceniza.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #6C6F73;" title="#6C6F73 (Gris Urban)"></div>
+          <div class="color-swatch" style="background: #CDB092;" title="#CDB092 (Beige Arcilla Claro)"></div>
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Blanco)"></div>
+          <span class="palette-label">Paleta Urban Clay</span>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. REQUERIMIENTO CUSTOM: #f7e7ce, #666666, Blanco -->
+  <section class="proposal-section prop-custom-wink">
+    <div class="codename-badge">CUSTOM-REQUEST</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">WINK CREATIVO</span>
+        <h2>El balance <i>perfecto</i>.</h2>
+        <p class="desc">Implementando los códigos exactos solicitados: el fondo en un beige manteca (#f7e7ce), la tipografía equilibrada (#666666) y el blanco puro sumando limpieza a los botones y elementos.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #f7e7ce;" title="#F7E7CE (Beige Manteca)"></div>
+          <div class="color-swatch" style="background: #666666;" title="#666666 (Gris Texto)"></div>
+          <div class="color-swatch" style="background: #ffffff;" title="#FFFFFF (Blanco Puro)"></div>
+          <span class="palette-label">Códigos Solicitados</span>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+      <div class="mock-image-container" style="border-radius: 40px 10px 40px 10px;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.mock-content, .mock-image-container').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

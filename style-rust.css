@@ -1,19 +1,19 @@
 /* ROOT VARIABLES */
 :root {
-  --bg-dark: #B25032; /* Fondo Terracota Vibrante */
-  --bg-card: #9C452A; /* Card Darker Terracotta */
-  --bg-card-hover: #153C35; /* Hover a Verde Bosque */
+  --bg-dark: #A34E36; /* Fondo Rust Terracota */
+  --bg-card: #92402A; 
+  --bg-card-hover: #DE9E48; 
   
-  --text-main: #FFFFFF; /* Texto Blanco */
-  --text-muted: #EAD0B3; /* Beige para texto mutado */
+  --text-main: #F7F5F0; /* Crema */
+  --text-muted: #DE9E48; /* Mostaza para texto apagado */
   
-  --accent-primary: #153C35; /* Botones Verde Bosque */
-  --accent-primary-hover: #0A201C; 
-  --accent-secondary: #EAD0B3; 
+  --accent-primary: #DE9E48; /* Mostaza Botones */
+  --accent-primary-hover: #C2893B; 
+  --accent-secondary: #2B3A32; /* Verde Bosque details */
 
-  --border-color: #8C3E25; 
+  --border-color: #833925; 
 
-  --font-heading: 'Outfit', sans-serif;
+  --font-heading: 'Playfair Display', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(21, 60, 53, 0.4);
+  box-shadow: 0 4px 14px rgba(222, 158, 72, 0.4);
 }
 
 .btn-secondary {
@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: rgba(178, 80, 50, 0.85);
+  background: rgba(163, 78, 54, 0.85); /* #A34E36 */
   backdrop-filter: blur(12px);
   z-index: 100;
   border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -182,20 +182,20 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 20%, rgba(21, 60, 53, 0.3) 0%, transparent 40%);
+  background: radial-gradient(circle at 10% 20%, rgba(222, 158, 72, 0.3) 0%, transparent 40%);
   pointer-events: none;
 }
 
 .badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background-color: rgba(234, 208, 179, 0.15); /* Beige Opaco */
-  color: var(--accent-secondary);
+  background-color: rgba(222, 158, 72, 0.15); /* Mustard opaco */
+  color: var(--accent-primary);
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  border: 1px solid var(--accent-secondary);
+  border: 1px solid var(--accent-primary);
 }
 
 .hero-title {
@@ -257,12 +257,12 @@ h1, h2, h3, h4, h5, h6 {
 .image-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(178, 80, 50, 0.9), transparent);
+  background: linear-gradient(to top, rgba(163, 78, 54, 0.9), transparent);
 }
 
 .floating-prop {
   position: absolute;
-  background: rgba(156, 69, 42, 0.8); /* Card Terracotta */
+  background: rgba(146, 64, 42, 0.8); /* Card Rust */
   backdrop-filter: blur(8px);
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
@@ -315,14 +315,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 4rem;
   font-family: var(--font-heading);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.05); /* Lighter opacity */
+  color: rgba(255, 255, 255, 0.05);
   line-height: 1;
 }
 
 .step-icon {
   width: 48px;
   height: 48px;
-  background: rgba(21, 60, 53, 0.2);
+  background: rgba(222, 158, 72, 0.2);
   color: var(--accent-primary);
   border-radius: 12px;
   display: flex;
@@ -377,9 +377,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .color-btn.active {
-  border: 2px solid var(--accent-secondary);
+  border: 2px solid var(--text-main);
   transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(234, 208, 179, 0.6);
+  box-shadow: 0 0 15px rgba(222, 158, 72, 0.6);
 }
 
 .backdrop-info {
@@ -476,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-card.popular:hover {
   transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 20px 40px rgba(21, 60, 53, 0.3);
+  box-shadow: 0 20px 40px rgba(222, 158, 72, 0.3);
 }
 
 .popular-badge {
@@ -567,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 .disclaimer-alert {
   display: flex;
   gap: 1rem;
-  background: rgba(21, 60, 53, 0.2);
+  background: rgba(222, 158, 72, 0.2);
   border: 1px solid var(--accent-primary);
   padding: 1.5rem;
   border-radius: 12px;
@@ -621,7 +621,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 .cal-day:hover:not(.blocked):not(.empty) { background: var(--bg-card-hover); color: var(--text-main); }
-.cal-day.active { background: var(--accent-primary); color: var(--text-main); font-weight: 600; border: 1px solid var(--text-main); }
+.cal-day.active { background: var(--accent-primary); color: var(--bg-dark); font-weight: 600; border: 1px solid var(--accent-primary); }
 .cal-day.blocked { color: #d4d4d8; cursor: not-allowed; text-decoration: line-through; }
 
 .times-mock {
@@ -642,7 +642,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   transition: var(--transition);
 }
-.time-btn:hover { background: rgba(21, 60, 53, 0.2); }
+.time-btn:hover { background: rgba(222, 158, 72, 0.2); }
 .time-btn.active { background: var(--accent-primary); color: var(--text-main); border-color: var(--text-main); }
 
 /* MODAL */

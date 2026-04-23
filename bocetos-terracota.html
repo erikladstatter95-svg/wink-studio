@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink Creativo | Bocetos Terracota & Verde</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f7f7;
+      color: #3B3E42;
+      overflow-x: hidden;
+    }
+
+    .page-header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 2px solid #eaeaea;
+    }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #3B3E42;
+      letter-spacing: -1px;
+    }
+    .page-header p {
+      color: #6C7278;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .proposal-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .codename-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 5%;
+      position: relative;
+      gap: 4rem;
+    }
+
+    .mock-content {
+      flex: 1;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mock-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .mock-btn {
+      padding: 1rem 2.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mock-image-container {
+      flex: 1;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+    .mock-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    }
+    .mock-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* COLORES DE PALETAS */
+    .color-palette {
+      display: inline-flex;
+      gap: 15px;
+      margin-top: 3rem;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .color-swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.5);
+      position: relative;
+      cursor: pointer;
+    }
+    .color-swatch:hover::after {
+      content: attr(title); position: absolute; top: -30px; left: 50%;
+      transform: translateX(-50%); background: rgba(0,0,0,0.8);
+      color: #fff; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
+      white-space: nowrap; z-index: 20;
+    }
+    .palette-label { font-size: 0.85rem; font-weight: 600; opacity: 0.8; margin-left: 0.5rem; }
+
+
+    /* --- 1. MODELO EXACTO (Los 4 colores solicitados) --- */
+    .prop-exact { background-color: #F4F3EF; }
+    .prop-exact .codename-badge { color: #F4F3EF; background: #122F33; }
+    .prop-exact .subtitle { color: #C77347; }
+    .prop-exact h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 5rem; color: #122F33; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-exact h2 span { color: #C09C82; }
+    .prop-exact p.desc { color: #122F33; opacity: 0.8; font-size: 1.2rem; line-height: 1.7; }
+    .prop-exact .btn-primary { background: #C77347; color: #F4F3EF; border: 2px solid #C77347; border-radius: 30px; }
+    .prop-exact .btn-primary:hover { background: #122F33; border-color: #122F33; }
+    .prop-exact .color-palette { background: rgba(18, 47, 51, 0.05); }
+
+    /* --- 2. VIBRA TERRACOTA (Fondo Terracota) --- */
+    .prop-terra-dom { background-color: #C77347; }
+    .prop-terra-dom .codename-badge { background: #F4F3EF; color: #C77347; }
+    .prop-terra-dom .subtitle { color: #C09C82; }
+    .prop-terra-dom h2 { font-family: 'Playfair Display', serif; font-size: 5.5rem; color: #F4F3EF; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-terra-dom p.desc { color: #F4F3EF; opacity: 0.9; font-size: 1.1rem; }
+    .prop-terra-dom .btn-primary { background: #122F33; color: #F4F3EF; }
+    .prop-terra-dom .btn-primary:hover { background: #F4F3EF; color: #122F33; }
+    .prop-terra-dom .mock-image-container { border: 10px solid #C09C82; border-radius: 0; }
+
+    /* --- 3. VIBRA BOSQUE (Fondo Verde Oscuro) --- */
+    .prop-forest-dom { background-color: #122F33; }
+    .prop-forest-dom .codename-badge { background: #C77347; color: #F4F3EF; border-radius: 0;}
+    .prop-forest-dom .subtitle { color: #C09C82; }
+    .prop-forest-dom h2 { font-family: 'Outfit', sans-serif; font-size: 5.5rem; font-weight: 800; color: #F4F3EF; line-height: 1; text-transform: uppercase; margin-bottom: 1.5rem;}
+    .prop-forest-dom h2 span { color: #C77347; }
+    .prop-forest-dom p.desc { color: #F4F3EF; opacity: 0.8; font-size: 1.15rem; }
+    .prop-forest-dom .btn-primary { background: #C77347; color: #F4F3EF; border-radius: 5px;}
+    .prop-forest-dom .btn-primary:hover { background: #C09C82; color: #122F33;}
+
+    /* --- 4. BEIGE CÁLIDO (Fondo Beige suave) --- */
+    .prop-beige-dom { background-color: #C09C82; }
+    .prop-beige-dom .codename-badge { background: #122F33; color: #F4F3EF; border-radius: 30px;}
+    .prop-beige-dom .subtitle { color: #122F33; font-weight: 800; letter-spacing: 5px; }
+    .prop-beige-dom h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5.5rem; font-weight: 300; color: #122F33; line-height: 1; margin-bottom: 1.5rem;}
+    .prop-beige-dom h2 strong { font-weight: 800; }
+    .prop-beige-dom p.desc { color: #122F33; font-size: 1.2rem; }
+    .prop-beige-dom .btn-primary { background: #F4F3EF; color: #122F33; border-radius: 30px;}
+    .prop-beige-dom .btn-primary:hover { background: #C77347; color: #F4F3EF;}
+
+    /* --- 5. LUZ Y SOMBRA (Muy minimal) --- */
+    .prop-minimal { background-color: #FFFFFF; }
+    .prop-minimal .codename-badge { background: #FFFFFF; color: #122F33; border: 1px solid #122F33;}
+    .prop-minimal .subtitle { color: #122F33; border-bottom: 1px solid #122F33; display: inline-block; padding-bottom: 5px;}
+    .prop-minimal h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 5rem; color: #122F33; line-height: 1.05; margin-bottom: 1rem;}
+    .prop-minimal p.desc { color: #122F33; opacity: 0.7; font-size: 1.2rem; }
+    .prop-minimal .btn-primary { background: #122F33; color: #F4F3EF; }
+    .prop-minimal .btn-primary:hover { background: #C77347; color: #F4F3EF;}
+    .prop-minimal .mock-image-container::before {
+      content:''; position:absolute; top:-15px; left:-15px; right: 15px; bottom: 15px;
+      background: #C09C82; z-index:-1; border-radius: 10px;
+    }
+    .prop-minimal .color-palette { background: rgba(0,0,0,0.03); }
+    
+    /* --- 6. EQUILIBRIO NATURAL (Mix Balanceado) --- */
+    .prop-balance { background: linear-gradient(135deg, #F4F3EF 50%, #C09C82 100%); }
+    .prop-balance .codename-badge { background: #C77347; color: #F4F3EF; }
+    .prop-balance .subtitle { color: #C77347; font-weight: 800; font-family: 'Outfit'; }
+    .prop-balance h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 5rem; color: #122F33; line-height: 1.05; margin-bottom: 1rem;}
+    .prop-balance p.desc { color: #122F33; opacity: 0.8; font-size: 1.1rem; }
+    .prop-balance .btn-primary { background: #122F33; color: #F4F3EF; border-radius: 50px; }
+    .prop-balance .btn-primary:hover { background: #C77347; }
+    .prop-balance .mock-image-container { border-radius: 50% 50% 0 0; }
+
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Bocetos Terracota & Verde Oscuro</h1>
+    <p>Presentación de 6 variaciones enfocadas en la nueva paleta (Blanco Crema, Verde Profundo, Terracota y Beige Cálido). Explora y elige el camino ideal antes de integrarlo en la web principal.</p>
+  </header>
+
+  <!-- 1. SOLICITUD EXACTA -->
+  <section class="proposal-section prop-exact">
+    <div class="codename-badge">1. PALETA EXACTA</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Wink Creativo</span>
+        <h2>Estudio<br><span>Fotográfico.</span></h2>
+        <p class="desc">Aprovecha el Beige/Blanco (#F4F3EF) como lienzo, usando el Verde Oscuro (#122F33) para darle un peso profesional y elegante a la tipografía, mientras que los colores Terracota (#C77347) y el Beige cálido (#C09C82) quedan de acentos y logran calidez.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #F4F3EF;" title="#F4F3EF (Lienzo)"></div>
+          <div class="color-swatch" style="background: #122F33;" title="#122F33 (Verde Profundo)"></div>
+          <div class="color-swatch" style="background: #C77347;" title="#C77347 (Terracota)"></div>
+          <div class="color-swatch" style="background: #C09C82;" title="#C09C82 (Beige Cálido)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+      <div class="mock-image-container">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TERRACOTA DOMINANTE -->
+  <section class="proposal-section prop-terra-dom">
+    <div class="codename-badge">2. TERRACOTA DOMINANTE</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Camera Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">La fuerza del color</span>
+        <h2>Wink<br>Capturado.</h2>
+        <p class="desc">¿Y si el terracota asume todo el protagonismo? Un fondo inmersivo en #C77347 contrastado por el blanco roto #F4F3EF. Los botones en verde oscuro (#122F33) anclan maravillosamente la vista.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #C77347;" title="#C77347 (Fondo Principal)"></div>
+          <div class="color-swatch" style="background: #122F33;" title="#122F33 (Botón & Acento)"></div>
+          <div class="color-swatch" style="background: #F4F3EF;" title="#F4F3EF (Textos)"></div>
+          <div class="color-swatch" style="background: #C09C82;" title="#C09C82 (Marcos visuales)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. VERDE BOSQUE DOMINANTE (Dark Mode feeling) -->
+  <section class="proposal-section prop-forest-dom">
+    <div class="codename-badge">3. VERDE PROFUNDO</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Elegancia Estricta</span>
+        <h2>Crea Tu<br><span>Estilo</span></h2>
+        <p class="desc">Una versión "modo oscuro" sumamente sofisticada. El color #122F33 toma el fondo, volviéndose dramático. El terracota #C77347 resalta con fuego sobre el fondo oscuro, dándole mucha personalidad a la marca.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #122F33;" title="#122F33 (Fondo Principal)"></div>
+          <div class="color-swatch" style="background: #C77347;" title="#C77347 (Resaltados)"></div>
+          <div class="color-swatch" style="background: #F4F3EF;" title="#F4F3EF (Tipografía base)"></div>
+          <div class="color-swatch" style="background: #C09C82;" title="#C09C82 (Acentos neutros)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Explorar Servicios</a></div>
+      </div>
+      <div class="mock-image-container" style="border-radius: 0;">
+        <img src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BEIGE CÁLIDO DOMINANTE -->
+  <section class="proposal-section prop-beige-dom">
+    <div class="codename-badge">4. BEIGE CÁLIDO</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2; border-radius: 200px 200px 10px 10px;">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Acogedor e Ïntimo</span>
+        <h2>WINK <strong>CREATIVO</strong></h2>
+        <p class="desc">Usamos el Beige #C09C82 como protagonista ambiental. Es menos gritón que el terracota, más suave, pero permite que los textos en verde #122F33 se lean de forma perfecta generando algo orgánico y natural.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #C09C82;" title="#C09C82"></div>
+          <div class="color-swatch" style="background: #122F33;" title="#122F33"></div>
+          <div class="color-swatch" style="background: #F4F3EF;" title="#F4F3EF"></div>
+          <div class="color-swatch" style="background: #C77347;" title="#C77347"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LUZ Y SOMBRA (Ultra minimalista) -->
+  <section class="proposal-section prop-minimal">
+    <div class="codename-badge">5. PUREZA VISUAL</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Modernidad limpia</span>
+        <h2>Tu momento, <i>ahora</i>.</h2>
+        <p class="desc">Inspirado en estudios de diseño vanguardista. Muy similar al primero, pero usamos un blanco total para que no interfiera y le damos el #C09C82 como un destello arquitectónico de sombra en las fotos.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Base Neutra Blanca)"></div>
+          <div class="color-swatch" style="background: #122F33;" title="#122F33 (Contraste Verde Oscuro)"></div>
+          <div class="color-swatch" style="background: #C09C82;" title="#C09C82 (Sombra Beige)"></div>
+          <div class="color-swatch" style="background: #C77347;" title="#C77347 (Hovers Terracota)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Agendar Ahora</a></div>
+      </div>
+      <div class="mock-image-container" style="border-radius: 10px;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. BALANCE NATURAL (Degradados suaves) -->
+  <section class="proposal-section prop-balance">
+    <div class="codename-badge">6. BALANCE ORGÁNICO</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">WINK CREATIVO</span>
+        <h2>Experiencia Natural</h2>
+        <p class="desc">Mezclando el blanco crema (#F4F3EF) y el beige (#C09C82) en un gradiente orgánico. El verde oscuro resalta enormemente y acentúa formas y textos curvos. Un look ideal para estudios de estética premium.</p>
+        <div class="color-palette">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #F4F3EF, #C09C82);" title="Gradiente Base"></div>
+          <div class="color-swatch" style="background: #122F33;" title="#122F33 (Verde oscuro)"></div>
+          <div class="color-swatch" style="background: #C77347;" title="#C77347 (Naranja terracota)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.mock-content, .mock-image-container').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

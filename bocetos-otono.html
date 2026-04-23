@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink Creativo | Especial Otoño</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    :root {
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f3ef;
+      color: #3B3E42;
+      overflow-x: hidden;
+    }
+
+    .page-header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #FFFFFF;
+      border-bottom: 2px solid #eaeaea;
+    }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #3B3E42;
+      letter-spacing: -1px;
+    }
+    .page-header p {
+      color: #6C7278;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .proposal-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .codename-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 5%;
+      position: relative;
+      gap: 4rem;
+    }
+
+    .mock-content {
+      flex: 1;
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mock-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .mock-btn {
+      padding: 1rem 2.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mock-details {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+    
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .mock-image-container {
+      flex: 1;
+      max-width: 480px;
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      border-radius: 20px;
+    }
+    .mock-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    }
+    .mock-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* COLORES DE PALETAS */
+    .color-palette {
+      display: inline-flex;
+      gap: 15px;
+      margin-top: 3rem;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .color-swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.5);
+      position: relative;
+      cursor: pointer;
+    }
+    .color-swatch:hover::after {
+      content: attr(title); position: absolute; top: -30px; left: 50%;
+      transform: translateX(-50%); background: rgba(0,0,0,0.8);
+      color: #fff; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
+      white-space: nowrap; z-index: 20;
+    }
+
+
+    /* --- 1. OTOÑO EXACTO (Terracota + Blanco + Detalles Beige y Verde) --- */
+    .prop-oto-1 { background-color: #B25032; } /* Un terracota vibrante de otoño */
+    .prop-oto-1 .codename-badge { background: #EAD0B3; color: #153C35; }
+    .prop-oto-1 .subtitle { color: #EAD0B3; } /* El Beige */
+    .prop-oto-1 h2 { font-family: 'Outfit', sans-serif; font-size: 5.5rem; color: #FFFFFF; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-oto-1 p.desc { color: #FFFFFF; opacity: 0.9; font-size: 1.15rem; }
+    .prop-oto-1 .btn-primary { background: #153C35; color: #FFFFFF; border: 2px solid #153C35; border-radius: 8px; } /* Botón verde */
+    .prop-oto-1 .btn-primary:hover { background: #FFFFFF; color: #153C35; }
+    .prop-oto-1 .mock-details { border-top: 1px solid rgba(255,255,255,0.2); }
+    .prop-oto-1 .detail-item { color: #EAD0B3; } /* Íconos en Beige */
+    .prop-oto-1 .mock-image-container::before {
+      content: ''; position: absolute; inset: 0; border: 15px solid #153C35; z-index: 2; border-radius: 20px; pointer-events: none;
+    }
+
+    /* --- 2. OTOÑO ATARDECER (Terracota Mudo y Mostaza) --- */
+    .prop-oto-2 { background-color: #A34E36; } 
+    .prop-oto-2 .codename-badge { background: #FFFFFF; color: #A34E36; }
+    .prop-oto-2 .subtitle { color: #DE9E48; } /* Acento Mostaza */
+    .prop-oto-2 h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 5.5rem; color: #F7F5F0; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-oto-2 p.desc { color: #F7F5F0; opacity: 0.85; font-size: 1.1rem; }
+    .prop-oto-2 .btn-primary { background: #DE9E48; color: #2B3A32; border-radius: 50px; } /* Verde/Gris muy oscuro en texto del botón */
+    .prop-oto-2 .btn-primary:hover { background: #F7F5F0; color: #A34E36; }
+    .prop-oto-2 .mock-details { border-top: 1px dashed rgba(247, 245, 240, 0.3); }
+    .prop-oto-2 .detail-item { color: #F7F5F0; }
+
+    /* --- 3. OTOÑO HOJA CAÍDA (Verde Oliva con Acentos Terracota) --- */
+    .prop-oto-3 { background-color: #384734; } /* Verde Otoño */
+    .prop-oto-3 .codename-badge { background: #D56C42; color: #FFFFFF; border-radius: 0; }
+    .prop-oto-3 .subtitle { color: #D56C42; } /* Terracota Vibrante */
+    .prop-oto-3 h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5.5rem; font-weight: 300; color: #F4EBD9; line-height: 1; margin-bottom: 1.5rem;}
+    .prop-oto-3 h2 strong { font-weight: 800; color: #D56C42; }
+    .prop-oto-3 p.desc { color: #F4EBD9; font-size: 1.2rem; }
+    .prop-oto-3 .btn-primary { background: transparent; border: 2px solid #D56C42; color: #D56C42; }
+    .prop-oto-3 .btn-primary:hover { background: #D56C42; color: #F4EBD9; }
+    .prop-oto-3 .mock-details { border-top: 1px solid rgba(244, 235, 217, 0.1); }
+    .prop-oto-3 .detail-item { color: #D55C32; }
+    
+    /* --- 4. OTOÑO ARCILLA (Fondo Beige/Crema texturizado con Verde y Terra) --- */
+    .prop-oto-4 { background-color: #E6D2B5; } /* Base Arcilla/Beige Claro */
+    .prop-oto-4 .codename-badge { background: #1B3632; color: #FFFFFF; }
+    .prop-oto-4 .subtitle { color: #B34426; } /* Terracota Profundo */
+    .prop-oto-4 h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 5rem; color: #1B3632; line-height: 1.05; margin-bottom: 1rem;}
+    .prop-oto-4 p.desc { color: #1B3632; font-size: 1.2rem; font-weight: 400; opacity: 0.8; }
+    .prop-oto-4 .btn-primary { background: #B34426; color: #FFFFFF; border-radius: 8px;}
+    .prop-oto-4 .btn-primary:hover { background: #1B3632; }
+    .prop-oto-4 .mock-details { border-top: 1px solid rgba(27, 54, 50, 0.2); }
+    .prop-oto-4 .detail-item { color: #1B3632; }
+
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Cápsula de Otoño 🍂</h1>
+    <p>Paletas inspiradas en la estación: Terracotas inmersivos con textos blancos, acentuados magistralmente por tonos beige naturales y verdes profundos que recuerdan a las hojas de la temporada.</p>
+  </header>
+
+  <!-- 1. SOLICITUD EXACTA: Fondo Terracota, Textos Blancos, Acentos Beige/Verde -->
+  <section class="proposal-section prop-oto-1">
+    <div class="codename-badge">OTOÑO ORIGIN</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Wink Creativo</span>
+        <h2>Inspiración<br>Natural.</h2>
+        <p class="desc">Aquí está exactamente lo que pediste: Un marco inmersivo en fuerte color Terracota vibrante. Toda la lectura es en Blanco puro para no cansar la vista. Los iconos y detalles visuales son de color Beige, mientras que el Botón principal y el marco de la foto brindan ese anclaje oscuro con el Verde Bosque Profundo.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="sun"></i> Cálido</div>
+            <div class="detail-item"><i data-feather="camera"></i> Beige y Verde</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #B25032;" title="#B25032 (Fondo Terracota)"></div>
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Texto Blanco)"></div>
+          <div class="color-swatch" style="background: #EAD0B3;" title="#EAD0B3 (Detalles Beige)"></div>
+          <div class="color-swatch" style="background: #153C35;" title="#153C35 (Acentos Verde)"></div>
+        </div>
+        
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+      <div class="mock-image-container">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. OTOÑO ATARDECER (Terracota Mudo y Mostaza) -->
+  <section class="proposal-section prop-oto-2">
+    <div class="codename-badge">OTOÑO RUST</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2; border-radius: 50% 50% 0 0;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Camera Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Estilo Cinematográfico</span>
+        <h2>La Hora<br>Dorada.</h2>
+        <p class="desc">Una variación donde el Terracota es un poco más "óxido" o quemado (Rust). Se le agrega color amarillo Mostaza y un Blanco Roto cremoso para los textos. Es la esencia misma del otoño encapsulada.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="cloud"></i> Contraste</div>
+            <div class="detail-item"><i data-feather="star"></i> Orgánico</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #A34E36;" title="#A34E36 (Rust Terracota)"></div>
+          <div class="color-swatch" style="background: #F7F5F0;" title="#F7F5F0 (Crema)"></div>
+          <div class="color-swatch" style="background: #DE9E48;" title="#DE9E48 (Mostaza / Oro)"></div>
+          <div class="color-swatch" style="background: #2B3A32;" title="#2B3A32 (Verde apagado)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Ahora</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. OTOÑO HOJA CAÍDA (Verde con Terracota) -->
+  <section class="proposal-section prop-oto-3">
+    <div class="codename-badge">INVERSIÓN OTOÑAL</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Fondo Oscuro</span>
+        <h2>WINK <strong>CREATIVO</strong></h2>
+        <p class="desc">Invirtiendo la lógica del otoño: El fondo es un Verde Oliva/Bosque profundo, que resalta maravillosamente a los sujetos de las fotos fotográficas, mientras el Terracota explota como el color de acento principal. Muy moderno.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="moon"></i> Dark Mode Natural</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #384734;" title="#384734 (Oliva Oscuro)"></div>
+          <div class="color-swatch" style="background: #D56C42;" title="#D56C42 (Terracota Vibrante)"></div>
+          <div class="color-swatch" style="background: #F4EBD9;" title="#F4EBD9 (Beige Crema)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Ver Portafolio</a></div>
+      </div>
+      <div class="mock-image-container" style="border-radius: 40px 0 40px 0;">
+        <img src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. OTOÑO ARCILLA (Fondo Beige Claro) -->
+  <section class="proposal-section prop-oto-4">
+    <div class="codename-badge">OTOÑO ARCILLA</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Estilo Acogedor</span>
+        <h2>Serenidad en<br>el Estudio.</h2>
+        <p class="desc">Si el fondo Terracota u Oscuro resulta muy invasivo para toda una web, esta opción utiliza un Beige Cálido Arenoso como base, los textos en Verde Oscuro absoluto, y destina el Terracota para los botones de acción.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="layout"></i> Amplio</div>
+            <div class="detail-item"><i data-feather="eye"></i> Relajante</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #E6D2B5;" title="#E6D2B5 (Beige Arena)"></div>
+          <div class="color-swatch" style="background: #1B3632;" title="#1B3632 (Verde Forestal)"></div>
+          <div class="color-swatch" style="background: #B34426;" title="#B34426 (Terracota Intenso)"></div>
+          <div class="color-swatch" style="background: #FFFFFF;" title="#FFFFFF (Placas Blancas)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Agendar Ahora</a></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    feather.replace();
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.mock-content, .mock-image-container').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

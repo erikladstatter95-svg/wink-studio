@@ -1,17 +1,17 @@
 /* ROOT VARIABLES */
 :root {
-  --bg-dark: #2B3210; /* Verde Militar Oscuro */
-  --bg-card: #22270D; /* Verde un poco mas oscuro para cartas */
-  --bg-card-hover: #7b5a48; /* Marrón claro al hover */
+  --bg-dark: #c44231; /* Terracota Intenso Base */
+  --bg-card: #943225; /* Terracota más oscuro para cartas */
+  --bg-card-hover: #2B3210; /* Hover a Verde Militar */
   
   --text-main: #faf8ef; /* Blanco Crema */
   --text-muted: #eae5d7; /* Beige Claro */
   
-  --accent-primary: #c44231; /* Terracota Intenso Botones */
-  --accent-primary-hover: #9E3223; 
+  --accent-primary: #2B3210; /* Verde Militar para Botones */
+  --accent-primary-hover: #191d09; 
   --accent-secondary: #7b5a48; /* Marrón */
 
-  --border-color: #454E1F; 
+  --border-color: #822c21; 
 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(196, 66, 49, 0.4); /* #c44231 shadow */
+  box-shadow: 0 4px 14px rgba(43, 50, 16, 0.4); /* Verde Militar shadow */
 }
 
 .btn-secondary {
@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: rgba(43, 50, 16, 0.85); /* #2B3210 */
+  background: rgba(196, 66, 49, 0.85); /* #c44231 Terracota */
   backdrop-filter: blur(12px);
   z-index: 100;
   border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -182,14 +182,14 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 20%, rgba(196, 66, 49, 0.25) 0%, transparent 40%); /* Terracotta Intenso shadow */
+  background: radial-gradient(circle at 10% 20%, rgba(43, 50, 16, 0.3) 0%, transparent 40%); /* Verde shadow */
   pointer-events: none;
 }
 
 .badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background-color: rgba(196, 66, 49, 0.15); /* Terracota Intenso Opaco */
+  background-color: rgba(43, 50, 16, 0.15); /* Verde opaco */
   color: var(--accent-primary);
   border-radius: 999px;
   font-size: 0.875rem;
@@ -257,12 +257,12 @@ h1, h2, h3, h4, h5, h6 {
 .image-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(43, 50, 16, 0.9), transparent);
+  background: linear-gradient(to top, rgba(196, 66, 49, 0.9), transparent);
 }
 
 .floating-prop {
   position: absolute;
-  background: rgba(34, 39, 13, 0.8); /* Card Verde muy oscuro */
+  background: rgba(148, 50, 37, 0.8); /* Card Terracota oscura */
   backdrop-filter: blur(8px);
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
@@ -322,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 .step-icon {
   width: 48px;
   height: 48px;
-  background: rgba(196, 66, 49, 0.15);
+  background: rgba(43, 50, 16, 0.15); /* Verde opacity */
   color: var(--accent-primary);
   border-radius: 12px;
   display: flex;
@@ -377,9 +377,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .color-btn.active {
-  border: 2px solid var(--accent-primary);
+  border: 2px solid var(--text-main);
   transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(196, 66, 49, 0.6);
+  box-shadow: 0 0 15px rgba(43, 50, 16, 0.6);
 }
 
 .backdrop-info {
@@ -476,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-card.popular:hover {
   transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 20px 40px rgba(196, 66, 49, 0.2);
+  box-shadow: 0 20px 40px rgba(43, 50, 16, 0.3);
 }
 
 .popular-badge {
@@ -567,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 .disclaimer-alert {
   display: flex;
   gap: 1rem;
-  background: rgba(196, 66, 49, 0.15);
+  background: rgba(43, 50, 16, 0.15);
   border: 1px solid var(--accent-primary);
   padding: 1.5rem;
   border-radius: 12px;
@@ -642,7 +642,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   transition: var(--transition);
 }
-.time-btn:hover { background: rgba(196, 66, 49, 0.15); }
+.time-btn:hover { background: rgba(43, 50, 16, 0.15); }
 .time-btn.active { background: var(--accent-primary); color: var(--text-main); border-color: var(--text-main); }
 
 /* MODAL */

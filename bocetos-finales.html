@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink Creativo | Paletas Finales</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    :root {
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f3ef;
+      color: #3B3E42;
+      overflow-x: hidden;
+    }
+
+    /* BARRA DE NAVEGACIÓN FLOTANTE */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .nav-btn {
+      text-decoration: none;
+      color: #3B3E42;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      border: 1px solid #eaeaea;
+    }
+    
+    .nav-btn:hover {
+      background: #3B3E42;
+      color: #FFF;
+      border-color: #3B3E42;
+    }
+
+    .page-header {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      background: #FFFFFF;
+      border-bottom: 2px solid #eaeaea;
+    }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #3B3E42;
+      letter-spacing: -1px;
+    }
+    .page-header p {
+      color: #6C7278;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .proposal-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .codename-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 5%;
+      position: relative;
+      gap: 4rem;
+    }
+
+    .mock-content {
+      flex: 1;
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mock-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .mock-btn {
+      padding: 1rem 2.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mock-details {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+    
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .mock-image-container {
+      flex: 1;
+      max-width: 480px;
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      border-radius: 20px;
+    }
+    .mock-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    }
+    .mock-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* COLORES DE PALETAS */
+    .color-palette {
+      display: inline-flex;
+      gap: 15px;
+      margin-top: 3rem;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .color-swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.5);
+      position: relative;
+      cursor: pointer;
+    }
+    .color-swatch:hover::after {
+      content: attr(title); position: absolute; top: -30px; left: 50%;
+      transform: translateX(-50%); background: rgba(0,0,0,0.8);
+      color: #fff; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px;
+      white-space: nowrap; z-index: 20;
+    }
+
+    /* --- 1. RUST (El que ya teníamos) --- */
+    .prop-rust { background-color: #A34E36; } 
+    .prop-rust .codename-badge { background: #FFFFFF; color: #A34E36; }
+    .prop-rust .subtitle { color: #DE9E48; }
+    .prop-rust h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 5.5rem; color: #F7F5F0; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-rust p.desc { color: #F7F5F0; opacity: 0.85; font-size: 1.1rem; }
+    .prop-rust .btn-primary { background: #DE9E48; color: #2B3A32; border-radius: 50px; border: 2px solid #DE9E48;}
+    .prop-rust .btn-primary:hover { background: #F7F5F0; color: #A34E36; border-color: #F7F5F0;}
+    .prop-rust .mock-details { border-top: 1px dashed rgba(247, 245, 240, 0.3); }
+    .prop-rust .detail-item { color: #F7F5F0; }
+    .prop-rust .mock-image-container { border-radius: 50% 50% 0 0; }
+
+    /* --- 2. TERRACOTA & SLATE (Lista 1) --- */
+    .prop-slate { background-color: #c96236; }
+    .prop-slate .codename-badge { background: #34495E; color: #c2b280; }
+    .prop-slate .subtitle { color: #c2b280; }
+    .prop-slate h2 { font-family: 'Outfit', sans-serif; font-size: 5.5rem; color: #34495E; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;}
+    .prop-slate p.desc { color: #FFFFFF; opacity: 0.95; font-size: 1.15rem; }
+    .prop-slate .btn-primary { background: #ffb74c; color: #34495E; border: 2px solid #ffb74c; border-radius: 8px; }
+    .prop-slate .btn-primary:hover { background: #34495E; color: #ffb74c; border-color: #34495E; }
+    .prop-slate .mock-details { border-top: 1px solid rgba(52, 73, 94, 0.2); }
+    .prop-slate .detail-item { color: #34495E; }
+    .prop-slate .mock-image-container::before {
+      content: ''; position: absolute; inset: 0; border: 15px solid #34495E; z-index: 2; border-radius: 20px; pointer-events: none;
+    }
+
+    /* --- 3. TERRACOTA NATURAL (Lista 2) --- */
+    .prop-natural { background-color: #d97b52; }
+    .prop-natural .codename-badge { background: #fdf8f2; color: #d97b52; }
+    .prop-natural .subtitle { color: #ffd873; letter-spacing: 5px;}
+    .prop-natural h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5.5rem; font-weight: 300; color: #fdf8f2; line-height: 1; margin-bottom: 1.5rem;}
+    .prop-natural h2 strong { font-weight: 800; color: #ffd873; }
+    .prop-natural p.desc { color: #fdf8f2; opacity: 0.9; font-size: 1.2rem; }
+    .prop-natural .btn-primary { background: #b7c9a8; border: 2px solid #b7c9a8; color: #2f2f2f; }
+    .prop-natural .btn-primary:hover { background: #fdf8f2; border-color: #fdf8f2; color: #d97b52; }
+    .prop-natural .mock-details { border-top: 1px solid rgba(253, 248, 242, 0.2); }
+    .prop-natural .detail-item { color: #fdf8f2; }
+    .prop-natural .color-palette { background: rgba(0,0,0,0.1); }
+
+    /* --- 4. TERRACOTA SOLAR (Lista 3) --- */
+    .prop-solar { background-color: #c45c29; }
+    .prop-solar .codename-badge { background: #292929; color: #f6be2c; border-radius: 30px;}
+    .prop-solar .subtitle { color: #f1d4b1; }
+    .prop-solar h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 5rem; color: #292929; line-height: 1.05; margin-bottom: 1rem;}
+    .prop-solar h2 i { font-weight: 300; color: #f6be2c; font-style: normal; }
+    .prop-solar p.desc { color: #f1d4b1; font-size: 1.2rem; font-weight: 400; opacity: 0.9; }
+    .prop-solar .btn-primary { background: #292929; color: #f6be2c; border-radius: 30px; border: 2px solid #292929;}
+    .prop-solar .btn-primary:hover { background: #f6be2c; color: #292929; border-color: #f6be2c;}
+    .prop-solar .mock-details { border-top: 1px solid rgba(41, 41, 41, 0.2); }
+    .prop-solar .detail-item { color: #292929; }
+    .prop-solar .mock-image-container { border-radius: 40px 10px 40px 10px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="top-nav">
+    <a href="#rust" class="nav-btn">Otoño Rust</a>
+    <a href="#slate" class="nav-btn">Terracota & Slate</a>
+    <a href="#natural" class="nav-btn">Terracota Natural</a>
+    <a href="#solar" class="nav-btn">Terracota Solar</a>
+  </nav>
+
+  <header class="page-header">
+    <h1>Propuestas Finales de Paletas</h1>
+    <p>Presentación del diseño "Rust" anterior junto con 3 nuevas exploraciones cromáticas basadas en Terracota con diferentes matices y contrastes.</p>
+  </header>
+
+  <!-- 1. RUST ORIGINAL -->
+  <section id="rust" class="proposal-section prop-rust">
+    <div class="codename-badge">OTOÑO RUST</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Camera Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Estilo Cinematográfico</span>
+        <h2>La Hora<br>Dorada.</h2>
+        <p class="desc">La paleta original "Rust" que mantiene el Terracota oxidado, el amarillo Mostaza vibrante y los detalles oscuros en verde bosque.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="cloud"></i> Contraste</div>
+            <div class="detail-item"><i data-feather="star"></i> Orgánico</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #A34E36;" title="#A34E36 (Rust Terracota)"></div>
+          <div class="color-swatch" style="background: #F7F5F0;" title="#F7F5F0 (Crema)"></div>
+          <div class="color-swatch" style="background: #DE9E48;" title="#DE9E48 (Mostaza / Oro)"></div>
+          <div class="color-swatch" style="background: #2B3A32;" title="#2B3A32 (Verde apagado)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Ahora</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TERRACOTA & SLATE (Lista 1) -->
+  <section id="slate" class="proposal-section prop-slate">
+    <div class="codename-badge">TERRACOTA & SLATE</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Contraste Urbano</span>
+        <h2>Wink<br>Creativo.</h2>
+        <p class="desc">Una paleta muy audaz que enfrenta al vibrante Terracota (#c96236) contra un imponente Azul Pizarra/Slate (#34495E). Los tonos Naranja brillante y Khaki suavizan la composición.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="sun"></i> Cálido</div>
+            <div class="detail-item"><i data-feather="camera"></i> Vibrante</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #c96236;" title="#c96236 (Terracota Principal)"></div>
+          <div class="color-swatch" style="background: #c2b280;" title="#c2b280 (Beige Khaki)"></div>
+          <div class="color-swatch" style="background: #ffb74c;" title="#ffb74c (Naranja brillante)"></div>
+          <div class="color-swatch" style="background: #34495E;" title="#34495E (Slate Blue)"></div>
+        </div>
+        
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Reservar Sesión</a></div>
+      </div>
+      <div class="mock-image-container">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TERRACOTA NATURAL (Lista 2) -->
+  <section id="natural" class="proposal-section prop-natural">
+    <div class="codename-badge">TERRACOTA NATURAL</div>
+    <div class="mock-hero">
+      <div class="mock-image-container" style="order: 2;">
+        <img src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+      <div class="mock-content" style="order: 1;">
+        <span class="subtitle">Estilo Relajado</span>
+        <h2>Tu Propia<br><strong>Esencia</strong>.</h2>
+        <p class="desc">Un enfoque inmersivo. Usamos el Terracota Claro (#d97b52) como fondo principal, permitiendo que el Blanco Cálido y el Verde Salvia destaquen de forma orgánica, elegante y natural.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="layout"></i> Limpio</div>
+            <div class="detail-item"><i data-feather="eye"></i> Relajante</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #d97b52;" title="#d97b52 (Terracota Claro)"></div>
+          <div class="color-swatch" style="background: #b7c9a8;" title="#b7c9a8 (Verde Salvia)"></div>
+          <div class="color-swatch" style="background: #ffd873;" title="#ffd873 (Amarillo Crema)"></div>
+          <div class="color-swatch" style="background: #2f2f2f;" title="#2f2f2f (Gris Oscuro)"></div>
+          <div class="color-swatch" style="background: #fdf8f2;" title="#fdf8f2 (Blanco Cálido)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Agendar Ahora</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TERRACOTA SOLAR (Lista 3) -->
+  <section id="solar" class="proposal-section prop-solar">
+    <div class="codename-badge">TERRACOTA SOLAR</div>
+    <div class="mock-hero">
+      <div class="mock-content">
+        <span class="subtitle">Alta Energía</span>
+        <h2>WINK <i>CREATIVO</i></h2>
+        <p class="desc">Para un impacto total. El Terracota Quemado domina el espacio interactuando con un potente Amarillo Sol (#f6be2c). El Gris casi negro aporta todo el peso necesario para la legibilidad y contraste.</p>
+        
+        <div class="mock-details">
+            <div class="detail-item"><i data-feather="zap"></i> Dinámico</div>
+            <div class="detail-item"><i data-feather="star"></i> Audaz</div>
+        </div>
+
+        <div class="color-palette">
+          <div class="color-swatch" style="background: #c45c29;" title="#c45c29 (Terracota Quemado)"></div>
+          <div class="color-swatch" style="background: #f6be2c;" title="#f6be2c (Amarillo Sol)"></div>
+          <div class="color-swatch" style="background: #292929;" title="#292929 (Gris Casi Negro)"></div>
+          <div class="color-swatch" style="background: #f1d4b1;" title="#f1d4b1 (Beige Melocotón)"></div>
+        </div>
+        <div class="mock-buttons"><a href="#" class="mock-btn btn-primary">Agendar Sesión</a></div>
+      </div>
+      <div class="mock-image-container">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800" alt="Self Studio Demo">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    feather.replace();
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.mock-content, .mock-image-container').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

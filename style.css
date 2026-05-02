@@ -77,13 +77,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background-color: var(--accent-primary);
-  color: var(--text-main);
+  color: #2f2f2f;
   border: 2px solid var(--accent-primary);
 }
 .btn-primary:hover {
   background-color: transparent;
+  color: var(--text-main);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(43, 50, 16, 0.4); /* Verde Militar shadow */
+  box-shadow: 0 4px 14px rgba(47, 47, 47, 0.4);
 }
 
 .btn-secondary {
@@ -128,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: rgba(196, 66, 49, 0.85); /* #c44231 Terracota */
+  background: rgba(47, 47, 47, 0.95); /* #2f2f2f Gris Oscuro */
   backdrop-filter: blur(12px);
   z-index: 100;
   border-bottom: 1px solid rgba(0,0,0,0.05);

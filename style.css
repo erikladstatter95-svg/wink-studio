@@ -1,17 +1,17 @@
 /* ROOT VARIABLES */
 :root {
-  --bg-dark: #c44231; /* Terracota Intenso Base */
-  --bg-card: #943225; /* Terracota más oscuro para cartas */
-  --bg-card-hover: #2B3210; /* Hover a Verde Militar */
+  --bg-dark: #d97b52; /* Terracota claro (Main Background) */
+  --bg-card: #2f2f2f; /* Gris Oscuro para cartas */
+  --bg-card-hover: #1f1f1f; 
   
-  --text-main: #faf8ef; /* Blanco Crema */
-  --text-muted: #eae5d7; /* Beige Claro */
+  --text-main: #f1d4b1; /* Beige melocotón */
+  --text-muted: #ffd873; /* Amarillo crema */
   
-  --accent-primary: #2B3210; /* Verde Militar para Botones */
-  --accent-primary-hover: #191d09; 
-  --accent-secondary: #7b5a48; /* Marrón */
+  --accent-primary: #b7c9a8; /* Verde Salvia para botones y acentos */
+  --accent-primary-hover: #a3b593; 
+  --accent-secondary: #ffd873; /* Amarillo crema */
 
-  --border-color: #822c21; 
+  --border-color: #f1d4b1; 
 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;

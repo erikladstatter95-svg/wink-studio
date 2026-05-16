@@ -1,86 +1,75 @@
-// JavaScript for Self Portrait Studio Interaction
+// ===== Wink Self Photo Studio — Main JS =====
 
-// Modal Logic
-window.openVideoModal = function() {
-  document.getElementById('video-modal').classList.add('active');
-};
+// --- Scroll Reveal (IntersectionObserver) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-window.closeVideoModal = function() {
-  document.getElementById('video-modal').classList.remove('active');
-};
+  revealEls.forEach(el => observer.observe(el));
 
-// Close modal on outside click
-document.getElementById('video-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeVideoModal();
+  // --- Navbar scroll effect ---
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
+
+  // --- Floating CTA visibility ---
+  const floatingCta = document.querySelector('.floating-cta');
+  if (floatingCta) {
+    window.addEventListener('scroll', () => {
+      floatingCta.classList.toggle('visible', window.scrollY > 500);
+    });
+  }
+
+  // --- Feather icons ---
+  if (typeof feather !== 'undefined') {
+    feather.replace();
   }
 });
 
-// Mobile menu toggle mockup
+// --- Mobile Menu ---
 window.toggleMenu = function() {
-  alert("Menú móvil en desarrollo (Mockup).");
-}
+  const panel = document.querySelector('.mobile-nav-panel');
+  const overlay = document.querySelector('.mobile-nav-overlay');
+  if (panel && overlay) {
+    panel.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = panel.classList.contains('active') ? 'hidden' : '';
+  }
+};
 
-// Backdrop Gallery Interactive Logic
-document.addEventListener('DOMContentLoaded', () => {
-  const colorBtns = document.querySelectorAll('.color-btn');
-  const studioBackdrop = document.getElementById('studio-backdrop');
-  const backdropInfo = document.getElementById('backdrop-info');
+window.closeMenu = function() {
+  const panel = document.querySelector('.mobile-nav-panel');
+  const overlay = document.querySelector('.mobile-nav-overlay');
+  if (panel && overlay) {
+    panel.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
 
-  const backdropData = {
-    'negro': {
-      color: '#0F0F0F',
-      title: 'Negro Profundo',
-      desc: 'Ideal para retratos dramáticos, formales y artísticos.'
-    },
-    'blanco': {
-      color: '#F8F9FA',
-      title: 'Blanco Puro',
-      desc: 'Luminoso, limpio y perfecto para fotos de moda o familiares.'
-    },
-    'rojo': {
-      color: '#5C161E',
-      title: 'Rojo Oscuro',
-      desc: 'Sofisticado y apasionado. Excelente para destacar texturas y retratos audaces.'
-    },
-    'gris': {
-      color: '#6C757D',
-      title: 'Gris Corporativo',
-      desc: 'Neutral y elegante. La mejor elección para fotos de perfil o LinkedIn.'
-    },
-    'eggshell': {
-      color: '#F0E6D2',
-      title: 'Eggshell (Cáscara de Huevo)',
-      desc: 'Cálido, suave y familiar. Transmite paz y naturalidad.'
-    }
-  };
+// --- Video Modal ---
+window.openVideoModal = function() {
+  const modal = document.getElementById('video-modal');
+  if (modal) modal.classList.add('active');
+};
 
-  colorBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // Remove active class from all
-      colorBtns.forEach(b => b.classList.remove('active'));
-      
-      // Add active to clicked
-      const targetBtn = e.target;
-      targetBtn.classList.add('active');
+window.closeVideoModal = function() {
+  const modal = document.getElementById('video-modal');
+  if (modal) modal.classList.remove('active');
+};
 
-      // Update color and info
-      const colorKey = targetBtn.getAttribute('data-color');
-      const data = backdropData[colorKey];
-
-      if (data) {
-        studioBackdrop.style.backgroundColor = data.color;
-        
-        // Add a subtle animation to info update
-        backdropInfo.style.opacity = 0;
-        setTimeout(() => {
-          backdropInfo.innerHTML = `
-            <h3>${data.title}</h3>
-            <p>${data.desc}</p>
-          `;
-          backdropInfo.style.opacity = 1;
-        }, 300);
-      }
-    });
-  });
+// Close modal on outside click
+document.addEventListener('click', (e) => {
+  const modal = document.getElementById('video-modal');
+  if (modal && e.target === modal) closeVideoModal();
 });

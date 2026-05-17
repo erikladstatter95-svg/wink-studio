@@ -265,6 +265,31 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
 .video-placeholder { aspect-ratio: 16/9; background: var(--bg-dark); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); text-align: center; gap: 1rem; }
 .video-placeholder i { width: 48px; height: 48px; color: var(--accent-primary); }
 
+/* ===== HERO LOCATION ===== */
+.hero-location { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--accent-primary); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+
+/* ===== BOOKING STEPS ===== */
+.booking-steps-section { padding: 7rem 5%; background: var(--bg-card); }
+
+/* ===== FAQ ===== */
+.faq-section { padding: 7rem 5%; background: var(--bg-dark); }
+.faq-container { max-width: 800px; margin: 2rem auto 0; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+.faq-item summary {
+  padding: 1.25rem 0; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600;
+  color: var(--text-muted); cursor: pointer; list-style: none; display: flex; justify-content: space-between;
+  align-items: center; transition: var(--transition);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.5rem; color: var(--accent-primary); transition: transform 0.3s ease; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item[open] summary { color: var(--accent-primary); }
+.faq-item p { padding: 0 0 1.25rem; color: var(--text-main); line-height: 1.7; font-size: 0.95rem; }
+
+/* ===== LOCATION ===== */
+.location-section { padding: 7rem 5%; background: var(--bg-card); }
+.map-wrapper { max-width: 900px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero { padding-top: 8rem; }
@@ -277,6 +302,7 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
   .mobile-menu-icon { display: block; }
   .hero-title { font-size: 2.8rem; }
   .hero-tagline { font-size: 1.1rem; letter-spacing: 2px; }
+  .hero-location { font-size: 0.9rem; }
   .section-title { font-size: 2rem; }
   .pricing-card.popular { transform: none; }
   .pricing-card.popular:hover { transform: translateY(-5px); }
@@ -285,4 +311,5 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
   .gallery-item { width: 240px; }
   .marquee-item { font-size: 0.95rem; padding: 0 1.5rem; }
   .steps-grid { grid-template-columns: 1fr; }
+  .faq-item summary { font-size: 1rem; }
 }

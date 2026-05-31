@@ -1,3 +1,20 @@
+/* ===== CUSTOM FONTS ===== */
+@font-face {
+  font-family: 'TAN Meringue';
+  src: url('./TAN%20MERINGUE.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codec Pro';
+  src: url('./CodecPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== ROOT VARIABLES ===== */
 :root {
   --bg-dark: #f1d4b1;
@@ -9,8 +26,9 @@
   --accent-primary-hover: #a3b593;
   --accent-secondary: #d97b52;
   --border-color: #d97b52;
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'TAN Meringue', 'Outfit', sans-serif;
+  --font-subtitle: 'Codec Pro', 'Outfit', sans-serif;
+  --font-body: 'League Spartan', 'Plus Jakarta Sans', sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --radius-lg: 40px;
   --radius-md: 24px;
@@ -21,8 +39,8 @@
 html { scroll-behavior: smooth; font-family: var(--font-body); }
 body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-height: 1.2; color: var(--text-muted); }
-.section-title { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 800; letter-spacing: -1px; }
+h1, h2, h3, h4, h5, h6, .hero-tagline, .hero-subtitle, .subtitle-pricing { font-family: var(--font-subtitle); font-weight: 600; line-height: 1.2; color: var(--text-muted); }
+.section-title { font-size: 2.8rem; margin-bottom: 1rem; font-weight: normal; letter-spacing: -1px; }
 .text-center { text-align: center; }
 .w-100 { width: 100%; }
 .accent { color: var(--accent-primary); }
@@ -120,8 +138,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-hei
   animation: pulse-badge 3s ease-in-out infinite;
 }
 @keyframes pulse-badge { 0%,100% { box-shadow: 0 0 0 0 rgba(183,201,168,0.3); } 50% { box-shadow: 0 0 0 12px rgba(183,201,168,0); } }
-.hero-title { font-size: 5.5rem; margin-bottom: 1rem; letter-spacing: -2px; color: #fff; text-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-.hero-tagline { font-family: var(--font-body); font-size: 1.5rem; font-weight: 300; color: var(--text-main); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.9; }
+.hero-title { font-family: var(--font-heading); font-weight: normal; font-size: 5.5rem; margin-bottom: 0; letter-spacing: -2px; color: #fff; text-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+.hero-tagline { font-size: 1.5rem; font-weight: 300; color: var(--text-main); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.9; }
 .hero-subtitle { font-size: 1.15rem; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 .hero-buttons { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
 .hero-stats { display: flex; gap: 2.5rem; justify-content: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; flex-wrap: wrap; }
@@ -132,7 +150,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-hei
 .marquee-section { background: var(--bg-card); padding: 1.25rem 0; overflow: hidden; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
 .marquee-track { display: flex; width: max-content; animation: marquee 25s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
-.marquee-item { white-space: nowrap; padding: 0 2.5rem; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 0.75rem; }
+.marquee-item { white-space: nowrap; padding: 0 2.5rem; font-family: var(--font-body); font-size: 1.1rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 0.75rem; }
 .marquee-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-primary); flex-shrink: 0; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -150,7 +168,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-hei
 }
 .step-card:hover::before { opacity: 1; }
 .step-card:hover { border-color: var(--accent-primary); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-.step-number { position: absolute; top: -10px; right: 20px; font-size: 5rem; font-family: var(--font-heading); font-weight: 800; color: rgba(0,0,0,0.04); line-height: 1; }
+.step-number { position: absolute; top: 15px; right: 20px; font-size: 3.5rem; font-family: var(--font-subtitle); font-weight: 800; color: #2f2f2f; line-height: 1; }
 .step-icon { width: 56px; height: 56px; background: rgba(183,201,168,0.12); color: var(--accent-primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
 .step-card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
 .step-card p { color: var(--text-muted); font-size: 0.95rem; position: relative; z-index: 1; }
@@ -196,7 +214,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-hei
 }
 .pricing-header { text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 2rem; margin-bottom: 2rem; }
 .pricing-header h3 { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 1rem; }
-.pricing-header .price { font-size: 3.5rem; font-family: var(--font-heading); font-weight: 800; line-height: 1; color: var(--text-main); margin-bottom: 0.5rem; }
+.pricing-header .price { font-size: 3.5rem; font-family: var(--font-subtitle); font-weight: 800; line-height: 1; color: var(--text-main); margin-bottom: 0.5rem; }
 .price .currency { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
 .pricing-features { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
 .pricing-features li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; color: var(--text-muted); }
@@ -215,7 +233,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 600; line-hei
 .addon-icon { width: 56px; height: 56px; background: rgba(183,201,168,0.12); color: var(--accent-primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
 .addon-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
 .addon-card p { color: var(--text-main); font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8; }
-.addon-price { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--accent-secondary); }
+.addon-price { font-family: var(--font-subtitle); font-size: 1.5rem; font-weight: 800; color: var(--accent-secondary); }
 .addon-price span { font-size: 0.85rem; font-weight: 400; opacity: 0.7; }
 
 /* ===== BOOKING SECTION ===== */
@@ -266,7 +284,7 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
 .video-placeholder i { width: 48px; height: 48px; color: var(--accent-primary); }
 
 /* ===== HERO LOCATION ===== */
-.hero-location { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--accent-primary); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.hero-location { font-family: var(--font-subtitle); font-size: 1.1rem; font-weight: 600; color: var(--accent-primary); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
 
 /* ===== BOOKING STEPS ===== */
 .booking-steps-section { padding: 7rem 5%; background: var(--bg-card); }
@@ -276,7 +294,7 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
 .faq-container { max-width: 800px; margin: 2rem auto 0; }
 .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
 .faq-item summary {
-  padding: 1.25rem 0; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600;
+  padding: 1.25rem 0; font-family: var(--font-subtitle); font-size: 1.1rem; font-weight: 600;
   color: var(--text-muted); cursor: pointer; list-style: none; display: flex; justify-content: space-between;
   align-items: center; transition: var(--transition);
 }

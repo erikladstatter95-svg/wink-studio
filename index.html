@@ -34,15 +34,19 @@
 </head>
 <body>
 
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <p>¡Reservá ahora! Al hacerlo aceptás nuestros <a href="terminos-y-servicios.html">términos y condiciones</a>.</p>
+  </div>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo"><img src="./imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:48px;border-radius:6px;"></div>
     <ul class="nav-links">
-      <li><a href="#como-funciona">Cómo Funciona</a></li>
-      <li><a href="#galeria">Estudio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#paquetes">Paquetes</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#reservar" class="btn btn-outline-nav">Reservar</a></li>
+      <li><a href="https://cal.com/winkstudio" class="btn btn-outline-nav" target="_blank">Reservar</a></li>
     </ul>
     <div class="mobile-menu-icon" onclick="toggleMenu()"><i data-feather="menu"></i></div>
   </nav>
@@ -51,11 +55,10 @@
   <div class="mobile-nav-overlay" onclick="closeMenu()"></div>
   <div class="mobile-nav-panel">
     <button class="mobile-nav-close" onclick="closeMenu()"><i data-feather="x"></i></button>
-    <a href="#como-funciona" onclick="closeMenu()">Cómo Funciona</a>
-    <a href="#galeria" onclick="closeMenu()">Estudio</a>
+    <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
     <a href="#paquetes" onclick="closeMenu()">Paquetes</a>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
-    <a href="#reservar" onclick="closeMenu()" class="btn btn-primary" style="margin-top:1rem;text-align:center;">Reservar</a>
+    <a href="https://cal.com/winkstudio" target="_blank" onclick="closeMenu()" class="btn btn-primary" style="margin-top:1rem;text-align:center;">Reservar</a>
   </div>
 
   <!-- HERO -->
@@ -67,8 +70,8 @@
       <p class="hero-location reveal delay-1">El primero en San Juan</p>
       <p class="hero-subtitle reveal delay-2">Fotos sin fotógrafo. La opción más económica para tus fotos profesionales.</p>
       <div class="hero-buttons reveal delay-3">
-        <a href="#reservar" class="btn btn-primary">Agendar Sesión</a>
-        <a href="#como-funciona" class="btn btn-secondary"><i data-feather="play-circle"></i> Cómo funciona</a>
+        <a href="https://cal.com/winkstudio" target="_blank" class="btn btn-primary">Agendar Sesión</a>
+        <a href="#nosotros" class="btn btn-secondary"><i data-feather="info"></i> Conocenos</a>
       </div>
       <div class="hero-stats reveal delay-4">
         <div class="stat"><i data-feather="camera"></i> <span>Fotos Ilimitadas</span></div>
@@ -96,56 +99,25 @@
     </div>
   </div>
 
-  <!-- CÓMO FUNCIONA -->
-  <section class="how-it-works" id="como-funciona">
-    <h2 class="section-title text-center reveal">Cómo Funciona</h2>
-    <div class="steps-grid">
-      <div class="step-card reveal delay-1">
-        <div class="step-number">01</div>
-        <div class="step-icon"><i data-feather="eye"></i></div>
-        <h3>Mirá</h3>
-        <p>Olvidate de la cámara. Sos vos y tu reflejo en nuestro espejo grande. Encontrá tu mejor ángulo.</p>
-      </div>
-      <div class="step-card reveal delay-2">
-        <div class="step-number">02</div>
-        <div class="step-icon"><i data-feather="star"></i></div>
-        <h3>Posá</h3>
-        <p>Usá una silla, acercate o sentate en el piso. Explorá y probá diferentes poses a tu ritmo.</p>
-      </div>
-      <div class="step-card reveal delay-3">
-        <div class="step-number">03</div>
-        <div class="step-icon"><i data-feather="mouse-pointer"></i></div>
-        <h3>Click</h3>
-        <p>Presioná el clicker para capturar lo que ves en el espejo. Así de simple.</p>
-      </div>
-      <div class="step-card reveal delay-4">
-        <div class="step-number">04</div>
-        <div class="step-icon"><i data-feather="repeat"></i></div>
-        <h3>Repetí</h3>
-        <p>Podés tomarte todas las fotos que quieras. No hay límites. Cambiate de ropa y seguí disparando.</p>
+  <!-- NOSOTROS -->
+  <section class="about-section" id="nosotros">
+    <div class="about-container reveal">
+      <h2 class="section-title text-center">Presentamos wink™</h2>
+      <p class="about-subtitle text-center">El primer estudio fotográfico de San Juan con iluminación, fondos y cámara pre-ajustados.</p>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Ya sea que quieras fondos claros u oscuros, o una iluminación dramática y colorida: ¡solo tenés que acomodarte frente al espejo y disparar! No necesitas un equipo de fotografía ni experiencia previa, las luces y el fondo cambian para vos.</p>
+          <p><strong>Nuestro estudio D.I.Y. (Do It Yourself) es perfecto para:</strong></p>
+          <ul class="about-list">
+            <li><i data-feather="check-circle"></i> Retratos profesionales y creativos</li>
+            <li><i data-feather="check-circle"></i> Contenido para redes sociales</li>
+            <li><i data-feather="check-circle"></i> Fotos con amigos, pareja o familia</li>
+            <li><i data-feather="check-circle"></i> Egresos y cumpleaños</li>
+            <li><i data-feather="check-circle"></i> Fotos para DNI, set cards para modelos ¡y más!</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- NUESTRO ESTUDIO -->
-  <section class="gallery-section" id="galeria">
-    <h2 class="section-title text-center reveal">Nuestro Estudio</h2>
-    <p class="text-center reveal" style="color:var(--text-muted);max-width:600px;margin:0 auto 2rem;">Equipo profesional y props a tu disposición en un espacio privado y cómodo.</p>
-    <div class="gallery-scroll">
-      <div class="gallery-item reveal-scale delay-1">
-        <img src="./assets/studio_people_shot_1777756815243.png" alt="Sesión grupal"><div class="gallery-label">Sesión Grupal</div>
-      </div>
-      <div class="gallery-item reveal-scale delay-2">
-        <img src="./assets/studio_camera_shot_1777756844994.png" alt="Equipo profesional"><div class="gallery-label">Equipo Profesional</div>
-      </div>
-      <div class="gallery-item reveal-scale delay-3">
-        <img src="./assets/studio_dog_shot_1777756828599.png" alt="Sesión con mascota"><div class="gallery-label">Pet Friendly</div>
-      </div>
-      <div class="gallery-item reveal-scale delay-1">
-        <img src="./assets/studio_people_shot_1777756815243.png" alt="Tu espacio"><div class="gallery-label">Tu Espacio</div>
-      </div>
-    </div>
-    <p class="gallery-hint reveal"><i data-feather="arrow-left" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> Deslizá para ver más <i data-feather="arrow-right" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i></p>
   </section>
 
   <!-- PASO A PASO PARA RESERVAR -->
@@ -182,50 +154,26 @@
   <!-- PAQUETES -->
   <section class="pricing-section" id="paquetes">
     <h2 class="section-title text-center reveal">Nuestros Paquetes</h2>
-    <p class="text-center subtitle-pricing reveal">Reservá con una seña del 50% y completá el pago cuando llegues.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card reveal delay-1">
-        <div class="pricing-header"><h3>Express</h3><div class="price">$30.000 <span class="currency">ARS</span></div><p>20 minutos de sesión</p></div>
-        <ul class="pricing-features">
-          <li><i data-feather="check"></i> Fotos ilimitadas</li>
-          <li><i data-feather="check"></i> Hasta 2 personas</li>
-          <li><i data-feather="check"></i> 1 background</li>
-          <li><i data-feather="check"></i> Medio cuerpo</li>
-          <li><i data-feather="check"></i> Enlace por 14 días</li>
-        </ul>
-        <a href="#reservar" class="btn btn-outline w-100">Seleccionar</a>
-      </div>
-      <div class="pricing-card popular reveal delay-2">
-        <div class="popular-badge">Más Elegido</div>
-        <div class="pricing-header"><h3>Standard</h3><div class="price">$40.000 <span class="currency">ARS</span></div><p>30 minutos de sesión</p></div>
-        <ul class="pricing-features">
-          <li><i data-feather="check"></i> Fotos ilimitadas</li>
-          <li><i data-feather="check"></i> Hasta 4 personas</li>
-          <li><i data-feather="check"></i> 2 backgrounds</li>
-          <li><i data-feather="check"></i> Medio cuerpo</li>
-          <li><i data-feather="check"></i> Enlace por 14 días</li>
-        </ul>
-        <a href="#reservar" class="btn btn-primary w-100">Seleccionar</a>
-      </div>
-      <div class="pricing-card reveal delay-3">
-        <div class="pricing-header"><h3>Premium</h3><div class="price">$75.000 <span class="currency">ARS</span></div><p>60 minutos de sesión</p></div>
-        <ul class="pricing-features">
-          <li><i data-feather="check"></i> Fotos ilimitadas</li>
-          <li><i data-feather="check"></i> Hasta 6 personas</li>
-          <li><i data-feather="check"></i> 3 backgrounds</li>
-          <li><i data-feather="check"></i> Medio cuerpo</li>
-          <li><i data-feather="check"></i> Enlace por 14 días</li>
-        </ul>
-        <a href="#reservar" class="btn btn-outline w-100">Seleccionar</a>
-      </div>
+    <p class="text-center subtitle-pricing reveal">Haciendo clic en las imágenes podés ir directo a agendar tu turno.</p>
+    
+    <div class="pricing-images-grid">
+      <a href="https://cal.com/winkstudio" target="_blank" class="pricing-image-card reveal delay-1">
+        <img src="./imagenes/Sesion%2020%20minutos.jpeg" alt="Sesión 20 minutos">
+      </a>
+      <a href="https://cal.com/winkstudio" target="_blank" class="pricing-image-card reveal delay-2">
+        <img src="./imagenes/Sesion%2030%20minutos.jpeg" alt="Sesión 30 minutos">
+      </a>
+      <a href="https://cal.com/winkstudio" target="_blank" class="pricing-image-card reveal delay-3">
+        <img src="./imagenes/Sesion%2060%20minutos.jpeg" alt="Sesión 60 minutos">
+      </a>
     </div>
+
+    <p class="terms-disclaimer text-center reveal"><em>*Al realizar tu reserva estás aceptando nuestros <a href="terminos-y-servicios.html">Términos y Condiciones</a>.</em></p>
+
     <div class="addons-section reveal">
-      <h3 class="addons-title"><i data-feather="plus-circle"></i> Extras (Add-ons)</h3>
-      <div class="addons-grid">
-        <div class="addon-card"><div class="addon-icon"><i data-feather="user-plus"></i></div><h4>Persona extra</h4><p>Por cada persona que supere el límite de tu paquete.</p><div class="addon-price">+$5.000 <span>c/u</span></div></div>
-        <div class="addon-card"><div class="addon-icon"><i data-feather="image"></i></div><h4>Background extra</h4><p>Sumá más fondos a tu sesión.</p><div class="addon-price">+$8.000 <span>c/u</span></div></div>
-        <div class="addon-card"><div class="addon-icon"><i data-feather="clock"></i></div><h4>10 minutos extra</h4><p>Sujeto a disponibilidad horaria.</p><div class="addon-price">+$10.000</div></div>
-        <div class="addon-card"><div class="addon-icon"><i data-feather="maximize"></i></div><h4>Cuerpo completo</h4><p>Fotos de cuerpo entero con fondo infinito.<br><small style="color: #2f2f2f; font-weight: 600;">*Solo habilitado para sesiones de 30 min o 1 hora.</small></p><div class="addon-price">Consultá</div></div>
+      <h3 class="addons-title text-center" style="margin-bottom: 2rem;">Paquetes Extras</h3>
+      <div class="addons-image-wrapper">
+        <img src="./imagenes/Paquetes%20extras.jpeg" alt="Paquetes Extras" class="addons-image">
       </div>
     </div>
   </section>
@@ -248,20 +196,81 @@
     </div>
   </section>
 
-  <!-- RESERVA -->
+  <!-- RESERVA Y VOUCHER -->
   <section class="booking-section" id="reservar">
     <div class="booking-container reveal" style="grid-template-columns:1fr;text-align:center;max-width:800px;margin:0 auto;padding:4rem 2rem;">
       <i data-feather="smartphone" style="width:48px;height:48px;color:var(--accent-primary);margin-bottom:1.5rem;"></i>
       <h2 class="section-title">Agendá tu Sesión</h2>
       <p style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem;">Abierto todos los días. Reservá online 24/7.</p>
       <p style="color:var(--text-main);margin-bottom:2rem;font-size:1.05rem;">Tocá el botón de abajo para agendar tu turno. Reservá con una seña del 50% y completá el pago cuando llegues.</p>
-      <a href="#" class="btn btn-primary" style="font-size:1.25rem;padding:1rem 3rem;border-radius:999px;" target="_blank">
+      <a href="https://cal.com/winkstudio" class="btn btn-primary" style="font-size:1.25rem;padding:1rem 3rem;border-radius:999px;" target="_blank">
         <i data-feather="calendar" style="margin-right:8px;"></i> Agendar Turno
       </a>
+      
+      <!-- Voucher -->
+      <div class="voucher-box" style="margin-top:4rem; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color);">
+        <i data-feather="gift" style="width:40px;height:40px;color:var(--accent-primary);margin-bottom:1rem;"></i>
+        <h3 style="margin-bottom:1rem; font-size:1.5rem;">¿Querés regalar una experiencia wink?</h3>
+        <p style="color:var(--text-muted); margin-bottom: 1.5rem;">Comprá un voucher de regalo para que esa persona especial disfrute de una sesión de fotos única. Ideal para cumpleaños, aniversarios y momentos especiales.</p>
+        <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20comprar%20un%20Voucher%20de%20Regalo%20para%20una%20sesi%C3%B3n" class="btn btn-outline" target="_blank">
+          <i data-feather="message-circle" style="margin-right:8px;"></i> Comprar por WhatsApp
+        </a>
+      </div>
+
       <div class="disclaimer-alert" style="margin-top:3rem;text-align:left;">
         <i data-feather="check-circle"></i>
         <div><strong>Info útil:</strong> Al confirmar tu seña, tu espacio queda bloqueado y asegurado para vos automáticamente. Pedimos puntualidad ya que tu tiempo corre desde la hora pactada.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <h2 class="section-title text-center reveal">Lo que dicen de wink</h2>
+    <div class="reviews-slider-container reveal">
+      <div class="reviews-track">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Excelente lugar! Muy buena atención y la calidad de las fotos es increíble."</p>
+          <div class="review-author">Valentina</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"La experiencia es súper divertida. El estudio tiene todo lo que necesitás."</p>
+          <div class="review-author">Martín</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Fui con mi perrito y nos trataron de 10. Las fotos salieron hermosas."</p>
+          <div class="review-author">Camila</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Muy original la propuesta para San Juan, súper recomendable para ir con amigas!"</p>
+          <div class="review-author">Sofía</div>
+        </div>
+        <!-- Duplicated for seamless loop -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Excelente lugar! Muy buena atención y la calidad de las fotos es increíble."</p>
+          <div class="review-author">Valentina</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"La experiencia es súper divertida. El estudio tiene todo lo que necesitás."</p>
+          <div class="review-author">Martín</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Fui con mi perrito y nos trataron de 10. Las fotos salieron hermosas."</p>
+          <div class="review-author">Camila</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top: 2rem;">
+      <a href="https://maps.app.goo.gl/8RyxgooN7U9xoorRA" target="_blank" class="btn btn-outline" style="border-radius: 999px;">
+        Ver más en Google Maps
+      </a>
     </div>
   </section>
 
@@ -294,10 +303,10 @@
       <div class="footer-links">
         <h3>Navegación</h3>
         <ul>
-          <li><a href="#como-funciona">Cómo Funciona</a></li>
-          <li><a href="#galeria">Estudio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#paquetes">Precios</a></li>
           <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="https://cal.com/winkstudio" target="_blank">Reservar</a></li>
         </ul>
       </div>
       <div class="footer-links">

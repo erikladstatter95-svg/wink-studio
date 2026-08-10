@@ -339,10 +339,7 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
 
 /* ===== REVIEWS ===== */
 .reviews-section { padding: 7rem 5%; background: var(--bg-card); overflow: hidden; }
-.reviews-slider-container { margin: 3rem auto; max-width: 1200px; position: relative; }
-.reviews-slider-container::before, .reviews-slider-container::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none; }
-.reviews-slider-container::before { left: 0; background: linear-gradient(to right, var(--bg-card), transparent); }
-.reviews-slider-container::after { right: 0; background: linear-gradient(to left, var(--bg-card), transparent); }
+.reviews-slider-container { margin: 3rem auto; max-width: 1200px; position: relative; overflow: hidden; }
 
 .reviews-track { display: flex; width: max-content; animation: scroll-reviews 30s linear infinite; gap: 2rem; padding: 1rem 0; }
 .reviews-track:hover { animation-play-state: paused; }

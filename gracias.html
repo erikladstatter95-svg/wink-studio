@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Gracias por tu compra! | Descarga tu Guía de Poses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="./imagenes/logo%20chico%202.jpg">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./guia-poses.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    .thankyou-page {
+      background: var(--bg-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .thankyou-container {
+      max-width: 750px;
+      margin: 3rem auto 5rem;
+      padding: 0 5%;
+      width: 100%;
+      flex-grow: 1;
+    }
+    .thankyou-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2.5rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .status-icon-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .status-approved .status-icon-box {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .status-pending .status-icon-box {
+      background: #fff8e1;
+      color: #f57f17;
+    }
+    .status-rejected .status-icon-box {
+      background: #ffebee;
+      color: #c62828;
+    }
+    .status-icon-box svg {
+      width: 44px;
+      height: 44px;
+    }
+    .thankyou-title {
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-subtitle);
+    }
+    .thankyou-subtitle {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .download-timer-box {
+      background: #fff9f0;
+      border: 2px dashed var(--text-main);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+      color: #444;
+    }
+    .download-timer-box strong {
+      color: #c62828;
+      font-family: monospace;
+      font-size: 1.3rem;
+    }
+    .download-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 450px;
+      margin: 0 auto 2.5rem;
+    }
+    .btn-download {
+      background: #2e7d32;
+      color: #fff;
+      border-color: #2e7d32;
+      font-size: 1.2rem;
+      padding: 1.1rem 2rem;
+      box-shadow: 0 8px 25px rgba(46,125,50,0.3);
+    }
+    .btn-download:hover {
+      background: #1b5e20;
+      border-color: #1b5e20;
+      transform: translateY(-2px);
+    }
+    .order-summary-box {
+      background: var(--bg-dark);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      text-align: left;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+    .order-summary-box h4 {
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    .order-summary-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .order-summary-box li {
+      padding: 0.3rem 0;
+      color: #444;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(0,0,0,0.08);
+    }
+    .order-summary-box li:last-child {
+      border-bottom: none;
+    }
+    .support-box {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body class="thankyou-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar funnel-nav">
+    <a href="index.html" class="logo"><img src="./imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:44px;border-radius:6px;"></a>
+    <div>
+      <a href="index.html" class="btn btn-outline btn-sm">Volver al Inicio</a>
+    </div>
+  </nav>
+
+  <main class="thankyou-container">
+    
+    <!-- ESTADO: APROBADO (DEFAULT / SUCCESS) -->
+    <div class="thankyou-card status-approved" id="status-card-approved">
+      <div class="status-icon-box">
+        <i data-feather="check-circle"></i>
+      </div>
+      <h1 class="thankyou-title">¡Pago Aprobado con Éxito!</h1>
+      <p class="thankyou-subtitle">Ya tenés acceso inmediato a tu <strong>Guía de Poses Fotográficas</strong>.</p>
+
+      <div class="download-timer-box">
+        <i data-feather="clock" style="color:var(--text-main);"></i>
+        <div>
+          <span>Tu enlace de descarga seguro expira en: </span>
+          <strong id="expire-timer">14:59</strong>
+        </div>
+      </div>
+
+      <div class="download-actions">
+        <a href="#" id="download-file-btn" class="btn btn-download btn-lg pulse-btn" onclick="triggerDownload(event)">
+          <i data-feather="download"></i> Descargar Guía en PDF Ahora
+        </a>
+        <p style="font-size:0.85rem;color:#777;"><i data-feather="smartphone"></i> Compatible con teléfonos iOS y Android, tablets y PC.</p>
+      </div>
+
+      <div class="order-summary-box">
+        <h4>Resumen de tu pedido</h4>
+        <ul>
+          <li><span>Producto:</span> <strong id="summary-product">Guía Visual de Poses (Ebook Digital)</strong></li>
+          <li><span>Email de entrega:</span> <strong id="summary-email">Registrado en checkout</strong></li>
+          <li><span>ID de Transacción:</span> <strong id="summary-id">#WNK-847291</strong></li>
+          <li><span>Estado:</span> <strong style="color:#2e7d32;">Aprobado · Listo para descargar</strong></li>
+        </ul>
+      </div>
+
+      <div class="support-box">
+        <p>¿Tuviste algún inconveniente o querés hacer una consulta?</p>
+        <a href="https://wa.me/5492645185359?text=Hola,%20acabo%20de%20comprar%20la%20Guia%20de%20Poses%20y%20tengo%20una%20consulta" target="_blank" class="btn btn-outline btn-sm" style="margin-top:0.75rem;">
+          <i data-feather="message-circle"></i> Soporte por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ESTADO: PENDIENTE -->
+    <div class="thankyou-card status-pending" id="status-card-pending" style="display:none;">
+      <div class="status-icon-box">
+        <i data-feather="clock"></i>
+      </div>
+      <h1 class="thankyou-title">Tu pago está en proceso</h1>
+      <p class="thankyou-subtitle">Mercado Pago está acreditando tu pago. Te enviaremos el enlace de descarga a tu email en cuanto se confirme.</p>
+      <div class="support-box" style="margin-top:2rem;">
+        <a href="https://wa.me/5492645185359?text=Hola,%20mi%20pago%20de%20la%20Guia%20de%20Poses%20figura%20pendiente" target="_blank" class="btn btn-primary btn-sm">
+          <i data-feather="message-circle"></i> Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- ESTADO: RECHAZADO / FALLO -->
+    <div class="thankyou-card status-rejected" id="status-card-rejected" style="display:none;">
+      <div class="status-icon-box">
+        <i data-feather="alert-circle"></i>
+      </div>
+      <h1 class="thankyou-title">El pago no pudo completarse</h1>
+      <p class="thankyou-subtitle">No se realizó ningún cobro. Podés reintentar con otro medio de pago o tarjeta.</p>
+      <div class="download-actions" style="margin-top:2rem;">
+        <a href="guia-poses.html#precios" class="btn btn-primary btn-lg">
+          <i data-feather="refresh-cw"></i> Reintentar Pago
+        </a>
+      </div>
+      <div class="support-box">
+        <a href="https://wa.me/5492645185359?text=Hola,%20tuve%20un%20problema%20al%20pagar%20la%20Guia%20de%20Poses" target="_blank" class="btn btn-outline btn-sm">
+          <i data-feather="message-circle"></i> Ayuda por WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="funnel-footer text-center">
+    <p>&copy; 2026 wink. Todos los derechos reservados. San Juan, Argentina.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof feather !== 'undefined') feather.replace();
+
+      // Read URL Query Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const status = urlParams.get('collection_status') || urlParams.get('status') || 'approved';
+      const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id') || 'WNK-' + Math.floor(100000 + Math.random() * 900000);
+      const pkg = urlParams.get('package') || 'esencial';
+      const email = urlParams.get('email');
+
+      // Card visibility based on status
+      const cardApproved = document.getElementById('status-card-approved');
+      const cardPending = document.getElementById('status-card-pending');
+      const cardRejected = document.getElementById('status-card-rejected');
+
+      if (status === 'rejected' || status === 'failure' || status === 'null') {
+        if (cardApproved) cardApproved.style.display = 'none';
+        if (cardPending) cardPending.style.display = 'none';
+        if (cardRejected) cardRejected.style.display = 'block';
+      } else if (status === 'pending' || status === 'in_process') {
+        if (cardApproved) cardApproved.style.display = 'none';
+        if (cardPending) cardPending.style.display = 'block';
+        if (cardRejected) cardRejected.style.display = 'none';
+      } else {
+        // Approved status
+        if (cardApproved) cardApproved.style.display = 'block';
+        if (cardPending) cardPending.style.display = 'none';
+        if (cardRejected) cardRejected.style.display = 'none';
+
+        // Update summary
+        const summaryId = document.getElementById('summary-id');
+        const summaryProduct = document.getElementById('summary-product');
+        const summaryEmail = document.getElementById('summary-email');
+
+        if (summaryId) summaryId.textContent = '#' + paymentId;
+        if (summaryProduct) summaryProduct.textContent = pkg === 'vip' ? 'Pack VIP + Parejas & Marcas' : 'Pack Esencial - Guía de Poses';
+        if (summaryEmail && email) summaryEmail.textContent = decodeURIComponent(email);
+
+        // Start 15 minute countdown
+        startExpiringTimer();
+      }
+
+      if (typeof feather !== 'undefined') feather.replace();
+    });
+
+    function startExpiringTimer() {
+      const timerEl = document.getElementById('expire-timer');
+      if (!timerEl) return;
+
+      let totalSeconds = 15 * 60; // 15 minutes
+
+      const interval = setInterval(() => {
+        totalSeconds--;
+
+        if (totalSeconds <= 0) {
+          clearInterval(interval);
+          timerEl.textContent = 'EXPIRADO';
+          const downloadBtn = document.getElementById('download-file-btn');
+          if (downloadBtn) {
+            downloadBtn.classList.remove('btn-download');
+            downloadBtn.classList.add('btn-secondary');
+            downloadBtn.innerHTML = '<i data-feather="alert-circle"></i> Enlace Expirado (Pedir Reactivación)';
+            if (typeof feather !== 'undefined') feather.replace();
+          }
+          return;
+        }
+
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        timerEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function triggerDownload(e) {
+      // Simular descarga de PDF o link al archivo
+      alert('¡Comenzando descarga de la Guía de Poses en PDF!\nGuardá el archivo en tu dispositivo para tenerlo siempre a mano.');
+    }
+  </script>
+</body>
+</html>

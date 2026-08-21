@@ -396,8 +396,7 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
 .studio-gallery-wrapper::before { left: 0; background: linear-gradient(to right, var(--bg-dark), transparent); }
 .studio-gallery-wrapper::after { right: 0; background: linear-gradient(to left, var(--bg-dark), transparent); }
 
-.studio-gallery-track { display: flex; width: max-content; animation: scroll-gallery 30s linear infinite; gap: 1rem; }
-.studio-gallery-track:hover { animation-play-state: paused; }
+.studio-gallery-track { display: flex; width: max-content; animation: scroll-gallery 45s linear infinite; gap: 1rem; }
 @keyframes scroll-gallery { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 0.5rem)); } }
 
 .studio-gallery-item { flex: 0 0 auto; width: 260px; aspect-ratio: 4/5; border-radius: var(--radius-md); overflow: hidden; position: relative; }

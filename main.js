@@ -73,3 +73,43 @@ document.addEventListener('click', (e) => {
   const modal = document.getElementById('video-modal');
   if (modal && e.target === modal) closeVideoModal();
 });
+
+// --- Self-Qualification Logic ---
+window.switchQualifyTab = function(tabId) {
+  document.querySelectorAll('.qualify-tab').forEach(btn => btn.classList.remove('active'));
+  const btn = document.getElementById('tab-btn-' + tabId);
+  if (btn) btn.classList.add('active');
+
+  document.querySelectorAll('.qualify-content').forEach(content => content.classList.remove('active'));
+  const panel = document.getElementById('tab-' + tabId);
+  if (panel) panel.classList.add('active');
+};
+
+window.toggleQualifyCheck = function(element, tabId) {
+  element.classList.toggle('checked');
+  
+  const contentPanel = document.getElementById('tab-' + tabId);
+  if (!contentPanel) return;
+  
+  const checkedCount = contentPanel.querySelectorAll('.qualify-item.checked').length;
+  const totalCount = contentPanel.querySelectorAll('.qualify-item').length;
+  
+  const progressFill = contentPanel.querySelector('.qualify-progress-fill');
+  const progressText = contentPanel.querySelector('.qualify-progress-text');
+  
+  if (progressFill) {
+    const percentage = (checkedCount / totalCount) * 100;
+    progressFill.style.width = percentage + '%';
+  }
+  
+  const threshold = 3;
+  if (checkedCount >= threshold) {
+    if (progressText) progressText.textContent = "¡Tenés mucha afinidad con Wink!";
+    const cta = contentPanel.querySelector('.qualify-cta');
+    if (cta) cta.classList.add('visible');
+  } else {
+    if (progressText) progressText.textContent = "Tildá al menos " + threshold + " para ver tu resultado";
+    const cta = contentPanel.querySelector('.qualify-cta');
+    if (cta) cta.classList.remove('visible');
+  }
+};

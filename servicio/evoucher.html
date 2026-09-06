@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -260,8 +260,8 @@
           <label>Paquete de sesión:</label>
           <select id="session-plan" class="form-select">
             <option value="20" data-time="20 minutos" data-people="1-2 personas" data-funds="1 fondo">Sesión 20 min ($30.000) · 1-2 personas</option>
-            <option value="30" data-time="30 minutos" data-people="1-4 personas" data-funds="1 fondo" selected>Sesión 30 min ($40.000) · 1-4 personas (Recomendado)</option>
-            <option value="60" data-time="60 minutos" data-people="1-6 personas" data-funds="2 fondos">Sesión 60 min ($75.000) · 1-6 personas</option>
+            <option value="30" data-time="30 minutos" data-people="1-4 personas" data-funds="1 fondo" selected>Sesión 30 min ($40.000) · 1-4 personas (Más popular)</option>
+            <option value="60" data-time="60 minutos" data-people="1-6 personas" data-funds="2 fondos">Sesión 60 min ($75.000) · 1-6 personas (Mejor precio)</option>
           </select>
         </div>
 
@@ -284,14 +284,25 @@
               <input type="checkbox" id="addon-time" value="10 min extras">
               <span>10 minutos adicionales (+$10.000)</span>
             </label>
-            <label class="addon-item">
+            <label class="addon-item" id="addon-fund-wrapper">
               <input type="checkbox" id="addon-fund" value="Fondo adicional">
-              <span>Fondo adicional (+$8.000)</span>
+              <span id="addon-fund-label">Fondo adicional (+$8.000)</span>
             </label>
           </div>
         </div>
 
-        <div style="margin-top:2rem;">
+        <!-- TOTAL PRICE SUMMARY -->
+        <div style="background: rgba(183,201,168,0.15); border: 2px solid var(--accent-primary); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-size: 0.9rem; color: #555; display: block;">Total del E-Voucher:</span>
+            <strong style="font-size: 1.7rem; color: var(--text-main); font-family: var(--font-subtitle);" id="total-price-display">$40.000</strong>
+          </div>
+          <div style="font-size: 0.85rem; color: #666; text-align: right;">
+            Pago único anticipado
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem;">
           <button id="btn-request-wa" class="btn btn-primary" style="width:100%;font-size:1.15rem;padding:1rem;">
             <i data-feather="message-circle"></i> Solicitar Voucher por WhatsApp
           </button>
@@ -307,8 +318,8 @@
           <!-- Columna izquierda -->
           <div class="voucher-left">
             <div class="voucher-meta">
-              <p><strong>Código:</strong> <span id="v-code">WINKREGALO63Y32</span></p>
               <p><strong>Para:</strong> <span id="v-for">Amiga Especial</span></p>
+              <p><strong>WhatsApp:</strong> +54 9 264 518-5359</p>
               <p><strong>Instagram:</strong> @winkfoto</p>
               <p><strong>Ubicación:</strong> Bartolomé Mitre Oeste 2735</p>
             </div>
@@ -335,6 +346,7 @@
               <div class="voucher-highlight-text" id="v-time-title">30 minutos gratis</div>
             </div>
             <p class="voucher-tagline">El primero en San Juan.<br>Fotos sin Fotógrafo.<br>Solo vos, la cámara y el control.</p>
+            <p style="font-size: 0.72rem; color: #ffe099; font-weight: 600; margin-top: 0.4rem; letter-spacing: 0.5px;">Válido por 60 días desde la compra</p>
           </div>
         </div>
       </div>
@@ -369,13 +381,16 @@
 
   <script src="../main.js"></script>
   <script>
-    // Lógica interactiva del E-Voucher en vivo
+    // Lógica interactiva del E-Voucher en vivo con cálculo de precios
     const recipientInput = document.getElementById('recipient-name');
     const sessionPlanSelect = document.getElementById('session-plan');
     const framingSelect = document.getElementById('framing-type');
     const addonPet = document.getElementById('addon-pet');
     const addonTime = document.getElementById('addon-time');
     const addonFund = document.getElementById('addon-fund');
+    const addonFundWrapper = document.getElementById('addon-fund-wrapper');
+    const addonFundLabel = document.getElementById('addon-fund-label');
+    const totalPriceDisplay = document.getElementById('total-price-display');
 
     const vFor = document.getElementById('v-for');
     const vTimeTitle = document.getElementById('v-time-title');
@@ -385,22 +400,50 @@
     const vAddons = document.getElementById('v-addons');
     const btnWa = document.getElementById('btn-request-wa');
 
+    // Tarifas base
+    const basePrices = {
+      '20': 30000,
+      '30': 40000,
+      '60': 75000
+    };
+
     function updateVoucher() {
-      // Nombre
+      // Destinatario
       vFor.textContent = recipientInput.value.trim() || 'Alguien Especial';
 
       // Plan seleccionado
+      const planVal = sessionPlanSelect.value;
       const selectedOption = sessionPlanSelect.options[sessionPlanSelect.selectedIndex];
       const time = selectedOption.dataset.time;
       const people = selectedOption.dataset.people;
       const funds = selectedOption.dataset.funds;
 
-      vTimeTitle.textContent = `${time} de regalo`;
+      vTimeTitle.textContent = `${time} gratis`;
       vPeople.textContent = `• ${people}`;
-      vFunds.textContent = `• ${funds} a elección`;
 
-      // Encuadre (Medio cuerpo vs Cuerpo completo)
+      // Manejo de fondos: el estudio cuenta con 2 fondos en total
+      // En 60 min ya están incluidos ambos fondos, no se puede agregar otro fondo
+      if (planVal === '60') {
+        addonFund.checked = false;
+        addonFund.disabled = true;
+        addonFundWrapper.style.opacity = '0.5';
+        addonFundWrapper.style.cursor = 'not-allowed';
+        addonFundLabel.textContent = '2 fondos ya incluidos (máximo del estudio)';
+        vFunds.textContent = '• 2 Fondos incluidos';
+      } else {
+        addonFund.disabled = false;
+        addonFundWrapper.style.opacity = '1';
+        addonFundWrapper.style.cursor = 'pointer';
+        addonFundLabel.textContent = 'Fondo adicional (+$8.000)';
+        vFunds.textContent = addonFund.checked ? '• 2 Fondos a elección' : '• 1 Fondo a elección';
+      }
+
+      // Cálculo de precio
+      let total = basePrices[planVal] || 40000;
+
+      // Encuadre
       if (framingSelect.value === 'completo') {
+        total += 10000;
         vFraming.textContent = '• Fotos de cuerpo completo';
       } else {
         vFraming.textContent = '• Fotos de medio cuerpo';
@@ -408,9 +451,18 @@
 
       // Addons
       const addons = [];
-      if (addonPet.checked) addons.push('Mascota');
-      if (addonTime.checked) addons.push('10m extra');
-      if (addonFund.checked) addons.push('Fondo extra');
+      if (addonPet.checked) {
+        total += 10000;
+        addons.push('Mascota');
+      }
+      if (addonTime.checked) {
+        total += 10000;
+        addons.push('10m extra');
+      }
+      if (addonFund.checked && planVal !== '60') {
+        total += 8000;
+        addons.push('Fondo extra');
+      }
 
       if (addons.length > 0) {
         vAddons.textContent = `• Extras: ${addons.join(', ')}`;
@@ -419,11 +471,16 @@
         vAddons.style.display = 'none';
       }
 
-      // Actualizar enlace WhatsApp
+      // Formatear precio total en pesos argentinos
+      const formattedTotal = '$' + total.toLocaleString('es-AR');
+      totalPriceDisplay.textContent = formattedTotal;
+
+      // Actualizar enlace WhatsApp con mayúsculas y precio total
       const recipient = recipientInput.value.trim() || 'Alguien Especial';
       const framingText = framingSelect.value === 'completo' ? 'Cuerpo completo' : 'Medio cuerpo';
       const extrasText = addons.length > 0 ? ` con extras: ${addons.join(', ')}` : '';
-      const waMsg = `Hola! Quisiera regalar un E-Voucher de Wink para ${recipient}: Sesión de ${time} (${people}, encuadre ${framingText}${extrasText}). ¿Cómo podemos coordinar el pago?`;
+      const waMsg = `Hola! Quisiera regalar un E-Voucher de Wink para ${recipient}: Sesión de ${time} (${people}, encuadre ${framingText}${extrasText}). Precio total: ${formattedTotal}. ¿Cómo podemos coordinar el pago?`;
+      
       btnWa.onclick = () => {
         window.open(`https://wa.me/5492645185359?text=${encodeURIComponent(waMsg)}`, '_blank');
       };

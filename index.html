@@ -58,7 +58,13 @@
     <div class="logo"><img src="./imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:48px;border-radius:6px;"></div>
     <ul class="nav-links">
       <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#servicios">Servicios</a></li>
+      <li class="nav-item-dropdown">
+        <a href="#servicios" class="nav-dropdown-toggle">Servicios <i data-feather="chevron-down"></i></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="#servicios">Sesiones en Estudio</a></li>
+          <li><a href="servicio/evoucher.html">Regalar E-Voucher</a></li>
+        </ul>
+      </li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="https://cal.com/winkstudio" class="btn btn-outline-nav" target="_blank">Reservar</a></li>
     </ul>
@@ -71,6 +77,9 @@
     <button class="mobile-nav-close" onclick="closeMenu()"><i data-feather="x"></i></button>
     <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
     <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <div class="mobile-dropdown-sub">
+      <a href="servicio/evoucher.html" onclick="closeMenu()">• Regalar E-Voucher</a>
+    </div>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="https://cal.com/winkstudio" target="_blank" onclick="closeMenu()" class="btn btn-primary" style="margin-top:1rem;text-align:center;">Reservar</a>
   </div>
@@ -370,8 +379,9 @@
 
       <!-- Paquete 60 Minutos -->
       <div class="pricing-text-card">
+        <div class="best-value-badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-primary); color: #2f2f2f; padding: 4px 16px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Mejor precio</div>
         <div class="pricing-card-header">
-          <h3>60 minutos</h3>
+          <h3>60 minutos <span style="font-size:1rem;font-weight:600;color:var(--accent-primary);display:block;margin-top:0.25rem;">(Mejor precio)</span></h3>
           <div class="price" style="font-size:2.5rem;font-weight:800;color:var(--text-main);margin-top:0.5rem;">$75.000</div>
         </div>
         <ul class="pricing-card-features">
@@ -388,7 +398,7 @@
       <div class="pricing-text-card highlight">
         <div class="popular-badge">Más popular</div>
         <div class="pricing-card-header">
-          <h3>30 minutos</h3>
+          <h3>30 minutos <span style="font-size:1rem;font-weight:600;color:var(--text-main);display:block;margin-top:0.25rem;">(Más popular)</span></h3>
           <div class="price" style="font-size:2.5rem;font-weight:800;color:var(--text-main);margin-top:0.5rem;">$40.000</div>
         </div>
         <ul class="pricing-card-features">
@@ -456,7 +466,7 @@
             <li><i data-feather="check"></i> Cotización según horas y distancia</li>
             <li><i data-feather="check"></i> Asistencia y coordinación técnica</li>
           </ul>
-          <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20que%20wink%20venga%20a%20mi%20evento" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
+          <a href="https://wa.me/5492645185359?text=Quisiera%20un%20presupuesto%20para%20que%20Wink%20venga%20a%20mi%20evento" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
             <i data-feather="message-circle"></i> Pedir presupuesto
           </a>
         </div>
@@ -477,7 +487,7 @@
             <li><i data-feather="check"></i> Podés traer tu propia comida y bebida</li>
             <li><i data-feather="check"></i> Alquiler con o sin servicio de self photo</li>
           </ul>
-          <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20wink" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
+          <a href="https://wa.me/5492645185359?text=Quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20Wink" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
             <i data-feather="message-circle"></i> Consultar disponibilidad
           </a>
         </div>
@@ -498,9 +508,14 @@
             <li><i data-feather="check"></i> Cupón digital con código exclusivo</li>
             <li><i data-feather="check"></i> Válido para usar cuando quieran</li>
           </ul>
-          <a href="https://wa.me/5492645185359?text=quisiera%20regalar%20un%20e%20voucher" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
-            <i data-feather="message-circle"></i> Comprar E-Voucher
-          </a>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="https://wa.me/5492645185359?text=Quisiera%20regalar%20un%20E-Voucher" target="_blank" class="btn btn-outline pricing-btn" style="flex: 1; min-width: 130px; border-color: #25D366; color: #25D366; padding: 0.8rem 0.5rem; font-size: 0.95rem;">
+              <i data-feather="message-circle"></i> WhatsApp
+            </a>
+            <a href="servicio/evoucher.html" class="btn btn-primary pricing-btn" style="flex: 1; min-width: 130px; padding: 0.8rem 0.5rem; font-size: 0.95rem;">
+              <i data-feather="sliders"></i> Personalizar
+            </a>
+          </div>
         </div>
 
       </div>
@@ -607,9 +622,14 @@
         <i data-feather="gift" style="width:40px;height:40px;color:var(--accent-primary);margin-bottom:1rem;"></i>
         <h3 style="margin-bottom:1rem;font-size:1.5rem;">¿Querés regalar una experiencia wink?</h3>
         <p style="color:var(--text-muted);margin-bottom:1.5rem;">Comprá un voucher de regalo para que esa persona especial disfrute de una sesión única. Ideal para cumpleaños, aniversarios y momentos especiales.</p>
-        <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20comprar%20un%20Voucher%20de%20Regalo%20para%20una%20sesi%C3%B3n" class="btn btn-outline" target="_blank">
-          <i data-feather="message-circle" style="margin-right:8px;"></i> Comprar por WhatsApp
-        </a>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20comprar%20un%20Voucher%20de%20Regalo%20para%20una%20sesi%C3%B3n" class="btn btn-outline" target="_blank">
+            <i data-feather="message-circle" style="margin-right:8px;"></i> Comprar por WhatsApp
+          </a>
+          <a href="servicio/evoucher.html" class="btn btn-primary">
+            <i data-feather="sliders" style="margin-right:8px;"></i> Personalizar Voucher
+          </a>
+        </div>
       </div>
 
       <div class="disclaimer-alert" style="margin-top:3rem;text-align:left;">

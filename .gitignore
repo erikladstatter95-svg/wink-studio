@@ -1,2 +1,18 @@
 node_modules/
 .DS_Store
+
+# Archivos internos / no públicos
+Cosas a realizar.txt
+Self studio.txt
+Studio Membership.pdf
+bocetos-finales.html
+bocetos-otono.html
+bocetos-terracota.html
+propuestas-wink.html
+index-rust.html
+style-rust.css
+
+# Documentos fiscales / privados
+Studio Membership.pdf
+imagenes/ARCA*.pdf
+Cosas a realizar.txt

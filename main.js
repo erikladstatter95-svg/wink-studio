@@ -34,6 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof feather !== 'undefined') {
     feather.replace();
   }
+
+  // --- Dropdown Toggle on Click (Desktop) ---
+  const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  const dropdownItem = document.querySelector('.nav-item-dropdown');
+  if (dropdownToggle && dropdownItem) {
+    dropdownToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownItem.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdownItem.contains(e.target)) {
+        dropdownItem.classList.remove('active');
+      }
+    });
+  }
+
+  // --- Dropdown Toggle on Click (Mobile) ---
+  const mobileToggleRow = document.querySelector('.mobile-nav-toggle-row');
+  const mobileDropdownSub = document.querySelector('.mobile-dropdown-sub');
+  if (mobileToggleRow && mobileDropdownSub) {
+    mobileToggleRow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileToggleRow.classList.toggle('active');
+      mobileDropdownSub.classList.toggle('active');
+    });
+  }
 });
 
 // --- Mobile Menu ---

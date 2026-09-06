@@ -3,8 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJ8W95LGLW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJ8W95LGLW');
+  </script>
+
   <title>Wink Self Photo Studio San Juan | Fotos Sin Fotógrafo</title>
   <meta name="description" content="El primer estudio de fotos autogestionado en San Juan. Sesiones privadas, fotos ilimitadas, entrega digital en 2-3 días. Ideal para parejas, amigos, marcas y mascotas." />
+  <link rel="canonical" href="https://winkstudioar.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://winkstudioar.com/" />
+  <meta property="og:title" content="Wink Self Photo Studio San Juan | Fotos Sin Fotógrafo" />
+  <meta property="og:description" content="El primer estudio de fotos autogestionado en San Juan. Fotos profesionales sin fotógrafo: cero vergüenza, 100% vos." />
+  <meta property="og:image" content="https://winkstudioar.com/imagenes/logo%20oficial%202.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://winkstudioar.com/" />
+  <meta name="twitter:title" content="Wink Self Photo Studio San Juan | Fotos Sin Fotógrafo" />
+  <meta name="twitter:description" content="El primer estudio de fotos autogestionado en San Juan. Fotos profesionales sin fotógrafo: cero vergüenza, 100% vos." />
+  <meta name="twitter:image" content="https://winkstudioar.com/imagenes/logo%20oficial%202.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -39,10 +65,11 @@
       "@type": "PostalAddress",
       "streetAddress": "Bartolomé Mitre Oeste 2735",
       "addressLocality": "San Juan",
+      "addressRegion": "San Juan",
       "addressCountry": "AR"
     },
     "telephone": "+5492645185359",
-    "url": "https://wink-studio.erikladstatter95.workers.dev/"
+    "url": "https://winkstudioar.com/"
   }
   </script>
 </head>
@@ -59,10 +86,12 @@
     <ul class="nav-links">
       <li><a href="#nosotros">Nosotros</a></li>
       <li class="nav-item-dropdown">
-        <a href="#servicios" class="nav-dropdown-toggle">Servicios <i data-feather="chevron-down"></i></a>
+        <button type="button" class="nav-dropdown-toggle">
+          Servicios <span class="nav-dropdown-arrow"><i data-feather="chevron-down"></i></span>
+        </button>
         <ul class="nav-dropdown-menu">
           <li><a href="#servicios">Sesiones en Estudio</a></li>
-          <li><a href="servicio/evoucher.html">Regalar E-Voucher</a></li>
+          <li><a href="servicio/evoucher">Regalar E-Voucher</a></li>
         </ul>
       </li>
       <li><a href="#faq">FAQ</a></li>
@@ -76,9 +105,13 @@
   <div class="mobile-nav-panel">
     <button class="mobile-nav-close" onclick="closeMenu()"><i data-feather="x"></i></button>
     <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
-    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <div class="mobile-nav-toggle-row">
+      <span>Servicios</span>
+      <i data-feather="chevron-down"></i>
+    </div>
     <div class="mobile-dropdown-sub">
-      <a href="servicio/evoucher.html" onclick="closeMenu()">• Regalar E-Voucher</a>
+      <a href="#servicios" onclick="closeMenu()">• Sesiones en Estudio</a>
+      <a href="servicio/evoucher" onclick="closeMenu()">• Regalar E-Voucher</a>
     </div>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="https://cal.com/winkstudio" target="_blank" onclick="closeMenu()" class="btn btn-primary" style="margin-top:1rem;text-align:center;">Reservar</a>
@@ -512,7 +545,7 @@
             <a href="https://wa.me/5492645185359?text=Quisiera%20regalar%20un%20E-Voucher" target="_blank" class="btn btn-outline pricing-btn" style="flex: 1; min-width: 130px; border-color: #25D366; color: #25D366; padding: 0.8rem 0.5rem; font-size: 0.95rem;">
               <i data-feather="message-circle"></i> WhatsApp
             </a>
-            <a href="servicio/evoucher.html" class="btn btn-primary pricing-btn" style="flex: 1; min-width: 130px; padding: 0.8rem 0.5rem; font-size: 0.95rem;">
+            <a href="servicio/evoucher" class="btn btn-primary pricing-btn" style="flex: 1; min-width: 130px; padding: 0.8rem 0.5rem; font-size: 0.95rem;">
               <i data-feather="sliders"></i> Personalizar
             </a>
           </div>
@@ -626,7 +659,7 @@
           <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20comprar%20un%20Voucher%20de%20Regalo%20para%20una%20sesi%C3%B3n" class="btn btn-outline" target="_blank">
             <i data-feather="message-circle" style="margin-right:8px;"></i> Comprar por WhatsApp
           </a>
-          <a href="servicio/evoucher.html" class="btn btn-primary">
+          <a href="servicio/evoucher" class="btn btn-primary">
             <i data-feather="sliders" style="margin-right:8px;"></i> Personalizar Voucher
           </a>
         </div>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wink va a tus Eventos | Set de Fotos Móvil</title>
+  <meta name="description" content="Llevamos el set completo de Wink Self Photo Studio a tu evento: casamientos, cumpleaños, eventos corporativos y más en San Juan." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/jpeg" href="../imagenes/logo%20chico%202.jpg">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <style>
+    .service-hero {
+      padding: 10rem 5% 5rem;
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+      text-align: center;
+    }
+    .service-hero-title {
+      font-size: 3.5rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+    .service-hero-sub {
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      color: #555;
+    }
+    .service-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .feature-box {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+    .feature-box i {
+      width: 40px;
+      height: 40px;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+    }
+    .pricing-cta-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      border: 2px dashed var(--text-main);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <p>El primer Self Photo Studio de San Juan · <a href="../index.html">Volver a inicio</a></p>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo"><a href="../index.html"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:48px;border-radius:6px;"></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../index.html#servicios">Servicios</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="https://cal.com/winkstudio" class="btn btn-outline-nav" target="_blank">Reservar Estudio</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()"><i data-feather="menu"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="service-hero">
+    <span class="badge">Wink On Tour</span>
+    <h1 class="service-hero-title">Wink va a tus eventos</h1>
+    <p class="service-hero-sub">Llevamos todo nuestro set fotográfico profesional (iluminación, fondo, cámara y control remoto) directo a tu fiesta, casamiento o evento corporativo en San Juan.</p>
+    <div>
+      <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20que%20wink%20venga%20a%20mi%20evento" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:1rem 2.5rem;">
+        <i data-feather="message-circle"></i> Pedir presupuesto por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="service-container">
+    <h2 class="section-title text-center">¿Qué incluye el servicio para eventos?</h2>
+    <p class="text-center" style="color: #666; max-width: 650px; margin: 0 auto 2rem;">Una experiencia interactiva y divertida donde cada invitado puede tomarse fotos de calidad profesional con total soltura.</p>
+
+    <div class="feature-grid">
+      <div class="feature-box">
+        <i data-feather="camera"></i>
+        <h3>Set Completo Profesional</h3>
+        <p>Montamos luces de estudio, fondo a elección y cámara configurada para tomas nítidas e instantáneas.</p>
+      </div>
+      <div class="feature-box">
+        <i data-feather="zap"></i>
+        <h3>Fotos Ilimitadas</h3>
+        <p>Tus invitados pueden pasar tantas veces como quieran durante las horas contratadas y disparar a su ritmo con el control.</p>
+      </div>
+      <div class="feature-box">
+        <i data-feather="smile"></i>
+        <h3>Coordinador en el Lugar</h3>
+        <p>Un integrante de nuestro equipo acompaña el evento para el armado, asistencia técnica y cuidado del equipamiento.</p>
+      </div>
+      <div class="feature-box">
+        <i data-feather="download"></i>
+        <h3>Galería Digital Completa</h3>
+        <p>Te entregamos todas las fotos en alta resolución en un link descargable para que vos y tus invitados las guarden.</p>
+      </div>
+    </div>
+
+    <!-- PRESUPUESTO PERSONALIZADO -->
+    <div class="pricing-cta-card">
+      <h3 style="font-size:2rem;margin-bottom:1rem;color:var(--text-main);">Cotización Personalizada</h3>
+      <p style="color:#666;max-width:600px;margin:0 auto 1.5rem;line-height:1.7;">El valor final se adapta a la cantidad de horas del servicio, la ubicación del evento y requerimientos específicos de tu celebración.</p>
+      <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20que%20wink%20venga%20a%20mi%20evento" target="_blank" class="btn btn-primary" style="font-size:1.2rem;padding:1rem 2.5rem;">
+        <i data-feather="message-circle"></i> Coordinar Fecha y Cotización
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="margin-bottom:1rem;"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:60px;border-radius:6px;"></div>
+        <p class="footer-tagline">Self Photo Studio</p>
+        <p>El primer estudio fotográfico autogestionado de San Juan.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#servicios">Servicios</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="https://wa.me/5492645185359" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/winkfoto" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

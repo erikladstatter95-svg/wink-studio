@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de E-Voucher de Regalo | Wink Studio</title>
+  <meta name="description" content="Personalizá y regalá una experiencia fotográfica única en Wink Self Photo Studio San Juan." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/jpeg" href="../imagenes/logo%20chico%202.jpg">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <style>
+    .voucher-creator-section {
+      padding: 9rem 5% 6rem;
+      background: var(--bg-dark);
+      min-height: 100vh;
+    }
+    .creator-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .creator-form {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+    .form-control, .form-select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: #fff;
+      color: #333;
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-primary);
+    }
+    .addon-checkboxes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .addon-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.8rem;
+      background: rgba(217,123,82,0.05);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .addon-item input {
+      accent-color: var(--text-main);
+      width: 16px;
+      height: 16px;
+    }
+    
+    /* VOUCHER CARD LIVE PREVIEW */
+    .preview-container {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .voucher-card {
+      width: 100%;
+      max-width: 620px;
+      aspect-ratio: 16/7.5;
+      background: #b56b45;
+      background: linear-gradient(135deg, #c47650 0%, #a85832 100%);
+      border-radius: 16px;
+      padding: 1.8rem 2.2rem;
+      color: #f7ede2;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .voucher-card::before {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: -50px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .voucher-card::after {
+      content: "";
+      position: absolute;
+      right: 48%;
+      top: 0;
+      bottom: 0;
+      width: 12px;
+      background: rgba(247,237,226,0.15);
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+    .voucher-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1;
+      font-size: 0.85rem;
+    }
+    .voucher-meta p {
+      margin: 0 0 0.2rem;
+      line-height: 1.3;
+      font-size: 0.82rem;
+      opacity: 0.95;
+    }
+    .voucher-includes {
+      margin-top: 0.6rem;
+    }
+    .voucher-includes h5 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #f7ede2;
+    }
+    .voucher-includes ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+    .voucher-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+    }
+    .voucher-brand {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: -1px;
+      color: #f7ede2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 0.2rem;
+    }
+    .voucher-type-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      opacity: 0.9;
+    }
+    .voucher-highlight-box {
+      border: 2px solid #eec07b;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.1);
+      margin-bottom: 0.8rem;
+    }
+    .voucher-highlight-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .voucher-tagline {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      line-height: 1.3;
+    }
+    .barcode-strip {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .creator-layout { grid-template-columns: 1fr; }
+      .voucher-card { padding: 1.5rem; aspect-ratio: auto; min-height: 280px; }
+      .preview-container { position: static; margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <p>El primer Self Photo Studio de San Juan · <a href="../index.html">Volver a inicio</a></p>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo"><a href="../index.html"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:48px;border-radius:6px;"></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../index.html#servicios">Servicios</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="https://cal.com/winkstudio" class="btn btn-outline-nav" target="_blank">Reservar</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()"><i data-feather="menu"></i></div>
+  </nav>
+
+  <!-- CREATOR SECTION -->
+  <section class="voucher-creator-section">
+    <div class="text-center" style="margin-bottom: 3rem;">
+      <span class="badge">E-Gift Voucher</span>
+      <h1 class="section-title">Personalizá tu Voucher de Regalo</h1>
+      <p style="color:var(--text-muted);font-size:1.1rem;">Elegí el tipo de sesión y adicionales. Podés ver el cupón en vivo y solicitarlo por WhatsApp.</p>
+    </div>
+
+    <div class="creator-layout">
+      <!-- FORMULARIO -->
+      <div class="creator-form">
+        <h3 style="font-size:1.4rem;color:var(--text-main);margin-bottom:1.5rem;">Configurar experiencia</h3>
+
+        <div class="form-group">
+          <label>Para quién es el regalo:</label>
+          <input type="text" id="recipient-name" class="form-control" placeholder="Ej: Valentina" value="Amiga Especial">
+        </div>
+
+        <div class="form-group">
+          <label>Paquete de sesión:</label>
+          <select id="session-plan" class="form-select">
+            <option value="20" data-time="20 minutos" data-people="1-2 personas" data-funds="1 fondo">Sesión 20 min ($30.000) · 1-2 personas</option>
+            <option value="30" data-time="30 minutos" data-people="1-4 personas" data-funds="1 fondo" selected>Sesión 30 min ($40.000) · 1-4 personas (Recomendado)</option>
+            <option value="60" data-time="60 minutos" data-people="1-6 personas" data-funds="2 fondos">Sesión 60 min ($75.000) · 1-6 personas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de encuadre fotográfico:</label>
+          <select id="framing-type" class="form-select">
+            <option value="medio" selected>Fotos de medio cuerpo (Estándar)</option>
+            <option value="completo">Fotos de cuerpo completo (+$10.000)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Adicionales extras (opcionales):</label>
+          <div class="addon-checkboxes">
+            <label class="addon-item">
+              <input type="checkbox" id="addon-pet" value="Mascota permitida">
+              <span>Mascota pequeña incluida (+$10.000)</span>
+            </label>
+            <label class="addon-item">
+              <input type="checkbox" id="addon-time" value="10 min extras">
+              <span>10 minutos adicionales (+$10.000)</span>
+            </label>
+            <label class="addon-item">
+              <input type="checkbox" id="addon-fund" value="Fondo adicional">
+              <span>Fondo adicional (+$8.000)</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <button id="btn-request-wa" class="btn btn-primary" style="width:100%;font-size:1.15rem;padding:1rem;">
+            <i data-feather="message-circle"></i> Solicitar Voucher por WhatsApp
+          </button>
+          <p style="text-align:center;font-size:0.85rem;color:#777;margin-top:0.8rem;">Coordinamos el pago de forma simple y te enviamos la tarjeta digital personalizada con su código de activación.</p>
+        </div>
+      </div>
+
+      <!-- PREVIEW DEL VOUCHER -->
+      <div class="preview-container">
+        <h4 style="color:var(--text-main);margin-bottom:1rem;">Vista previa de tu cupón:</h4>
+        
+        <div class="voucher-card" id="voucher-preview">
+          <!-- Columna izquierda -->
+          <div class="voucher-left">
+            <div class="voucher-meta">
+              <p><strong>Código:</strong> <span id="v-code">WINKREGALO63Y32</span></p>
+              <p><strong>Para:</strong> <span id="v-for">Amiga Especial</span></p>
+              <p><strong>Instagram:</strong> @winkfoto</p>
+              <p><strong>Ubicación:</strong> Bartolomé Mitre Oeste 2735</p>
+            </div>
+
+            <div class="voucher-includes">
+              <h5>Incluye:</h5>
+              <ul id="v-list">
+                <li>• Fotos ilimitadas</li>
+                <li>• Atuendos ilimitados</li>
+                <li>• Accesorios disponibles</li>
+                <li id="v-framing">• Fotos de medio cuerpo</li>
+                <li id="v-funds">• 1 Fondo a elección</li>
+                <li id="v-people">• 1 - 4 personas</li>
+                <li id="v-addons" style="color:#ffe099;font-weight:600;"></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Columna derecha -->
+          <div class="voucher-right">
+            <div class="voucher-brand">wink</div>
+            <div class="voucher-type-title">SELF PHOTO STUDIO</div>
+            <div class="voucher-highlight-box">
+              <div class="voucher-highlight-text" id="v-time-title">30 minutos gratis</div>
+            </div>
+            <p class="voucher-tagline">El primero en San Juan.<br>Fotos sin Fotógrafo.<br>Solo vos, la cámara y el control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="margin-bottom:1rem;"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:60px;border-radius:6px;"></div>
+        <p class="footer-tagline">Self Photo Studio</p>
+        <p>El primer estudio fotográfico autogestionado de San Juan.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#servicios">Servicios</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="https://wa.me/5492645185359" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/winkfoto" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+  <script>
+    // Lógica interactiva del E-Voucher en vivo
+    const recipientInput = document.getElementById('recipient-name');
+    const sessionPlanSelect = document.getElementById('session-plan');
+    const framingSelect = document.getElementById('framing-type');
+    const addonPet = document.getElementById('addon-pet');
+    const addonTime = document.getElementById('addon-time');
+    const addonFund = document.getElementById('addon-fund');
+
+    const vFor = document.getElementById('v-for');
+    const vTimeTitle = document.getElementById('v-time-title');
+    const vFraming = document.getElementById('v-framing');
+    const vFunds = document.getElementById('v-funds');
+    const vPeople = document.getElementById('v-people');
+    const vAddons = document.getElementById('v-addons');
+    const btnWa = document.getElementById('btn-request-wa');
+
+    function updateVoucher() {
+      // Nombre
+      vFor.textContent = recipientInput.value.trim() || 'Alguien Especial';
+
+      // Plan seleccionado
+      const selectedOption = sessionPlanSelect.options[sessionPlanSelect.selectedIndex];
+      const time = selectedOption.dataset.time;
+      const people = selectedOption.dataset.people;
+      const funds = selectedOption.dataset.funds;
+
+      vTimeTitle.textContent = `${time} de regalo`;
+      vPeople.textContent = `• ${people}`;
+      vFunds.textContent = `• ${funds} a elección`;
+
+      // Encuadre (Medio cuerpo vs Cuerpo completo)
+      if (framingSelect.value === 'completo') {
+        vFraming.textContent = '• Fotos de cuerpo completo';
+      } else {
+        vFraming.textContent = '• Fotos de medio cuerpo';
+      }
+
+      // Addons
+      const addons = [];
+      if (addonPet.checked) addons.push('Mascota');
+      if (addonTime.checked) addons.push('10m extra');
+      if (addonFund.checked) addons.push('Fondo extra');
+
+      if (addons.length > 0) {
+        vAddons.textContent = `• Extras: ${addons.join(', ')}`;
+        vAddons.style.display = 'block';
+      } else {
+        vAddons.style.display = 'none';
+      }
+
+      // Actualizar enlace WhatsApp
+      const recipient = recipientInput.value.trim() || 'Alguien Especial';
+      const framingText = framingSelect.value === 'completo' ? 'Cuerpo completo' : 'Medio cuerpo';
+      const extrasText = addons.length > 0 ? ` con extras: ${addons.join(', ')}` : '';
+      const waMsg = `Hola! Quisiera regalar un E-Voucher de Wink para ${recipient}: Sesión de ${time} (${people}, encuadre ${framingText}${extrasText}). ¿Cómo podemos coordinar el pago?`;
+      btnWa.onclick = () => {
+        window.open(`https://wa.me/5492645185359?text=${encodeURIComponent(waMsg)}`, '_blank');
+      };
+    }
+
+    recipientInput.addEventListener('input', updateVoucher);
+    sessionPlanSelect.addEventListener('change', updateVoucher);
+    framingSelect.addEventListener('change', updateVoucher);
+    addonPet.addEventListener('change', updateVoucher);
+    addonTime.addEventListener('change', updateVoucher);
+    addonFund.addEventListener('change', updateVoucher);
+
+    updateVoucher();
+  </script>
+</body>
+</html>

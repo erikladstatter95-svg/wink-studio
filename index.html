@@ -50,7 +50,7 @@
 
   <!-- TOP BAR (crema) -->
   <div class="top-bar">
-    <p>📸 El primer Self Photo Studio de San Juan · Sesiones desde $30.000 · <a href="https://cal.com/winkstudio" target="_blank">Reservá tu turno</a></p>
+    <p>El primer Self Photo Studio de San Juan · Sesiones desde $30.000 · <a href="https://cal.com/winkstudio" target="_blank">Reservá tu turno</a></p>
   </div>
 
   <!-- NAVBAR (terracota) -->
@@ -178,35 +178,37 @@
       <p class="text-center studio-gallery-subtitle reveal">Fotos reales de nuestras sesiones</p>
     </div>
     <div class="studio-gallery-wrapper reveal">
-      <div class="studio-gallery-track">
+      <button class="gallery-arrow gallery-prev" id="gallery-prev" aria-label="Foto anterior"><i data-feather="chevron-left"></i></button>
+      <div class="studio-gallery-track" id="gallery-track">
         <!-- Primer set de fotos reales -->
-        <div class="studio-gallery-item"><img src="./imagenes/Alva%20124.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila%2071.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Florencia%20102.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Guada%2058.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Parejas</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Paula%2081.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Zaira%2031.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/celeste%2020.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Amigos</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Delfina%2084.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Guada%205.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Alva%20191.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila21%2013.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila21%203.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Alva%20124.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila%2071.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Florencia%20102.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Guada%2058.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Paula%2081.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Zaira%2031.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/celeste%2020.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Delfina%2084.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Guada%205.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Alva%20191.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila21%2013.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila21%203.jpg" alt="Sesión de fotos en Wink Studio"></div>
         
         <!-- Segundo set duplicado para loop infinito fluido -->
-        <div class="studio-gallery-item"><img src="./imagenes/Alva%20124.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila%2071.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Florencia%20102.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Guada%2058.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Parejas</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Paula%2081.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Zaira%2031.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/celeste%2020.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Amigos</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Delfina%2084.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Guada%205.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Alva%20191.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila21%2013.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
-        <div class="studio-gallery-item"><img src="./imagenes/Camila21%203.jpg" alt="Sesión de fotos en Wink Studio"><div class="gallery-overlay-tag">Retrato</div></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Alva%20124.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila%2071.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Florencia%20102.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Guada%2058.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Paula%2081.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Zaira%2031.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/celeste%2020.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Delfina%2084.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Guada%205.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Alva%20191.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila21%2013.jpg" alt="Sesión de fotos en Wink Studio"></div>
+        <div class="studio-gallery-item"><img src="./imagenes/Camila21%203.jpg" alt="Sesión de fotos en Wink Studio"></div>
       </div>
+      <button class="gallery-arrow gallery-next" id="gallery-next" aria-label="Siguiente foto"><i data-feather="chevron-right"></i></button>
     </div>
   </section>
 
@@ -430,6 +432,77 @@
           <li><span>Mascotas (un perro/gato pequeño)</span> <strong>$10.000</strong></li>
           <li><span>Fotos Cuerpo completo</span> <strong>$10.000</strong></li>
         </ul>
+      </div>
+    </div>
+
+    <!-- NUEVOS SERVICIOS ESPECIALES -->
+    <div class="special-services-section reveal" style="margin-top: 5rem;">
+      <h3 class="addons-title text-center" style="margin-bottom: 2rem;">Servicios Especiales y Eventos</h3>
+      <div class="pricing-text-grid" style="max-width: 1150px;">
+        
+        <!-- Servicio 1: Wink va a tus eventos -->
+        <div class="pricing-text-card">
+          <div class="pricing-card-header">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(183,201,168,0.2); color: var(--text-main); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <i data-feather="truck"></i>
+            </div>
+            <h3 style="font-size: 1.5rem;">Wink va a tus eventos</h3>
+            <div class="price" style="font-size:1.3rem;font-weight:700;color:var(--accent-primary);margin-top:0.5rem;">Precio a coordinar</div>
+          </div>
+          <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; text-align: center;">Armamos nuestro set completo en tu evento para que tus invitados se tomen todas las fotos que quieran.</p>
+          <ul class="pricing-card-features">
+            <li><i data-feather="check"></i> Set profesional en tu locación</li>
+            <li><i data-feather="check"></i> Fotos ilimitadas para invitados</li>
+            <li><i data-feather="check"></i> Cotización según horas y distancia</li>
+            <li><i data-feather="check"></i> Asistencia y coordinación técnica</li>
+          </ul>
+          <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20que%20wink%20venga%20a%20mi%20evento" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
+            <i data-feather="message-circle"></i> Pedir presupuesto
+          </a>
+        </div>
+
+        <!-- Servicio 2: Reserva el estudio para eventos -->
+        <div class="pricing-text-card">
+          <div class="pricing-card-header">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(183,201,168,0.2); color: var(--text-main); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <i data-feather="users"></i>
+            </div>
+            <h3 style="font-size: 1.5rem;">Reserva el estudio</h3>
+            <div class="price" style="font-size:1.3rem;font-weight:700;color:var(--accent-primary);margin-top:0.5rem;">Mínimo 2 horas</div>
+          </div>
+          <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; text-align: center;">Espacio exclusivo para eventos de hasta 15 personas: reuniones íntimas, charlas o festejos.</p>
+          <ul class="pricing-card-features">
+            <li><i data-feather="check"></i> Capacidad hasta 15 personas</li>
+            <li><i data-feather="check"></i> Mínimo de reserva: 2 horas</li>
+            <li><i data-feather="check"></i> Podés traer tu propia comida y bebida</li>
+            <li><i data-feather="check"></i> Alquiler con o sin servicio de self photo</li>
+          </ul>
+          <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20wink" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
+            <i data-feather="message-circle"></i> Consultar disponibilidad
+          </a>
+        </div>
+
+        <!-- Servicio 3: Regala un cupón / E-Voucher -->
+        <div class="pricing-text-card">
+          <div class="pricing-card-header">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(183,201,168,0.2); color: var(--text-main); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <i data-feather="gift"></i>
+            </div>
+            <h3 style="font-size: 1.5rem;">Regalá un E-Voucher</h3>
+            <div class="price" style="font-size:1.3rem;font-weight:700;color:var(--accent-primary);margin-top:0.5rem;">Personalizado</div>
+          </div>
+          <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; text-align: center;">Elegí el servicio con sus extras y regalá una experiencia única. Te enviamos el cupón listo para regalar.</p>
+          <ul class="pricing-card-features">
+            <li><i data-feather="check"></i> Elegís cualquier paquete y addons</li>
+            <li><i data-feather="check"></i> Pago anticipado simple</li>
+            <li><i data-feather="check"></i> Cupón digital con código exclusivo</li>
+            <li><i data-feather="check"></i> Válido para usar cuando quieran</li>
+          </ul>
+          <a href="https://wa.me/5492645185359?text=quisiera%20regalar%20un%20e%20voucher" target="_blank" class="btn btn-outline pricing-btn" style="border-color: #25D366; color: #25D366;">
+            <i data-feather="message-circle"></i> Comprar E-Voucher
+          </a>
+        </div>
+
       </div>
     </div>
   </section>

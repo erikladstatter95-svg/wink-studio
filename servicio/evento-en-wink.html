@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva de Estudio para Eventos | Wink Studio</title>
+  <meta name="description" content="Alquiler del estudio Wink en San Juan para eventos privados de hasta 15 personas: reuniones, charlas, festejos y workshops." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/jpeg" href="../imagenes/logo%20chico%202.jpg">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <style>
+    .venue-hero {
+      padding: 10rem 5% 5rem;
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+      text-align: center;
+    }
+    .venue-title {
+      font-size: 3.5rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+    .venue-sub {
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      color: #555;
+    }
+    .venue-container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin: 3.5rem 0;
+    }
+    .venue-card {
+      background: var(--bg-card);
+      padding: 3rem 2.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .venue-card.highlight {
+      border: 2px solid var(--text-main);
+    }
+    .venue-card h3 {
+      font-size: 1.8rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+    .venue-price-badge {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 1.5rem;
+    }
+    .venue-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      flex-grow: 1;
+    }
+    .venue-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .venue-list li i {
+      color: var(--text-main);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .venue-rules-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      border: 1px dashed rgba(0,0,0,0.15);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <p>El primer Self Photo Studio de San Juan · <a href="../index.html">Volver a inicio</a></p>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo"><a href="../index.html"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:48px;border-radius:6px;"></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../index.html#servicios">Servicios</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="https://cal.com/winkstudio" class="btn btn-outline-nav" target="_blank">Reservar</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()"><i data-feather="menu"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="venue-hero">
+    <span class="badge">Event Venue & Private Hall</span>
+    <h1 class="venue-title">Reserva el estudio para tu evento</h1>
+    <p class="venue-sub">Un espacio íntimo, cálido y privado en San Juan para reuniones de hasta 15 personas. Ideal para festejos íntimos, masterclasses, workshops o encuentros creativos.</p>
+    <div>
+      <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20wink" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:1rem 2.5rem;">
+        <i data-feather="message-circle"></i> Consultar Disponibilidad por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="venue-container">
+    <h2 class="section-title text-center">Modalidades de Alquiler</h2>
+    <p class="text-center" style="color:#666;max-width:650px;margin:0 auto 1.5rem;">Podés reservar el espacio solo para tu reunión o sumarle la experiencia completa de self-photo ilimitada para todos los asistentes.</p>
+
+    <div class="grid-2">
+      <!-- Opción A: Solo Espacio -->
+      <div class="venue-card">
+        <h3>Solo Espacio</h3>
+        <div class="venue-price-badge">Tarifa por hora (Mínimo 2 horas)</div>
+        <p style="color:#666;margin-bottom:1.5rem;font-size:0.95rem;">Uso exclusivo de las instalaciones para tu reunión o actividad sin acceso a la cabina de fotos.</p>
+        <ul class="venue-list">
+          <li><i data-feather="check"></i> Hasta 15 personas cómodas</li>
+          <li><i data-feather="check"></i> Podés traer tu propia comida, torta y bebidas</li>
+          <li><i data-feather="check"></i> Espacio 100% privado y ambientado</li>
+          <li><i data-feather="check"></i> Música a tu gusto y confort</li>
+          <li><i data-feather="x" style="color:#999;"></i> Sin servicio de fotografías</li>
+        </ul>
+        <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20wink%20(solo%20espacio)" target="_blank" class="btn btn-outline" style="width:100%;text-align:center;">
+          Consultar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Opción B: Espacio + Self Photo -->
+      <div class="venue-card highlight">
+        <div style="background:var(--text-main);color:#fff;display:inline-block;padding:3px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;margin-bottom:1rem;width:fit-content;">EXPERIENCIA COMPLETA</div>
+        <h3>Espacio + Self Photo</h3>
+        <div class="venue-price-badge">Tarifa combinada (Mínimo 2 horas)</div>
+        <p style="color:#666;margin-bottom:1.5rem;font-size:0.95rem;">Tu evento con el estudio y la cabina fotográfica funcionando libremente durante la estadía.</p>
+        <ul class="venue-list">
+          <li><i data-feather="check"></i> Hasta 15 personas</li>
+          <li><i data-feather="check"></i> Set de fotografía profesional habilitado</li>
+          <li><i data-feather="check"></i> Fotos ilimitadas para todos los invitados</li>
+          <li><i data-feather="check"></i> Podés ingresar comida y bebida propia</li>
+          <li><i data-feather="check"></i> Entrega de toda la galería digital en 48-72 hs</li>
+        </ul>
+        <a href="https://wa.me/5492645185359?text=quisiera%20un%20presupuesto%20para%20organizar%20mi%20evento%20en%20wink%20(espacio%20+%20self%20photo)" target="_blank" class="btn btn-primary" style="width:100%;text-align:center;">
+          Pedir presupuesto completo
+        </a>
+      </div>
+    </div>
+
+    <!-- REQUISITOS Y DETALLES DEL LUGAR -->
+    <div class="venue-rules-box">
+      <h3 style="font-size:1.6rem;color:var(--text-main);margin-bottom:1.5rem;"><i data-feather="info" style="vertical-align:middle;margin-right:8px;color:var(--accent-primary);"></i> Información Importante del Lugar</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;color:#555;font-size:0.95rem;line-height:1.7;">
+        <div>
+          <strong style="color:var(--text-main);display:block;margin-bottom:0.3rem;">Capacidad y Perfil</strong>
+          Espacio pensado para grupos pequeños y medianos (hasta 15 personas). Ideal para quienes buscan un lugar acogedor y estético sin complicaciones.
+        </div>
+        <div>
+          <strong style="color:var(--text-main);display:block;margin-bottom:0.3rem;">Comidas y Bebidas</strong>
+          Podés ingresar catering frío, snacks, pizzas o bebidas. Tené en cuenta que el estudio no cuenta con cocina ni hornos para cocción en el lugar.
+        </div>
+        <div>
+          <strong style="color:var(--text-main);display:block;margin-bottom:0.3rem;">Horarios y Precios</strong>
+          Los valores varían según día de semana o fin de semana / feriados. Escribinos con la fecha y hora estimada para confirmarte disponibilidad al instante.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="margin-bottom:1rem;"><img src="../imagenes/logo%20oficial%202.jpg" alt="Wink Logo" style="height:60px;border-radius:6px;"></div>
+        <p class="footer-tagline">Self Photo Studio</p>
+        <p>El primer estudio fotográfico autogestionado de San Juan.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#servicios">Servicios</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="https://wa.me/5492645185359" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/winkfoto" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

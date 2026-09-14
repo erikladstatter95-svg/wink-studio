@@ -1,4 +1,10 @@
-﻿User-agent: *
+User-agent: *
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
 Allow: /
 
 Sitemap: https://winkstudioar.com/sitemap.xml

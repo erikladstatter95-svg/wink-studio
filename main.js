@@ -88,6 +88,9 @@ window.closeMenu = function() {
 window.openVideoModal = function() {
   const modal = document.getElementById('video-modal');
   if (modal) modal.classList.add('active');
+  if (typeof trackWinkEvent === 'function') {
+    trackWinkEvent('open_video_modal', { event_category: 'Engagement', event_label: 'Video Hero' });
+  }
 };
 
 window.closeVideoModal = function() {
@@ -133,6 +136,11 @@ window.toggleQualifyCheck = function(element, tabId) {
   if (checkedCount >= threshold) {
     if (progressText) progressText.textContent = "¡Tenés mucha afinidad con Wink!";
     const cta = contentPanel.querySelector('.qualify-cta');
+    if (cta && !cta.classList.contains('visible')) {
+      if (typeof trackWinkEvent === 'function') {
+        trackWinkEvent('affinity_achieved', { event_category: 'Engagement', tab: tabId });
+      }
+    }
     if (cta) cta.classList.add('visible');
   } else {
     if (progressText) progressText.textContent = "Tildá al menos " + threshold + " para ver tu resultado";
@@ -232,3 +240,134 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', handlePointerMove, { passive: true });
   window.addEventListener('touchend', handlePointerUp);
 });
+
+// ==========================================================================
+// --- Google Analytics 4 (GA4) Tracking & UTM Preservation System ---
+// ==========================================================================
+
+function trackWinkEvent(eventName, eventParams = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, eventParams);
+    } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: eventName, ...eventParams });
+    }
+  } catch (err) {
+    console.warn('[Wink Analytics]', err);
+  }
+}
+window.trackWinkEvent = trackWinkEvent;
+
+(() => {
+  // 1. Preservar UTMs de redes sociales e inyectarlas en los links de Cal.com
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentUtms = {};
+  let foundUtm = false;
+
+  utmKeys.forEach(key => {
+    const val = urlParams.get(key);
+    if (val) {
+      currentUtms[key] = val;
+      foundUtm = true;
+    }
+  });
+
+  if (foundUtm) {
+    try {
+      sessionStorage.setItem('wink_utms', JSON.stringify(currentUtms));
+    } catch (e) {}
+  }
+
+  function getStoredUtms() {
+    try {
+      const stored = sessionStorage.getItem('wink_utms');
+      return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function appendUtmsToLinks() {
+    const utms = getStoredUtms();
+    if (!utms || Object.keys(utms).length === 0) return;
+
+    document.querySelectorAll('a[href*="cal.com"]').forEach(link => {
+      try {
+        const url = new URL(link.href, window.location.origin);
+        Object.entries(utms).forEach(([k, v]) => {
+          if (!url.searchParams.has(k)) {
+            url.searchParams.set(k, v);
+          }
+        });
+        link.href = url.toString();
+      } catch (e) {}
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', appendUtmsToLinks);
+  } else {
+    appendUtmsToLinks();
+  }
+
+  // 2. Delegación global de clics para conversiones clave
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+    const text = (link.innerText || link.getAttribute('title') || '').trim().replace(/\s+/g, ' ');
+
+    // Clic en Reservas (Cal.com)
+    if (href.includes('cal.com')) {
+      let plan = 'General';
+      if (href.includes('sesion-de-60-minutos')) plan = 'Sesion 60 min';
+      else if (href.includes('sesion-de-30-minutos')) plan = 'Sesion 30 min';
+      else if (href.includes('sesion-de-20-minutos')) plan = 'Sesion 20 min';
+
+      trackWinkEvent('click_reserva', {
+        event_category: 'Conversion',
+        event_label: text || plan,
+        plan_name: plan,
+        destination_url: href
+      });
+    }
+    // Clic en WhatsApp
+    else if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+      trackWinkEvent('click_whatsapp', {
+        event_category: 'Lead',
+        event_label: text || 'WhatsApp',
+        destination_url: href
+      });
+    }
+    // Clic en Google Maps
+    else if (href.includes('maps.app.goo.gl') || href.includes('google.com/maps')) {
+      trackWinkEvent('click_maps', {
+        event_category: 'Engagement',
+        event_label: text || 'Google Maps',
+        destination_url: href
+      });
+    }
+    // Clic en E-Voucher
+    else if (href.includes('evoucher')) {
+      trackWinkEvent('click_evoucher', {
+        event_category: 'Navigation',
+        event_label: text || 'E-Voucher',
+        destination_url: href
+      });
+    }
+  });
+
+  // 3. Interacción con Preguntas Frecuentes (FAQ)
+  document.addEventListener('toggle', (e) => {
+    if (e.target && e.target.tagName === 'DETAILS' && e.target.open) {
+      const summary = e.target.querySelector('summary');
+      const question = summary ? summary.innerText.trim() : 'FAQ';
+      trackWinkEvent('faq_expand', {
+        event_category: 'Engagement',
+        question: question
+      });
+    }
+  }, true);
+})();

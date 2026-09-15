@@ -245,7 +245,29 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Google Analytics 4 (GA4) Tracking & UTM Preservation System ---
 // ==========================================================================
 
+// Bloqueo de visitas internas del dueño / equipo (Modo Administrador)
+(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('admin')) {
+    const adminVal = urlParams.get('admin');
+    if (adminVal === 'off' || adminVal === 'false') {
+      localStorage.removeItem('wink_admin_mode');
+      console.log('[Wink Analytics] Modo Administrador desactivado. Ahora se registran visitas.');
+    } else {
+      localStorage.setItem('wink_admin_mode', 'true');
+      console.log('[Wink Analytics] Modo Administrador activado. Tus visitas y clics están bloqueados en GA4.');
+    }
+  }
+
+  if (localStorage.getItem('wink_admin_mode') === 'true') {
+    window['ga-disable-G-YJ8W95LGLW'] = true;
+  }
+})();
+
 function trackWinkEvent(eventName, eventParams = {}) {
+  // Si está en modo admin, no enviar eventos para no falsear métricas
+  if (localStorage.getItem('wink_admin_mode') === 'true') return;
+
   try {
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, eventParams);

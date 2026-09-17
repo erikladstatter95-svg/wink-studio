@@ -464,13 +464,6 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.25); }
 }
-@media (max-width: 640px) {
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-  }
-}
 
 /* ===== MODAL ===== */
 .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
@@ -678,6 +671,20 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
   .pricing-text-card.highlight { transform: none; }
   .pricing-text-card.highlight:hover { transform: translateY(-5px); }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  footer {
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+  .footer-credit-pill {
+    display: inline-flex;
+    font-size: 12.5px;
+    padding: 6px 16px;
+  }
   .floating-cta { display: none; } /* hidden on mobile in favor of sticky bar */
   .floating-whatsapp { display: none; } /* hidden on mobile in favor of sticky bar */
   

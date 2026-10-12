@@ -514,7 +514,38 @@ footer { background: var(--bg-card); padding: 4rem 5% 2rem; border-top: 1px soli
   100% { transform: translateX(calc(-50% - 1rem)); }
 }
 
+.embedsocial-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
+  .reviews-section {
+    padding: 4rem 1rem 3rem;
+  }
+  .embedsocial-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .embedsocial-hashtag {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .embedsocial-hashtag iframe {
+    width: 415px !important;
+    min-width: 415px !important;
+    max-width: none !important;
+    transform: scale(min(1, calc((100vw - 32px) / 415)));
+    transform-origin: top center;
+    margin: 0 auto !important;
+    margin-bottom: -60px !important;
+  }
   .review-card { width: 280px; padding: 1.5rem; }
   .reviews-slider-container::before, .reviews-slider-container::after { width: 40px; }
 }

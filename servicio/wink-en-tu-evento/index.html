@@ -127,7 +127,7 @@
       border-left: 6px solid var(--text-main);
       box-shadow: 0 12px 36px rgba(0,0,0,0.06);
       padding: 2.5rem;
-      margin: 2rem 0 4rem;
+      margin: 2rem 0 3.5rem;
     }
     .concept-notice-box h3 {
       font-size: 1.5rem;
@@ -147,79 +147,67 @@
       margin-bottom: 0;
     }
 
-    /* Simulation Showcase */
-    .setup-showcase {
+    /* Equipment Showcase Section (Clean & Minimalist) */
+    .setup-equip-section {
       background: #ffffff;
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.05);
+      padding: 3.5rem 2.5rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.06);
       margin: 3.5rem 0;
+    }
+    .setup-equip-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
+    .setup-equip-header h3 {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+    .setup-equip-header p {
+      color: #666;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+    .setup-equip-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
     }
-    .setup-image-wrap {
-      position: relative;
-      background: #fdf6ee;
-      min-height: 100%;
-    }
-    .setup-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .setup-image-badge {
-      position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      background: rgba(0,0,0,0.75);
-      color: #ffffff;
-      backdrop-filter: blur(6px);
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .setup-details {
-      padding: 3rem 2.5rem;
-    }
-    .setup-details h3 {
-      font-size: 2rem;
-      color: var(--text-main);
-      margin-bottom: 1rem;
-    }
-    .setup-details p {
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-    .setup-equip-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .setup-equip-card {
+      background: #fffaf5;
+      border: 1px solid rgba(217, 123, 82, 0.15);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-    .setup-equip-list li {
-      display: flex;
+      gap: 1rem;
       align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.5;
+      transition: var(--transition);
     }
-    .setup-equip-list li i {
+    .setup-equip-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(217, 123, 82, 0.1);
+      border-color: var(--text-main);
+    }
+    .setup-equip-card i {
       color: var(--text-main);
-      width: 20px;
-      height: 20px;
+      width: 26px;
+      height: 26px;
       flex-shrink: 0;
       margin-top: 2px;
+    }
+    .setup-equip-card h4 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+    .setup-equip-card p {
+      color: #666;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0;
     }
     
     /* Feature Grid */
@@ -265,7 +253,7 @@
       line-height: 1.65;
     }
 
-    /* Event Types */
+    /* Event Types (Without Emojis, Clean SVG/Icons) */
     .event-types-section {
       margin: 4.5rem 0;
       text-align: center;
@@ -278,21 +266,45 @@
     }
     .type-card {
       background: #ffffff;
-      padding: 1.75rem 1.25rem;
+      padding: 2.2rem 1.25rem;
       border-radius: var(--radius-md);
       border: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 6px 18px rgba(0,0,0,0.03);
       text-align: center;
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .type-card:hover {
       border-color: var(--text-main);
       transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(217, 123, 82, 0.1);
     }
-    .type-card .type-emoji {
-      font-size: 2.2rem;
-      margin-bottom: 0.75rem;
-      display: block;
+    .type-icon-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(217, 123, 82, 0.1);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(217, 123, 82, 0.2);
+    }
+    .type-icon-wrap i {
+      width: 24px;
+      height: 24px;
+    }
+    .type-icon-wrap.xv-badge {
+      background: var(--text-main);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      border: none;
+      box-shadow: 0 4px 14px rgba(217, 123, 82, 0.3);
     }
     .type-card h4 {
       font-size: 1.15rem;
@@ -300,7 +312,7 @@
       margin-bottom: 0.4rem;
     }
     .type-card p {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: #666;
       line-height: 1.5;
     }
@@ -410,9 +422,21 @@
       gap: 1.5rem;
       margin: 2rem 0;
     }
-    .bonus-icon {
-      font-size: 2.8rem;
+    .bonus-icon-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--text-main);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(217, 123, 82, 0.3);
+    }
+    .bonus-icon-badge i {
+      width: 28px;
+      height: 28px;
     }
     .bonus-text h4 {
       color: var(--text-main);
@@ -506,14 +530,8 @@
     }
 
     @media (max-width: 900px) {
-      .setup-showcase {
-        grid-template-columns: 1fr;
-      }
-      .setup-image-wrap {
-        min-height: 320px;
-      }
-      .setup-details {
-        padding: 2.25rem 1.75rem;
+      .setup-equip-section {
+        padding: 2.5rem 1.5rem;
       }
       .bonus-box {
         flex-direction: column;
@@ -552,7 +570,7 @@
     <p class="event-hero-sub">Llevamos todo el set profesional directo a tu salón para que tus invitados se saquen fotos a sí mismos con control remoto y las vean al instante en un televisor. Calidad de estudio, fotos ilimitadas y diversión sin vergüenza.</p>
     
     <div class="hero-btn-group">
-      <a href="https://wa.me/5492645185359?text=Hola%20Erik,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:1rem 2.2rem;">
+      <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:1rem 2.2rem;">
         <i data-feather="message-circle"></i> Consultar Fecha por WhatsApp
       </a>
       <a href="#precios" class="btn btn-outline" style="font-size:1.05rem;padding:0.95rem 1.8rem;">
@@ -578,45 +596,62 @@
       <p>Nosotros llevamos e instalamos en tu evento un <strong>rincón fotográfico profesional fijo</strong> con cámara de estudio, iluminación profesional, fondo estético y televisor. Tus invitados se acercan libremente al set, toman el control remoto inalámbrico en sus manos, se miran en pantalla y se sacan todas las fotos que quieran a su propio ritmo: <em>sin miradas extrañas, sin poses incómodas y con total espontaneidad</em>.</p>
     </div>
 
-    <!-- SIMULACIÓN DEL SET Y EQUIPAMIENTO -->
-    <section class="setup-showcase">
-      <div class="setup-image-wrap">
-        <picture>
-          <source srcset="../../imagenes/wink-evento-setup.webp" type="image/webp">
-          <img src="../../imagenes/wink-evento-setup.jpg" alt="Simulación del set de Wink en tu evento con TV, cámara réflex, iluminación y fondo" loading="lazy">
-        </picture>
-        <div class="setup-image-badge"><i data-feather="camera" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i> Set Profesional Wink</div>
-      </div>
-      <div class="setup-details">
-        <span class="badge" style="margin-bottom:0.75rem;">Todo incluido</span>
+    <!-- EL EQUIPAMIENTO DEL SET -->
+    <section class="setup-equip-section">
+      <div class="setup-equip-header">
+        <span class="badge" style="margin-bottom:0.75rem;">Set Completo Profesional</span>
         <h3>¿Qué equipo llevamos a tu fiesta?</h3>
-        <p>Armamos un set de fotos con la misma calidad de nuestro estudio físico, 100% equipado y calibrado:</p>
-        <ul class="setup-equip-list">
-          <li>
-            <i data-feather="camera"></i>
-            <div><strong>Cámara Profesional Calibrada:</strong> Tomas de estudio con nitidez real en alta resolución.</div>
-          </li>
-          <li>
-            <i data-feather="sun"></i>
-            <div><strong>Luz Profesional de Estudio:</strong> Softbox difusor para una iluminación suave y favorecedora.</div>
-          </li>
-          <li>
-            <i data-feather="tv"></i>
-            <div><strong>Televisor en Vivo:</strong> Tus invitados ven cada foto en pantalla en el segundo exacto que se dispara.</div>
-          </li>
-          <li>
-            <i data-feather="radio"></i>
-            <div><strong>Disparador Inalámbrico:</strong> Control remoto en mano para disparar cuando todos estén listos.</div>
-          </li>
-          <li>
-            <i data-feather="image"></i>
-            <div><strong>Fondo Fotográfico:</strong> Telón estético y elegante que viste el salón.</div>
-          </li>
-          <li>
-            <i data-feather="user-check"></i>
-            <div><strong>Coordinador Presencial:</strong> Nosotros estamos todo el tiempo acompañando, cuidando el set y guiando a la gente.</div>
-          </li>
-        </ul>
+        <p>Montamos un set fotográfico con la misma calidad de nuestro estudio físico, 100% equipado y calibrado para que tus invitados disfruten:</p>
+      </div>
+
+      <div class="setup-equip-grid">
+        <div class="setup-equip-card">
+          <i data-feather="camera"></i>
+          <div>
+            <h4>Cámara Profesional Calibrada</h4>
+            <p>Tomas de estudio nítidas en alta resolución con sensor profesional y ópticas calibradas.</p>
+          </div>
+        </div>
+
+        <div class="setup-equip-card">
+          <i data-feather="sun"></i>
+          <div>
+            <h4>Luz Profesional de Estudio</h4>
+            <p>Iluminación de estudio con softbox difusor para una luz suave, pareja y súper favorecedora.</p>
+          </div>
+        </div>
+
+        <div class="setup-equip-card">
+          <i data-feather="tv"></i>
+          <div>
+            <h4>Televisor en Vivo</h4>
+            <p>Conectado a la cámara para que los invitados vean cada foto en pantalla en el instante en que disparan.</p>
+          </div>
+        </div>
+
+        <div class="setup-equip-card">
+          <i data-feather="radio"></i>
+          <div>
+            <h4>Disparador Inalámbrico</h4>
+            <p>Control remoto en mano: cada grupo o persona decide cuándo sonreír y disparar con total libertad.</p>
+          </div>
+        </div>
+
+        <div class="setup-equip-card">
+          <i data-feather="image"></i>
+          <div>
+            <h4>Fondo Fotográfico Estético</h4>
+            <p>Telón profesional de fondo limpio y elegante que viste el rincón y combina con el salón.</p>
+          </div>
+        </div>
+
+        <div class="setup-equip-card">
+          <i data-feather="user-check"></i>
+          <div>
+            <h4>Coordinador Presencial</h4>
+            <p>Un integrante del equipo de Wink está presente durante todo el evento cuidando el equipo y guiando a los invitados.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -646,12 +681,12 @@
         <div class="feature-card">
           <div class="feature-card-icon"><i data-feather="heart"></i></div>
           <h3>Cero vergüenza ni poses forzadas</h3>
-          <p>Al no haber fotógrafo apuntándoles, los invitados se sueltan, juegan con los accesorios y logran fotos genuinas e inolvidables.</p>
+          <p>Al no haber fotógrafo apuntándoles, los invitados se sueltan, juegan y logran fotos genuinas e inolvidables.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon"><i data-feather="smile"></i></div>
           <h3>Atención y coordinación fija</h3>
-          <p>Erik o un integrante de Wink se encuentra presente durante toda la estadía para chequear el equipo y motivar a los invitados.</p>
+          <p>Un integrante del equipo de Wink se encuentra presente durante toda la estadía para chequear el equipo y asistir a los invitados.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon"><i data-feather="gift"></i></div>
@@ -661,7 +696,7 @@
       </div>
     </section>
 
-    <!-- IDEAL PARA CADA EVENTO -->
+    <!-- IDEAL PARA CADA EVENTO (SIN EMOJIS, BADGE XV ELEGANTE) -->
     <section class="event-types-section">
       <h2 class="section-title">Ideal para cualquier celebración</h2>
       <p style="color: #666; max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
@@ -669,27 +704,27 @@
       </p>
       <div class="types-grid">
         <div class="type-card">
-          <span class="type-emoji">👑</span>
+          <div class="type-icon-wrap xv-badge">XV</div>
           <h4>Cumpleaños de 15</h4>
           <p>El boom de las quinceañeras y sus amigos. Fotos estéticas sin parar durante la previa y la cena.</p>
         </div>
         <div class="type-card">
-          <span class="type-emoji">💍</span>
+          <div class="type-icon-wrap"><i data-feather="heart"></i></div>
           <h4>Casamientos</h4>
           <p>El rincón más concurrido de la fiesta. Recuerdos divertidos de amigos y familias enteras.</p>
         </div>
         <div class="type-card">
-          <span class="type-emoji">🎂</span>
+          <div class="type-icon-wrap"><i data-feather="gift"></i></div>
           <h4>Cumples de Adultos</h4>
           <p>Festejos de 18, 30, 40, 50 o más. Risas aseguradas con el control remoto.</p>
         </div>
         <div class="type-card">
-          <span class="type-emoji">🎓</span>
+          <div class="type-icon-wrap"><i data-feather="award"></i></div>
           <h4>Egresados</h4>
-          <p>Fiestas de fin de curso y colaciones para cerrar una etapa con fotos épicas en alta calidad.</p>
+          <p>Fiestas de fin de curso y colaciones para cerrar una etapa con fotos de calidad profesional.</p>
         </div>
         <div class="type-card">
-          <span class="type-emoji">🏢</span>
+          <div class="type-icon-wrap"><i data-feather="briefcase"></i></div>
           <h4>Corporativos</h4>
           <p>Fiestas de fin de año, aniversarios de empresas, conferencias y activaciones de marca.</p>
         </div>
@@ -703,7 +738,7 @@
 
         <div class="pricing-price-header">
           <span class="badge" style="margin-bottom:0.75rem;">Propuesta para Eventos</span>
-          <h2 class="pricing-service-title">Cabina Fotográfica Wink On Tour</h2>
+          <h2 class="pricing-service-title">Wink en tu Evento</h2>
           <div class="pricing-amount">$150.000</div>
           <div class="pricing-period">Servicio base de <strong>2 horas completas</strong></div>
           <div class="pricing-extra-row">
@@ -759,7 +794,7 @@
 
         <!-- BONUS ESTUDIO -->
         <div class="bonus-box">
-          <div class="bonus-icon">🎁</div>
+          <div class="bonus-icon-badge"><i data-feather="gift"></i></div>
           <div class="bonus-text">
             <h4>¡BONUS EXCLUSIVO INCLUIDO DE REGALO!</h4>
             <p>Con la contratación del servicio para tu evento, te incluimos una <strong>sesión de 30 minutos en el estudio físico de WINK (máximo 6 personas)</strong> totalmente bonificada. Podés usarla antes del evento para fotos de 15, sesión de novios/compromiso o fotos familiares de estudio.</p>
@@ -774,10 +809,10 @@
 
         <!-- BOTÓN WHATSAPP -->
         <div style="text-align:center;">
-          <a href="https://wa.me/5492645185359?text=Hola%20Erik,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.25rem;padding:1.15rem 3rem;">
+          <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.25rem;padding:1.15rem 3rem;">
             <i data-feather="message-circle"></i> Consultar Disponibilidad por WhatsApp
           </a>
-          <p style="margin-top:0.75rem;font-size:0.9rem;color:#777;">Hablás directamente con Erik · Te respondemos en el día</p>
+          <p style="margin-top:0.75rem;font-size:0.9rem;color:#777;">Atención personalizada por el equipo de Wink · Te respondemos en el día</p>
         </div>
       </div>
     </section>
@@ -839,7 +874,12 @@
 
       <div class="faq-item">
         <h4><i data-feather="chevron-right" style="color:var(--text-main);"></i> ¿Con cuánta anticipación conviene reservar?</h4>
-        <p>Te recomendamos consultar lo antes posible, ya que las fechas de fines de semana (viernes, sábados y domingos) suelen reservarse con semanas o meses de anticipación. Para reservar se coordina una seña previa.</p>
+        <p>Te recomendamos consultar lo antes posible, ya que las fechas de fin de semana (viernes, sábados y domingos) suelen reservarse con semanas o meses de anticipación.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4><i data-feather="chevron-right" style="color:var(--text-main);"></i> ¿Cómo se reserva la fecha y cuáles son las condiciones de pago?</h4>
+        <p>Para congelar la fecha y reservar tu turno, el servicio debe ser abonado en su totalidad al momento de la confirmación. Podés abonar mediante transferencia bancaria u otros medios de pago coordinados por WhatsApp.</p>
       </div>
     </section>
 
@@ -847,8 +887,8 @@
     <div style="background:var(--bg-card);border-radius:var(--radius-lg);padding:3.5rem 2rem;text-align:center;box-shadow:0 12px 36px rgba(0,0,0,0.05);margin-top:4rem;border:2px dashed var(--text-main);">
       <h3 style="font-size:2.2rem;color:var(--text-main);margin-bottom:1rem;">¿Tenés una fecha en mente?</h3>
       <p style="color:#666;max-width:620px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.7;">Escribinos con el tipo de evento, fecha estimada y lugar del salón para confirmarte disponibilidad al instante y armar tu propuesta.</p>
-      <a href="https://wa.me/5492645185359?text=Hola%20Erik,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.2rem;padding:1.1rem 2.8rem;">
-        <i data-feather="message-circle"></i> Hablar con Erik por WhatsApp
+      <a href="https://wa.me/5492645185359?text=Hola,%20quiero%20consultar%20disponibilidad%20para%20Wink%20en%20mi%20evento%20(Tipo%20de%20evento:%20...,%20Fecha:%20...,%20Lugar:%20...)" target="_blank" class="btn btn-primary" style="font-size:1.2rem;padding:1.1rem 2.8rem;">
+        <i data-feather="message-circle"></i> Comunicate con Wink por WhatsApp
       </a>
     </div>
 

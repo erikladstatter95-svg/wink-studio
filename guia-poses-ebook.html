@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Visual de Poses | Wink Self Photo Studio</title>
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    :root {
+      --terracota: #D87B52;
+      --terracota-dark: #B95B32;
+      --crema: #F1D4B1;
+      --salvia: #B7C9A8;
+      --blanco: #FFFFFF;
+      --fondo-suave: #FAF7F2;
+      --negro: #1A1A1A;
+      --carbon: #2F2F2F;
+      --gris-texto: #555555;
+      --gris-claro: #F0EEE9;
+      --borde: #E5DFC5;
+      --sombra: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    @font-face {
+      font-family: 'Codec Pro';
+      src: url('./CodecPro-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--carbon);
+      background-color: #EAE6DF;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* BARRA FLOTANTE DE CONTROL / IMPRESIÓN */
+    .top-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--carbon);
+      color: var(--blanco);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .top-action-bar .brand-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+    .top-action-bar .brand-badge {
+      background: var(--terracota);
+      color: var(--blanco);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .top-action-bar .actions {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .btn-action {
+      background: var(--terracota);
+      color: var(--blanco);
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-action:hover {
+      background: var(--terracota-dark);
+      transform: translateY(-1px);
+    }
+
+    /* CONTENEDOR DE PÁGINAS */
+    .book-container {
+      width: 100%;
+      max-width: 820px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* PÁGINA INDIVIDUAL (ESTILO A4) */
+    .ebook-page {
+      background: var(--blanco);
+      width: 100%;
+      min-height: 1160px;
+      padding: 3.5rem 3.5rem 3rem;
+      border-radius: 8px;
+      box-shadow: var(--sombra);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      break-after: page;
+      overflow: hidden;
+    }
+
+    /* =========================================
+       1. PORTADA
+       ========================================= */
+    .page-cover {
+      background: linear-gradient(135deg, #FAF7F2 0%, #F5EFE6 100%);
+      border: 8px solid var(--terracota);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 3rem;
+    }
+    .cover-top-logo {
+      margin-bottom: 2.5rem;
+    }
+    .cover-top-logo img {
+      height: 60px;
+      border-radius: 8px;
+    }
+    .cover-tagline {
+      display: inline-block;
+      background: var(--crema);
+      color: var(--carbon);
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .cover-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 3.6rem;
+      line-height: 1.05;
+      font-weight: 900;
+      color: var(--carbon);
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+    .cover-title span {
+      color: var(--terracota);
+      display: block;
+    }
+    .cover-subtitle {
+      font-size: 1.15rem;
+      color: var(--gris-texto);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .cover-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 580px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .cover-feature-pill {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      padding: 0.9rem 0.6rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .cover-feature-pill i {
+      color: var(--terracota);
+      width: 22px;
+      height: 22px;
+      margin-bottom: 0.4rem;
+    }
+    .cover-feature-pill strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--carbon);
+    }
+    .cover-footer {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       2. REGLAS DE ORO / INTRODUCCIÓN
+       ========================================= */
+    .section-header {
+      border-bottom: 2px solid var(--terracota);
+      padding-bottom: 0.8rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .section-header h2 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--carbon);
+      line-height: 1;
+    }
+    .section-header .section-badge {
+      background: var(--terracota);
+      color: var(--blanco);
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .rule-card {
+      background: var(--fondo-suave);
+      border-left: 5px solid var(--terracota);
+      padding: 1.3rem 1.6rem;
+      border-radius: 0 12px 12px 0;
+    }
+    .rule-card h3 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.3rem;
+      color: var(--carbon);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .rule-card h3 i {
+      color: var(--terracota);
+    }
+    .rule-card p {
+      font-size: 0.95rem;
+      color: var(--gris-texto);
+      line-height: 1.5;
+    }
+
+    .wink-pro-box {
+      background: var(--carbon);
+      color: var(--blanco);
+      padding: 1.5rem 1.8rem;
+      border-radius: 14px;
+      margin-top: 1rem;
+      position: relative;
+    }
+    .wink-pro-box h4 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.25rem;
+      color: var(--crema);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .wink-pro-box p {
+      font-size: 0.9rem;
+      color: #DDD;
+      line-height: 1.5;
+    }
+
+    /* =========================================
+       3. FICHAS TÉCNICAS DE POSES
+       ========================================= */
+    .pose-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--borde);
+    }
+    .pose-category-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--terracota);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pose-number-pill {
+      background: var(--carbon);
+      color: var(--blanco);
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+    }
+
+    .pose-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    /* IMAGEN DE LA POSE */
+    .pose-image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      background: #000;
+      aspect-ratio: 9 / 16;
+      max-height: 740px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pose-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pose-image-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      color: var(--blanco);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* DETALLES Y CONSEJOS DE LA POSE */
+    .pose-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .pose-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--carbon);
+      line-height: 1.15;
+    }
+    .pose-subtitle {
+      font-size: 0.9rem;
+      color: var(--terracota);
+      font-weight: 600;
+      margin-top: -0.6rem;
+    }
+
+    .pose-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .check-item {
+      background: var(--fondo-suave);
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--borde);
+    }
+    .check-item-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--carbon);
+      margin-bottom: 0.25rem;
+    }
+    .check-item-header i {
+      color: var(--terracota);
+      width: 16px;
+      height: 16px;
+    }
+    .check-item p {
+      font-size: 0.88rem;
+      color: var(--gris-texto);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .pose-secret-card {
+      background: linear-gradient(135deg, var(--crema) 0%, #F5E1C8 100%);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--terracota);
+    }
+    .pose-secret-card strong {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--carbon);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .pose-secret-card p {
+      font-size: 0.85rem;
+      color: var(--carbon);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* FOOTER DE PÁGINA */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--gris-claro);
+      padding-top: 0.8rem;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      color: #999;
+      font-weight: 500;
+    }
+    .page-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================
+       4. CONTRAPORTADA
+       ========================================= */
+    .page-backcover {
+      background: var(--carbon);
+      color: var(--blanco);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 3rem;
+    }
+    .backcover-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--blanco);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .backcover-title span {
+      color: var(--terracota);
+    }
+    .backcover-desc {
+      font-size: 1.05rem;
+      color: #CCC;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .backcover-cta-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+    }
+    .backcover-cta-box h3 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.6rem;
+      color: var(--crema);
+      margin-bottom: 0.8rem;
+    }
+    .backcover-cta-box p {
+      font-size: 0.95rem;
+      color: #BBB;
+      margin-bottom: 1.5rem;
+    }
+    .btn-studio {
+      background: var(--terracota);
+      color: var(--blanco);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 24px rgba(216,123,82,0.4);
+    }
+    .backcover-social {
+      font-size: 0.85rem;
+      color: #888;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    /* REGLAS DE IMPRESIÓN (PDF EXACTO A4) */
+    @media print {
+      body {
+        background: transparent !important;
+      }
+      .top-action-bar {
+        display: none !important;
+      }
+      .book-container {
+        margin: 0 !important;
+        max-width: 100% !important;
+        gap: 0 !important;
+      }
+      .ebook-page {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        padding: 2.5rem 2.8rem 2rem !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .pose-image-wrapper {
+        max-height: 640px !important;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (SOLO PANTALLA) -->
+  <div class="top-action-bar">
+    <div class="brand-info">
+      <img src="./imagenes/logo%20chico%202.jpg" alt="Wink" style="height:26px;border-radius:4px;">
+      <span>Wink Self Photo Studio</span>
+      <span class="brand-badge">Edición Piloto · 15 Poses</span>
+    </div>
+    <div class="actions">
+      <button class="btn-action" onclick="window.print()">
+        <i data-feather="printer"></i> Imprimir / Guardar en PDF
+      </button>
+      <a href="index.html" class="btn-action" style="background:#444;">
+        <i data-feather="arrow-left"></i> Volver a la Web
+      </a>
+    </div>
+  </div>
+
+  <div class="book-container">
+
+    <!-- =========================================
+         PÁGINA 1: PORTADA
+         ========================================= -->
+    <section class="ebook-page page-cover">
+      <div>
+        <div class="cover-top-logo">
+          <img src="./imagenes/logo%20oficial%202.jpg" alt="Wink Studio">
+        </div>
+        <span class="cover-tagline">Edición Especial · Guía Visual</span>
+        <h1 class="cover-title">CÓMO POSAR <span>FRENTE A LA CÁMARA</span></h1>
+        <p class="cover-subtitle">El manual práctico para sentirte relajado/a, estilizar tu figura y conseguir fotos naturales y con actitud editorial.</p>
+        
+        <div class="cover-features">
+          <div class="cover-feature-pill">
+            <i data-feather="user"></i>
+            <strong>Solos & Solas</strong>
+          </div>
+          <div class="cover-feature-pill">
+            <i data-feather="heart"></i>
+            <strong>Parejas</strong>
+          </div>
+          <div class="cover-feature-pill">
+            <i data-feather="users"></i>
+            <strong>Amigos & Familia</strong>
+          </div>
+        </div>
+
+        <p class="cover-footer">WINK SELF PHOTO STUDIO · SAN JUAN, ARGENTINA · EDICIÓN DIGITAL</p>
+      </div>
+    </section>
+
+    <!-- =========================================
+         PÁGINA 2: REGLAS DE ORO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="section-header">
+          <h2>Las 3 Reglas de Oro</h2>
+          <span class="section-badge">Fundamentos Wink</span>
+        </div>
+
+        <div class="rules-grid">
+          <div class="rule-card">
+            <h3><i data-feather="check-circle"></i> 1. El espacio entre brazos y torso</h3>
+            <p>Nunca aprietes los brazos contra tu cuerpo. Dejar unos centímetros de aire entre tus brazos y tu cintura estiliza la figura al instante y transmite soltura.</p>
+          </div>
+
+          <div class="rule-card">
+            <h3><i data-feather="check-circle"></i> 2. La regla del mentón (Cero papada)</h3>
+            <p>Para definir la mandíbula y evitar sombras incómodas bajo el cuello, empuja suavemente el mentón hacia adelante y baja la mirada apenas 1 centímetro. Se siente exagerado al inicio, pero en cámara queda perfecto.</p>
+          </div>
+
+          <div class="rule-card">
+            <h3><i data-feather="check-circle"></i> 3. Manos de bailarina / dedos relajados</h3>
+            <p>El 90% de la rigidez en una foto se nota en las manos. Mantené los dedos separados, suaves y curvados. Si tocás tu cara o ropa, solo rozá con la yema de los dedos sin apoyar peso.</p>
+          </div>
+        </div>
+
+        <div class="wink-pro-box">
+          <h4><i data-feather="zap"></i> El Secreto del Disparador Inalámbrico en Wink</h4>
+          <p>En nuestro estudio vos controlás el momento exacto de la foto. Podés sostener el control en la mano que queda fuera de cuadro, esconderlo detrás de la pierna o usar los 2 segundos de retardo para adoptar la pose con ambas manos libres.</p>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 02</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 01: MUJER CLOSE-UP
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Mujer · Primer Plano</span>
+          <span class="pose-number-pill">POSE 01</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Close-Up</span>
+            <img src="./imagenes/guia-poses/Woman_posing_in_studio_top_71ce61a5.jpg" alt="Pose 01">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">El Toque Sutil de Clavícula</h3>
+            <span class="pose-subtitle">Elegancia natural y mirada cercana</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Mano suave apoyando solo la yema de los dedos en la clavícula. Dedos curvos y muñeca relajada, nunca en garra.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Hombros & Cuello</div>
+                <p>Girá los hombros en ángulo de 30° a 45° respecto al lente. Baja los hombros para alargar visualmente el cuello.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Expresión</div>
+                <p>Mirada directa al lente, labios levemente entreabiertos y sonrisa suave para evitar tensión en la mandíbula.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Inhala hondo y exhala por la boca justo antes del clic: tus hombros van a caer a su posición más natural.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 03</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 02: MUJER MEDIO CUERPO CON PROP
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Mujer · Plano Medio</span>
+          <span class="pose-number-pill">POSE 02</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Con Accesorio</span>
+            <img src="./imagenes/guia-poses/Woman_holding_sunglasses_in_studio_e5316a9c.jpg" alt="Pose 02">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Accesorio Casual & Ángulo 30°</h3>
+            <span class="pose-subtitle">Para cuando no sabés qué hacer con las manos</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Sostené unos lentes, una flor o un prop con una mano a la altura del pecho. La otra mano queda relajada al costado.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Postura & Peso</div>
+                <p>Pasa el peso de tu cuerpo a la pierna trasera. Esto genera una curva natural en la cadera (forma de 'S') muy favorecedora.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Mirada</div>
+                <p>Mirá apenas por encima del lente o hacia un costado como si estuvieras pensando en algo divertido.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Los props son el mejor aliado para romper la rigidez en los primeros minutos de tu sesión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 04</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 03: MUJER CUERPO COMPLETO EN BLOQUE
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Mujer · Cuerpo Completo</span>
+          <span class="pose-number-pill">POSE 03</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Bloque de Estudio</span>
+            <img src="./imagenes/guia-poses/Woman_sitting_on_posing_block_dde3b939.jpg" alt="Pose 03">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Sentada en Bloque & Pierna Extendida</h3>
+            <span class="pose-subtitle">Silueta estilizada y actitud editorial</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Una mano apoya en el borde del cubo para sostener la postura. La otra descansa relajada sobre el muslo.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Piernas & Asiento</div>
+                <p>Sentate en la orilla exterior del cubo (nunca al fondo). Estirá una pierna hacia la cámara: esto alarga las piernas visualmente.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Espalda & Actitud</div>
+                <p>Espalda recta, hombros hacia atrás. Postura firme que proyecta seguridad sin verse acartonada.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>El fondo negro resalta las siluetas y la ropa clara. Ideal para un lookbook moderno y sofisticado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 05</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 04: HOMBRE CLOSE-UP
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Hombre · Primer Plano</span>
+          <span class="pose-number-pill">POSE 04</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Close-Up</span>
+            <img src="./imagenes/guia-poses/Man_touching_shirt_collar_a94a20fe.jpg" alt="Pose 04">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Ajuste de Cuello & Mandíbula Marcada</h3>
+            <span class="pose-subtitle">Presencia masculina limpia y segura</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Una mano acomodando el cuello de la remera, camisa o tocando el reloj. Mostrá el dorso de la mano, no la palma.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Mandíbula & Mentón</div>
+                <p>Girá la cabeza en 3/4. Adelantá el mentón 1 cm hacia el lente para tensar la piel y marcar la línea de la mandíbula.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Expresión</div>
+                <p>Mirada firme a la cámara. Expresión neutra o media sonrisa sobria.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>El disparador lo podés tener en la otra mano por debajo del encuadre listo para disparar en ráfaga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 06</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 05: HOMBRE MEDIO CUERPO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Hombre · Plano Medio</span>
+          <span class="pose-number-pill">POSE 05</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Mano en Bolsillo</span>
+            <img src="./imagenes/guia-poses/Man_posing_in_black_shirt_972099b1.jpg" alt="Pose 05">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Casual con Mano en Bolsillo</h3>
+            <span class="pose-subtitle">La postura masculina más efectiva y natural</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Mano en el bolsillo del pantalón (dejá el pulgar afuera o adentro, lo que sientas más cómodo). El otro brazo descansa suelto.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Hombros & Torso</div>
+                <p>No te pares de frente como en foto de DNI. Gira el torso 30°: ensancha los hombros y estrecha la cintura.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Actitud</div>
+                <p>Relajá la frente y separá apenas los labios para evitar tensión mandibular.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>En fondo oscuro, la luz de estudio recorta los hombros y da un estilo comercial impecable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 07</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 06: HOMBRE EN BLOQUE
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="user"></i> Individual Hombre · Cuerpo Completo</span>
+          <span class="pose-number-pill">POSE 06</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Bloque de Estudio</span>
+            <img src="./imagenes/guia-poses/Man_sitting_on_studio_block_edd76e74.jpg" alt="Pose 06">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Sentado con Inclinación al Frente</h3>
+            <span class="pose-subtitle">Transmite cercanía, dinamismo y confianza</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Codos apoyados con suavidad en las rodillas. Manos entrelazadas o juntas al frente en posición relajada.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Inclinación</div>
+                <p>Incliná el torso levemente hacia adelante hacia la cámara. Esto acorta la distancia visual y da energía a la foto.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Piernas</div>
+                <p>Pies bien apoyados en el suelo, piernas separadas al ancho de los hombros.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Sentarse recostado hacia atrás achica el cuerpo; inclinarse hacia el lente siempre te hace ver más grande y seguro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 08</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 07: PAREJA CLOSE-UP ÍNTIMO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="heart"></i> Parejas · Primer Plano Íntimo</span>
+          <span class="pose-number-pill">POSE 07</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Intimidad</span>
+            <img src="./imagenes/guia-poses/Couple_smiling_forehead_to_forehead_758ff30b.jpg" alt="Pose 07">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Frente con Frente & Ojos Suaves</h3>
+            <span class="pose-subtitle">Conexión real y emoción genuina</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Una mano acariciando el cuello, mejilla o apoyada suavemente en la nuca de la otra persona.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Contacto</div>
+                <p>Junten suavemente las frentes dejando un pequeño aire entre las narices para que la luz del estudio ilumine ambos rostros.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Emoción</div>
+                <p>Ojos cerrados suavemente o mirándose a los labios con una sonrisa espontánea.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Díganse un chiste tonto al oído en voz baja: la risa que surge de ese susurro es la foto perfecta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 09</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 08: PAREJA ABRAZO MEDIO CUERPO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="heart"></i> Parejas · Plano Medio Espontáneo</span>
+          <span class="pose-number-pill">POSE 08</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Abrazo Cálido</span>
+            <img src="./imagenes/guia-poses/Couple_laughing_in_photo_studio_f0d36db7.jpg" alt="Pose 08">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Abrazo por la Espalda & Risa Abierta</h3>
+            <span class="pose-subtitle">La pose romántica que nunca falla</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Uno rodea la cintura o costillas del otro desde atrás. Las manos entrelazadas al frente sin apretar.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Postura</div>
+                <p>La persona de adelante gira levemente la cabeza hacia atrás, apoyando la mejilla cerca del hombro de su pareja.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Dinamismo</div>
+                <p>Miradas compartidas a la cámara con carcajada espontánea.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>La persona de atrás puede hacer una pequeña cosquilla rápida antes de disparar para generar esa sonrisa fresca.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 10</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 09: PAREJA EN BLOQUES EDITORIAL
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="heart"></i> Parejas · Cuerpo Completo Editorial</span>
+          <span class="pose-number-pill">POSE 09</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Bloque de Estudio</span>
+            <img src="./imagenes/guia-poses/Couple_posing_in_studio_8199c273.jpg" alt="Pose 09">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Composición Editorial a Dos Alturas</h3>
+            <span class="pose-subtitle">Foto de portada de revista de moda</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Quien está de pie apoya una mano en el hombro de quien está sentado. La otra mano puede ir al bolsillo.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Niveles de Altura</div>
+                <p>Uno sentado en el cubo y el otro de pie a su lado. Esta diferencia de altura rompe la monotonía y crea un triángulo visual perfecto.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Mirada</div>
+                <p>Mirada seria, segura y elegante directa al lente.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Ropa coordinada en tonos neutros (negro, blanco o beige) eleva esta foto a nivel de campaña profesional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 11</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 10: AMIGOS CLOSE-UP
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Amigos & Grupos · Primer Plano</span>
+          <span class="pose-number-pill">POSE 10</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Cabezas Juntas</span>
+            <img src="./imagenes/guia-poses/Friends_laughing_together_in_studio_81cd20e5.jpg" alt="Pose 10">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Rostros Juntos & Complicidad Pura</h3>
+            <span class="pose-subtitle">La energía contagiosa de un grupo unido</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Brazos entrelazados por detrás de la espalda o manos en los hombros del compañero.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Espacio Personal</div>
+                <p>Rompan el espacio personal: inclínense todos hacia el centro. Cuanto más juntos estén los rostros, más afecto transmite la foto.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Expresión</div>
+                <p>Carcajadas abiertas, frentes rozándose o sonrisas mirando al lente desde el mismo plano.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Hagan 3 disparos seguidos mientras cuentan un recuerdo divertido: la tercera foto siempre sale perfecta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 12</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 11: AMIGOS PROPS & BRINDIS
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Amigos & Grupos · Fiesta con Props</span>
+          <span class="pose-number-pill">POSE 11</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Brindis & Fiesta</span>
+            <img src="./imagenes/guia-poses/Friends_celebrating_in_photo_studio_d654acdd.jpg" alt="Pose 11">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Brindis de Celebración & Fiesta</h3>
+            <span class="pose-subtitle">Ideal para cumpleaños, recibidas y festejos</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Los Props</div>
+                <p>Sosteniendo copas de brindis, lentes divertidos de fiesta o accesorios temáticos de cotillón.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Movimiento</div>
+                <p>Hagan el gesto de chocar las copas o mirar a la cámara como diciendo "¡salud!". Dinamismo activo en lugar de pose estática.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Ambiente</div>
+                <p>Alegría desbordante, sonrisas amplias y miradas llenas de festejo.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>En Wink Studio podés traer tus propios props y bebidas para recrear tu previa o tu festejo con luces de estudio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 13</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 12: AMIGOS EN BLOQUES (3 NIVELES)
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Amigos & Grupos · Cuerpo Completo</span>
+          <span class="pose-number-pill">POSE 12</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Tres Alturas</span>
+            <img src="./imagenes/guia-poses/Three_friends_posing_in_studio_d643af47.jpg" alt="Pose 12">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Composición Dinámica en Tres Alturas</h3>
+            <span class="pose-subtitle">La pose editorial definitiva para amigos</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Uno con manos en bolsillos, otro apoyando codos en el bloque y el tercero con brazos relajados.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Las Tres Alturas</div>
+                <p>Un amigo arriba del cubo, otro sentado en el piso apoyado en la base, y otro de pie al centro. ¡Cero cabezas alineadas!</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Actitud</div>
+                <p>Estilo banda de música o portada de revista: actitud segura, fresca y canchera.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Nunca se paren en fila como soldados; jugar con los bloques del estudio hace que la foto parezca de catálogo profesional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 14</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 13: FAMILIA EN BLOQUE
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Familia · Cuerpo Completo</span>
+          <span class="pose-number-pill">POSE 13</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Bloque Familiar</span>
+            <img src="./imagenes/guia-poses/Family_sitting_together_on_block_fd068dac.jpg" alt="Pose 13">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">El Abrazo Central en Bloque</h3>
+            <span class="pose-subtitle">El retrato familiar cálido y atemporal</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Padres rodeando al niño con brazos envolventes. Manos entrelazadas o reposando en los hombros.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Ubicación</div>
+                <p>Los padres enmarcan a los hijos en el centro del cubo. Todos a una distancia compacta para generar calidez.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Miradas</div>
+                <p>Sonrisas abiertas mirando a la cámara, sintiendo la comodidad del momento.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Al estar en un estudio privado sin fotógrafo mirando, los chicos se sienten jugando y sonríen con total naturalidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 15</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 14: FAMILIA MEDIO CUERPO AFECTIVO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Familia · Plano Medio Afectivo</span>
+          <span class="pose-number-pill">POSE 14</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Negro · Abrazo Íntimo</span>
+            <img src="./imagenes/guia-poses/Family_hugging_child_in_studio_e58ee8e3.jpg" alt="Pose 14">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Abrazo Protector & Rostros Próximos</h3>
+            <span class="pose-subtitle">Emoción pura que trasciende con los años</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Brazos envolventes que sostienen al pequeño al centro, transmitiendo contención y amor.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Cercanía</div>
+                <p>Rostros de los padres inclinados hacia las mejillas del niño, compartiendo el mismo plano focal.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Expresión</div>
+                <p>Alegría espontánea y tierna, rostros relajados con luz suave de estudio.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>El fondo negro da un acabado editorial que hace resaltar las expresiones y las miradas de los ojos claros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 16</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         POSE 15: FAMILIA ESPONTÁNEA EN EL SUELO
+         ========================================= -->
+    <section class="ebook-page">
+      <div>
+        <div class="pose-header">
+          <span class="pose-category-tag"><i data-feather="users"></i> Familia · Espontánea / En el Suelo</span>
+          <span class="pose-number-pill">POSE 15</span>
+        </div>
+
+        <div class="pose-layout">
+          <div class="pose-image-wrapper">
+            <span class="pose-image-badge">Fondo Blanco · Risas en el Suelo</span>
+            <img src="./imagenes/guia-poses/Family_sitting_and_laughing_together_493a0805.jpg" alt="Pose 15">
+          </div>
+          <div class="pose-info">
+            <h3 class="pose-title">Juegos en el Suelo & Risa Espontánea</h3>
+            <span class="pose-subtitle">La mejor foto familiar es la que no parece posada</span>
+
+            <div class="pose-checklist">
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="hand"></i> Las Manos</div>
+                <p>Jugando libremente, haciéndose cosquillas o tomados de las manos en el piso.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="compass"></i> Disposición</div>
+                <p>Sentados de forma informal en el piso del estudio, sin preocuparse por la rigidez de la espalda.</p>
+              </div>
+              <div class="check-item">
+                <div class="check-item-header"><i data-feather="eye"></i> Miradas Cruzadas</div>
+                <p>Mírense entre ustedes en lugar de mirar al lente. Olvídense de la cámara por un segundo.</p>
+              </div>
+            </div>
+
+            <div class="pose-secret-card">
+              <strong><i data-feather="star"></i> Tip Wink</strong>
+              <p>Dejá el disparador en modo ráfaga en el piso y hacé clic mientras juegan: de 10 fotos, 3 van a ser obras de arte.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Guía Visual de Poses · Wink Studio</span>
+        <span>Página 17</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         PÁGINA 18: CONTRAPORTADA / CTA
+         ========================================= -->
+    <section class="ebook-page page-backcover">
+      <div>
+        <div class="cover-top-logo">
+          <img src="./imagenes/logo%20oficial%202.jpg" alt="Wink Studio" style="background:#FFF;padding:4px;border-radius:8px;">
+        </div>
+
+        <h2 class="backcover-title">LLEVÁ ESTAS POSES <span>A LA PRÁCTICA</span></h2>
+        <p class="backcover-desc">Ahora que conocés las posturas, los ángulos y los trucos para tus manos, vení a vivirlos a nuestro estudio privado o llevá la cabina interactiva a tu próximo evento.</p>
+
+        <div class="backcover-cta-box">
+          <h3>¿Listo/a para tu sesión?</h3>
+          <p>30 minutos en un estudio exclusivo para vos, sin fotógrafo mirándote, con control remoto inalámbrico, pantalla en vivo y cambio de outfit.</p>
+          <a href="https://wa.me/5492645185359?text=Hola,%20tengo%20la%20Guia%20de%20Poses%20y%20quiero%20reservar%20mi%20sesion%20en%20Wink" target="_blank" class="btn-studio">
+            <i data-feather="calendar"></i> Reservá tu Sesión por WhatsApp
+          </a>
+        </div>
+
+        <div class="backcover-social">
+          <span><i data-feather="instagram" style="vertical-align:middle;width:16px;"></i> @winkstudioweb</span>
+          <span><i data-feather="map-pin" style="vertical-align:middle;width:16px;"></i> San Juan, Argentina</span>
+          <span><i data-feather="globe" style="vertical-align:middle;width:16px;"></i> wink.com.ar</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>

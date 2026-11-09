@@ -99,5 +99,6 @@
 - [x] Robustecer Schema JSON-LD a `PhotographyBusiness` con coordenadas GPS (-31.5396902, -68.5687766), hasMap a Google Maps, sameAs y horarios (Noviembre 2026).
 - [x] Incorporar nuevo servicio "Comp Card Digital · Book para Modelos & Artistas" ($50.000 ARS) con cuerpo completo incluido y ficha digital maquetada para agencias/castings (Noviembre 2026).
 - [x] Optimización de copywriting y humanización de textos (eliminación de slop y rigidez) en `#que-es`, navegación y FAQs (Noviembre 2026).
+- [x] Configuración y verificación de redirección 301 de `www.winkstudioar.com` hacia `https://winkstudioar.com/` vía Cloudflare Single Redirects (Noviembre 2026).
 - [ ] Implementar comparador visual explicativo "Medio Cuerpo vs Cuerpo Completo" en la sección de servicios/FAQ cuando se disponga de la foto (Pendiente).
 - [ ] Escalar Guía de Poses o integrarla según requerimientos futuros.

@@ -97,5 +97,7 @@
 - [x] Conexión y lectura de datos en vivo GA4 (552999046) y GSC (`sc-domain:winkstudioar.com`) (Noviembre 2026).
 - [x] Optimizar H1, Title y First Sentence de `index.html` bajo la Sturm Rule de AEO/GEO (Noviembre 2026).
 - [x] Robustecer Schema JSON-LD a `PhotographyBusiness` con coordenadas GPS (-31.5396902, -68.5687766), hasMap a Google Maps, sameAs y horarios (Noviembre 2026).
-- [ ] Implementar comparador visual explicativo "Medio Cuerpo vs Cuerpo Completo" en la sección de servicios/FAQ para educar al cliente de antemano sobre el set de estudio (Pendiente).
+- [x] Incorporar nuevo servicio "Comp Card Digital · Book para Modelos & Artistas" ($50.000 ARS) con cuerpo completo incluido y ficha digital maquetada para agencias/castings (Noviembre 2026).
+- [x] Optimización de copywriting y humanización de textos (eliminación de slop y rigidez) en `#que-es`, navegación y FAQs (Noviembre 2026).
+- [ ] Implementar comparador visual explicativo "Medio Cuerpo vs Cuerpo Completo" en la sección de servicios/FAQ cuando se disponga de la foto (Pendiente).
 - [ ] Escalar Guía de Poses o integrarla según requerimientos futuros.
